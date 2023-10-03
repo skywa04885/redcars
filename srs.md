@@ -102,6 +102,10 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 
 ## (R)eliability
 
+1. Het niet mogelijk zijn om een auto te reserveren en in te checken zolang er een betalingsachterstand is.
+1. Er moet een betalingsachterstand onstaan wanneer een automatische afschrijving mislukt
+1. Het mag niet mogelijk zijn om op hetzelfde tijdstip meerdere malen ingecheckt te zijn.
+
 ## (U)sability
 
 1. Klanten moeten snel kunnen zien welke voertuigen er beschikbaar zijn per stad, en waar deze staan.
