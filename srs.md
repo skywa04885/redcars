@@ -7,13 +7,33 @@ titlepage: true
 toc: true
 ---
 
+# Introductie
+
+> Provide a short description of the software being specified and its purpose, including relevant benefits, objectives, and goals. If a separate description of the product scope is available (e.g. in the PvA), refer to it rather than duplicating its contents here.
+
+## User Classes and Characteristics
+
+> Identify the various user classes (actors) that you anticipate will use this product. User classes may be differentiated based on the subset of product functions used. Describe the pertinent characteristics of each user class. Certain requirements may pertain only to certain user classes.
+
+## Operating Environment
+
+> Describe the environment in which the software will operate, including the hardware platform, operating system and versions, and any other software components or applications with which it must peacefully coexist.
+
+## Design and Implementation Constraints
+
+> Describe any items or issues that will limit the options available to the developers. These might include: hardware (e.g. specific mobile platforms), specific technologies, tools, and databases to be used; interfaces to other applications; programming language required; or communications protocols
+
+## Product Functions
+
+> Summarize the major functions the product must perform or must let the user perform. Details will be provided in Section 3, so only a high level summary is needed here. In most cases, this section will primarily contain a use case diagram and brief use case descriptions
+
+# Domain Model
+
+> Provide a diagram showing important real-situation conceptual classes in the application domain. Do NOT include software classes. Describe each of the conceptual classes in a glossary.
+
 # Usecase Model
 
-## Usecase Diagram
-
 ![Usecase diagram](diagrams/usecase.svg)
-
-**TODO: Toelichting**
 
 ## Brief Description
 
