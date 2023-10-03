@@ -19,9 +19,12 @@ toc: true
 
 ### Betalen
 
-**Factureren** Wanneer een abbonoment is afgesloten worden de kosten van deze periodiek gefactureerd. 
+**Factureren** Een geregistreerde gebruiker krijgt periodiek een factuur als hij/ zei gekozen heeft voor een
+betaald abonnement. De kosten van het factuur worden berekend aan de hand van welk abonnement de klant heeft,
+hoeveel killometers er gereden zijn en hoe lang de auto gehuurd is. Sommige abonnementen hebben ook een aantal
+vrije killometers, dit wordt dan ook meegenomen.
 
-**Abbonoment afsluiten** Een gebruiker sluit een abbonoment af zodat hij/ zei bepaalde voordelen kan krijgen.
+**abonnement afsluiten** Een geregistreerde gebruiker kiest een abonnement en sluit deze af.
 
 ### Huren
 
