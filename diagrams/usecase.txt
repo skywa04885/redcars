@@ -1,18 +1,13 @@
 @startuml
 
-
 rectangle redcars {
 	package "Beheer" {
 		usecase "Admin Beheer" as B_AB
 
-		usecase "Klanten beheer" as B_KB
-		usecase "Klant deactiveren" as B_KI
+		usecase "Klanten beheer" as B_KB <<CRUD>>
 
-		usecase "Voertuig beheer" as B_VB
-		usecase "Voertuig registereren" as B_VR
-		usecase "Voertuig aanpassen" as B_VA
+		usecase "Voertuig beheer" as B_VB <<CRUD>>
 	}
-
 
 	package "Registreren" {
 		usecase "Klanten registratie" as R_KR
@@ -20,7 +15,6 @@ rectangle redcars {
 		usecase "Email veriferen" as R_EV
 		usecase "Pas ontvangen" as R_PO
 	}
-
 
 	package "Huren" {
 		usecase "Voertuig huren" as V_VH
@@ -40,12 +34,8 @@ R_EV <.. R_KR: <<includes>>
 R_PO <.. R_KR: <<includes>>
 
 
-B_KB <.. B_KI: <<extends>>
 B_AB <.. B_KB: <<extends>>
 B_AB <.. B_VB: <<extends>>
-
-B_VB <.. B_VR: <<extends>>
-B_VB <.. B_VA: <<extends>>
 
 V_GPS <.. B_VB: <<includes>>
 V_GPS <.. V_VZ: <<includes>>
