@@ -17,6 +17,12 @@ toc: true
 
 ## Brief Description
 
+### Betalen
+
+**Factureren** Wanneer een abbonoment is afgesloten worden de kosten van deze periodiek gefactureerd. 
+
+**Abbonoment afsluiten** Een gebruiker sluit een abbonoment af zodat hij/ zei bepaalde voordelen kan krijgen.
+
 ### Huren
 
 **GPS-Tracking** De meest recente locatie van ieder voertuig wordt herhaalijks opgeslagen in het systeem.
