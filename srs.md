@@ -58,7 +58,6 @@ incasso.
 
 ### Beheer
 
-
 **Admin beheer** Het beheren van gegevens in het systeem.
 
 **Voertuig beheer** Het beheren van gegevens van voertuigen.
@@ -66,3 +65,33 @@ incasso.
 **Klanten beheer** Het beheren van gegegens van klanten. Hierbij is het mogelijk dat een klant
 inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van voertuigen.
 
+# Requirements
+
+## (F)unctionality
+
+1. Tijdens het registreren moet de naam, het adres en de woonplaats worden opgegeven door de klant.
+1. Tijdens het registreren moet een e-mail adres worden opgegeven.
+1. Tijdens het registreren moet het e-mail adres worden geverifieerd.
+1. Tijdens het registreren moet een bankrekeningnummer worden opgegeven.
+1. Tijdens het registreren moet er toestemming worden gevraagd voor automatische incasso.
+1. Na het registreren moet een klantenpas worden opgestuurd naar de klant.
+1. Na het gebruik van een voertuig moet er automatische incasso plaatsvinden.
+1. Een klant moet in kunnen loggen op het systeem met het e-mail adres als gebruikersnaam en het pasnummer als wachtwoord.
+1. Klanten moeten inactief kunnen worden gesteld door medewerkers indien er voertuigen gebrekkig achter zijn gelaten.
+1. Klanten moeten enkel in de gereserveerde periode de auto kunnen meenemen.
+
+## (R)eliability
+
+## (U)sability
+
+1. Klanten moeten snel kunnen zien welke voertuigen er beschikbaar zijn per stad, en waar deze staan.
+1. Klanten moeten een auto kunnen reserveren.
+
+## (P)erformance
+
+1. Het systeem moet snel werken, zelfs wanneer er veel klanten tegelijkertijd aan het boeken zijn.
+
+## (S)upportability
+
+1. Medewerkers moeten klantgegevens aan kunnen passen en kunnen bekijken.
+1. Medewerkers moeten voertuiggegevens aan kunnen passen en kunnen bekijken.
