@@ -1,53 +1,61 @@
 @startuml
 
-left to right direction
+
+actor :Gebruiker: #ffffcc
+actor :Medewerker: #ffffcc
+actor :Betalings systeem: #ffffcc
+actor :Leverancier: #ffffcc
+
 rectangle redcars {
-	package "Beheer" {
-		usecase "Admin Beheer" as B_AB
-		usecase "Klanten beheer" as B_KB <<CRUD>>
-		usecase "Voertuig beheer" as B_VB <<CRUD>>
+	left to right direction
+
+	together {
+		usecase "Admin Beheer" as B_AB #a4e148
+		usecase "Klanten beheer" as B_KB <<CRUD>> #a4e148
+		usecase "Voertuig beheer" as B_VB <<CRUD>> #a4e148
 	}
 
-	package "Registreren" {
-		usecase "Registreren als klant" as R_KR
-		usecase "Goedkeuring automatische Incasso" as R_AI
-		usecase "Email veriferen" as R_EV
-		usecase "Pasje ontvangen" as R_PO
+	together {
+		usecase "Registreren als klant" as R_KR #ffcb0c
+		usecase "Goedkeuring automatische Incasso" as R_AI #ffcb0c
+		usecase "Email veriferen" as R_EV #ffcb0c
 	}
 
-	package "Huren" {
-		usecase "Voertuig huren" as V_VH
-		usecase "Voertuig zoeken" as V_VZ
-		usecase "Voertuig reserveren" as V_VR
-		usecase "Inchecken" as V_I
-		usecase "Uitcheken" as V_U
-		usecase "GPS-tracking" as V_GPS
+	together {
+		usecase "Voertuig huren" as V_VH #83d3f6
+		usecase "Voertuig zoeken" as V_VZ #83d3f6
+		usecase "Voertuig reserveren" as V_VR #83d3f6
+		usecase "Inchecken" as V_I #83d3f6
+		usecase "Uitcheken" as V_U #83d3f6
+		usecase "GPS-tracking" as V_GPS #83d3f6
 	}
 
-	package "Betalen" {
-		usecase "Factureren" as BE_F
-		usecase "Abonnement afsluiten" as BE_A
+	together {
+		usecase "Factureren" as BE_F #7a97ca
+		usecase "Abonnement afsluiten" as BE_A #7a97ca
 	}
+
+	Gebruiker -- (R_KR)
+	Gebruiker -- (V_VH)
+	Gebruiker -- (BE_A)
+	(B_AB) -- :Medewerker:
+	(BE_F) -- :Betalings systeem:
+	(R_KR) -- :Leverancier:
+
+	R_AI <.. R_KR: <<includes>>
+	R_EV <.. R_KR: <<includes>>
+	B_AB <.. B_KB: <<extends>>
+	B_AB <.. B_VB: <<extends>>
+	V_GPS <.. B_VB: <<includes>>
+	V_GPS <.. V_VZ: <<includes>>
+	V_VZ <.. V_VH: <<includes>>
+	V_VR <.. V_VH: <<includes>>
+	V_I <.. V_VH: <<includes>>
+	V_U <.. V_VH: <<includes>>
+	BE_F <.. BE_A: <<extends>>
+
+
 }
-
-R_AI <.. R_KR: <<includes>>
-R_EV <.. R_KR: <<includes>>
-R_PO <.. R_KR: <<includes>>
-B_AB <.. B_KB: <<extends>>
-B_AB <.. B_VB: <<extends>>
-V_GPS <.. B_VB: <<includes>>
-V_GPS <.. V_VZ: <<includes>>
-V_VZ <.. V_VH: <<includes>>
-V_VR <.. V_VH: <<includes>>
-V_I <.. V_VH: <<includes>>
-V_U <.. V_VH: <<includes>>
-BE_F <.. BE_A: <<extends>>
-
-:Gebruiker: -- (R_KR)
-:Gebruiker: -- (V_VH)
-:Gebruiker: -- (BE_A)
-:Medewerker: -- (B_AB)
-:Betalings systeem: -- (BE_F)
 
 @enduml
 
