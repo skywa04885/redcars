@@ -1,0 +1,63 @@
+@startuml
+
+
+rectangle redcars {
+	package "Beheer" {
+		usecase "Admin Beheer" as B_AB
+
+		usecase "Klanten beheer" as B_KB
+		usecase "Klant deactiveren" as B_KI
+
+		usecase "Voertuig beheer" as B_VB
+		usecase "Voertuig registereren" as B_VR
+		usecase "Voertuig aanpassen" as B_VA
+	}
+
+
+	package "Registreren" {
+		usecase "Klanten registratie" as R_KR
+		usecase "Automatische Incasso" as R_AI
+		usecase "Email veriferen" as R_EV
+		usecase "Pas ontvangen" as R_PO
+	}
+
+
+	package "Huren" {
+		usecase "Voertuig huren" as V_VH
+		usecase "Voeruig zoeken" as V_VZ
+		usecase "Voertuig reserveren" as V_VR
+		usecase "Inchecken" as V_I
+		usecase "Uitcheken" as V_U
+
+		usecase "GPS-tracking" as V_GPS
+	}
+}
+
+
+
+R_AI <.. R_KR: <<includes>>
+R_EV <.. R_KR: <<includes>>
+R_PO <.. R_KR: <<includes>>
+
+
+B_KB <.. B_KI: <<extends>>
+B_AB <.. B_KB: <<extends>>
+B_AB <.. B_VB: <<extends>>
+
+B_VB <.. B_VR: <<extends>>
+B_VB <.. B_VA: <<extends>>
+
+V_GPS <.. B_VB: <<includes>>
+V_GPS <.. V_VZ: <<includes>>
+V_VZ <.. V_VH: <<includes>>
+V_VR <.. V_VH: <<includes>>
+V_I <.. V_VH: <<includes>>
+V_U <.. V_VH: <<includes>>
+
+:Gebruiker: -- (R_KR)
+:Gebruiker: -- (V_VH)
+:Medewerker: -- (B_AB)
+
+
+@enduml
+
