@@ -10,10 +10,10 @@ rectangle redcars {
 	}
 
 	package "Registreren" {
-		usecase "Klanten registratie" as R_KR
-		usecase "Automatische Incasso" as R_AI
+		usecase "Registreren als klant" as R_KR
+		usecase "Goedkeuring automatische Incasso" as R_AI
 		usecase "Email veriferen" as R_EV
-		usecase "Pas ontvangen" as R_PO
+		usecase "Pasje ontvangen" as R_PO
 	}
 
 	package "Huren" {
@@ -24,6 +24,11 @@ rectangle redcars {
 		usecase "Uitcheken" as V_U
 
 		usecase "GPS-tracking" as V_GPS
+	}
+
+	package "Betalen" {
+		usecase "Factureren" as BE_F
+		usecase "Abonnement afsluiten" as BE_A
 	}
 }
 
@@ -44,10 +49,13 @@ V_VR <.. V_VH: <<includes>>
 V_I <.. V_VH: <<includes>>
 V_U <.. V_VH: <<includes>>
 
+BE_F <.. BE_A: <<extends>>
+
 :Gebruiker: -- (R_KR)
 :Gebruiker: -- (V_VH)
+:Gebruiker: -- (BE_A)
 :Medewerker: -- (B_AB)
-
+:Betalings systeem: -- (BE_F)
 
 @enduml
 
