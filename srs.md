@@ -1,8 +1,8 @@
 ---
 title: Software requirements specification
 author:
-- "Nathan"
-- "Luke"
+- "Nathan Kolpa"
+- "Luke Rieff"
 titlepage: true
 toc: true
 ---
