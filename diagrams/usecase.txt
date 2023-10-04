@@ -58,7 +58,7 @@ rectangle redcars {
 	R_KR <.. R_I : <<extends>>
 	R_I <.. V_VH: <<includes>>
 	R_I <.. B_AB : <<includes>>
-	BE_F <.. V_VH : <<includes>>
+	BE_F <.. V_U : <<includes>>
 }
 
 @enduml
