@@ -33,7 +33,7 @@ toc: true
 
 # Usecase Model
 
-![Usecase diagram](diagrams/usecase.svg)
+**ASTAH UC**
 
 ## Brief Description
 
