@@ -1,7 +1,21 @@
 Eerste ronde:
-	Ter verduidelijking: wordt de dichtheid op de paal gemeeten via GPS?
-	Hoe moeten medweres authentiseren?
-	Reservering anuleren? Geld terug storten? Wat als een klant perongeluk reserveert, hoe verkomen we dit dan?
-	Automatische incasso is gevaarlijk voor de gebruiker, hoe minimaliseren we dit gevaar?
-	Hoe wordt onderhoud en tanken geregeld?
-	Hoe zorgen dat alle auto's niet in amsterdam eindigen?
+	Q: Ter verduidelijking: wordt de dichtheid op de paal gemeeten via GPS?
+	A: Via gps, hij is dichtbij en niet in gebruik/geplanned.
+	   Palen crud.
+
+	Q: Reservering anuleren? Geld terug storten? Wat als een klant perongeluk reserveert, hoe verkomen we dit dan?
+	A: Mag niet anuleren. Zet dit in de disclaimer, annuleringsverzeging aanbieden tijdens het registeren.
+
+	Q: Automatische incasso is gevaarlijk voor de gebruiker, hoe minimaliseren we dit gevaar?
+	A: Niet onze zorg
+
+	Q: Hoe wordt onderhoud van autos geregeld?
+	A: Kom met een voorstel.
+	   I: routine matig maintenence, en niet inplanbaar maken.
+
+	Q: Hoe zorgen dat alle auto's niet in amsterdam eindigen?
+	A: [Extra] Klant tijdens het inplannen, moet aangeven waar hij terug gaat geven.
+	   Met korting naar betere plaatsen sturen.
+
+	Q:
+	A: reserveren = betalen.
