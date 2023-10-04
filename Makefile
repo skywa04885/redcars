@@ -1,5 +1,5 @@
-srs.pdf: diagrams/usecase.svg srs.md
+srs.pdf: srs.md redcars/uc.svg
 	pandoc --template "eisvogel.tex" --listings srs.md -o srs.pdf
 
-diagrams/usecase.svg: diagrams/usecase.txt
-	plantuml -tsvg diagrams/usecase.txt
+redcars/uc.svg: redcars.asta
+	[ 1 -eq 2 ]
