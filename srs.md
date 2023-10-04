@@ -122,6 +122,52 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 
 # Fully dressed usecases
 
+
+ |                                                                                                               |                                                                                                                                             |
+ |---------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+ | ^**Usecase**^                                                                                                 | Registreren als klant                                                                                                                       |
+ | ^**Primary actor**^                                                                                           | Klant                                                                                                                                       |
+ | ^**Stakeholders**^                                                                                            | Klant, Betalings systeem en redcars                                                                                                         |
+ | ^**Preconditions**^                                                                                           | De klant is nog niet geregistreerd. De klant heeft een bank rekening dat werkt met het betalings systeem. De klant heeft een email account. |
+ | ^**Postconditions**^                                                                                          | De klant is geregistreerd en goedgekeurd.                                                                                                   |
+ | ^**Main success scenario**^                                                                                   |                                                                                                                                             |
+ | ^**Actor action**^                                                                                            | ^**System action**^                                                                                                                         |
+ | 1. De klant vraagt de registratie pagina op.                                                                  | 2. Het systeem toont de registratie pagina.                                                                                                 |
+ | 3. De klant voert zijn naam, emailadres, woon adres, woonplaats in en gaat akkoord met de voorwaarden         | 4. Het systeem maakt een nieuw (en onvolledig) account aan.
+ |                                                                                                               | 5. De usecase "Email verifiëren" wordt afgetrapt.                                                                                           |
+ |                                                                                                               | 6. Het systeem stuurt de klant door naar een pagina van het betalingssysteem voor een goedkeuring van automatische incasso.
+ | 7. De klant rond scenario van het betalingssysteem succesvol af.                                              |
+ | 8. De klant rond de usecase "Email verifiëren" af                                                             | 9. De kosten van de leverancier worden doorgevoerd naar de klant.                                                                           |
+ |                                                                                                               | 10. Het systeem registreert een nieuw pasje.                                                                                                |
+ |                                                                                                               | 11. Het systeem stuurt een order van een pasje naar de leverancier.
+ | ^**Alternative flow**^                                                                                        |                                                                                                                                             |
+ | ^**Actor action**^                                                                                            | ^**System action**^                                                                                                                         |
+ | 7. De klant rond het scenario van het betalingssysteem **niet** succesvol af.                                 | 8. Het systeem toont een foutmelding en toont een knop om stap 6 opnieuw uit te voeren.                                                     |
+ | ^**Alternative flow**^                                                                                        |                                                                                                                                             |
+ | ^**Actor action**^                                                                                            | ^**System action**^                                                                                                                         |
+ |                                                                                                               | 9. Het systeem kan niet succesvol afschrijven.                                                                                              |
+ |                                                                                                               | 10. Het systeem toont een foutmelding en toont een knop om stap 6 opnieuw uit te voeren.                                                    |
+ | ^**Alternative flow**^                                                                                        |                                                                                                                                             |
+ | ^**Actor action**^                                                                                            | ^**System action**^                                                                                                                         |
+ | 3. De klant maakt een syntactische fout in zijn emailadres, woon adres, naam of acepteerd de voorwaarden niet | 4. Het systeem toont een foutmelding en laat de klant stap 3 opnieuw uitvoeren.                                                             |
+ 
+|                                        |                                                                                                           |
+| ---                                    | ---                                                                                                       |
+| ^**Usecase**^                          | Email verifiëren                                                                                          |
+| ^**Primary Actor**^                    | Klant                                                                                                     |
+| ^**Stakeholders**^                     | Klant                                                                                                     |
+| ^**Preconditions**^                    | De klant heeft een account (volledig of onvolledig). De email van het account is niet geverifeerd.        |
+| ^**Postconditions**^                   | De email van het account is geverifeerd.                                                                  |
+| ^**Main success scenario**^            |                                                                                                           |
+| ^**Actor action**^                     | ^**System action**^                                                                                       |
+| 1. De klant verstuurd een emailadres   | 2. Het systeem verstuurt een email met een link die een validatie token bevat, die voor 1 uur geldig is.. |
+| 3. De klant klikt op de link           | 4. Het systeem markeert de email als gevalideerd                                                          |
+| ^**Alternative flow**^                 |                                                                                                           |
+| ^**Actor action**^                     | ^**System action**^                                                                                       |
+| 3. De klant klikt op een verlopen link | 4. Het systeem toont een foutmelding en een knop die stap 2 opnieuw uitvoert.                             |
+
+
+
 | | |
 | - | - |
 | ^**Usecase**^ | \<CRUD\> Klanten beheer - Klant selecteren |
