@@ -192,12 +192,40 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 | ^**Stakeholders**^ | Klant |
 | ^**Preconditions**^ | De medewerker heeft een klant geselecteerd |
 | ^**Postconditions**^ | De klant is verwijderd uit het systeem |
-| ^**Main success scenario**^ | De medewerker selecteert een klant en verwijderd de klant |
+| ^**Main success scenario**^ | De medewerker verwijderd een klant |
 | ^**Actor action**^ | ^**System action**^ |
-| 1. De medewerker geeft te kennen de klant te willen verwijderen | 2. Het systeem verwijderd de klant |
-| | 3. Het systeem presenteert een melding om aan te geven dat de klant verwijderd is |
+| 1. De medewerker geeft te kennen de klant te willen verwijderen | 2. Het systeem vraagt de medewerker om het verwijderen te bevestigen |
+| 3. De medewerker bevestigd het verwijderen van de klant | 4. Het systeem verwijderd de klant |
+| | 5. Het systeem presenteert een melding om aan te geven dat de klant verwijderd is |
+| ^**Alternative flow**^ | ^**De medewerker bevestigd het verwijderen van de klant niet**^ |
+| 3a. De medewerker bevestigd het verwijderen van de klant niet | 3b. Het systeem verwijderd de klant niet |
 | ^**Alternative flow**^ | ^**Klant kon niet worden verwijderd**^ |
-| | 3a. Het systeem presenteert een melding om aan te geven dat de klant niet kon worden verwijderd |
+| | 5b. Het systeem presenteert een melding om aan te geven dat de klant niet kon worden verwijderd |
+
+| | |
+| - | - |
+| ^**Usecase**^ | \<CRUD\> Klanten beheer - Klant inactief stellen |
+| ^**Primary actor**^ | Medewerker |
+| ^**Stakeholders**^ | Klant |
+| ^**Preconditions**^ | De medewerker heeft een klant geselecteerd |
+| ^**Postconditions**^ | De geselecteerde klant is inactief gesteld |
+| ^**Main success scenario**^ | De medewerker stelt de geselecteerde klant inactief |
+| ^**Actor action**^ | ^**System action**^ |
+| 1. De medewerker geeft te kennen de geselecteerde klant inactief te willen stellen | 2. Het systeem vraagt de gebruiker om het inactief stellen te bevestigen |
+| 3. De medewerker bevestigd het inactief stellen | 4. Het systeem stelt de klant inactief |
+| | 5. Het systeem toont een melding dat de klant inactief is gesteld |
+| ^**Alternative flow**^ | ^**De medewerker bevestigd het inactief stellen niet**^ |
+| 3a. De medewerker bevestigd het inactief stellen van de gebruiker niet | 4a. Het systeem stelt de gebruiker niet inactief |
+| ^**Alternative flow**^ | ^**De klant kan niet inactief worden gesteld**^ |
+| | 5b. Het systeemt toont een melding om aan te geven dat de klant niet inactief gesteld kan worden |
 
 
-
+| | |
+| - | - |
+| ^**Usecase**^ | \<CRUD\> Klanten beheer - Email van klant aanpassen |
+| ^**Primary actor**^ | Medewerker |
+| ^**Stakeholders**^ | Klant |
+| ^**Preconditions**^ | De medewerker heeft een klant geselecteerd |
+| ^**Postconditions**^ | De geselecteerde klant is inactief gesteld |
+| ^**Main success scenario**^ | De medewerker stelt de geselecteerde klant inactief |
+| ^**Actor action**^ | ^**System action**^ |
