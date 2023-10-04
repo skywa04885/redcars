@@ -119,3 +119,39 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 
 1. Medewerkers moeten klantgegevens aan kunnen passen en kunnen bekijken.
 1. Medewerkers moeten voertuiggegevens aan kunnen passen en kunnen bekijken.
+
+# Fully dressed usecases
+
+| | |
+| - | - |
+| ^**Usecase**^ | \<CRUD\> Klanten beheer - Klant selecteren |
+| ^**Primary actor**^ | Medewerker |
+| ^**Stakeholders**^ | \- |
+| ^**Preconditions**^ | De medewerker is ingelogd in het systeem |
+| ^**Postconditions**^ | Er is een klant geselecteerd |
+| ^**Main success scenario**^ | De medewerker zoekt een klant en kan deze vinden |
+| ^**Actor action**^ | ^**System action**^ |
+| 1. Een medewerker geeft te kennen een klant op te willen zoeken | 2. Het systeem presenteert de pagina waar klanten gezocht kunnen worden |
+| 3. De medewerker vult een zoekopdracht in op basis van een adres, naam, email of klantnummer | 4. Het systeem presenteert een lijst van gevonden klanten |
+| 5. De medewerker selecteert een van de klanten | 6. Het systeem presenteert de gegevens van de klant samen met de mogelijke opties |
+| ^**Alternative flow**^ | ^**Geen klanten gevonden**^ |
+| | 4a. Het systeem toont een melding om aan te geven dat geen klanten gevonden zijn |
+| ^**Alternative flow**^ | ^**Geselecteerde klant bestaat niet meer**^ |
+| | 6b. Het systeem toont een melding om aan te geven dat de klant verwijderd is na het zoeken. |
+
+| | |
+| - | - |
+| ^**Usecase**^ | \<CRUD\> Klanten beheer - Klant verwijderen |
+| ^**Primary actor**^ | Medewerker |
+| ^**Stakeholders**^ | Klant |
+| ^**Preconditions**^ | De medewerker heeft een klant geselecteerd |
+| ^**Postconditions**^ | De klant is verwijderd uit het systeem |
+| ^**Main success scenario**^ | De medewerker selecteert een klant en verwijderd de klant |
+| ^**Actor action**^ | ^**System action**^ |
+| 1. De medewerker geeft te kennen de klant te willen verwijderen | 2. Het systeem verwijderd de klant |
+| | 3. Het systeem presenteert een melding om aan te geven dat de klant verwijderd is |
+| ^**Alternative flow**^ | ^**Klant kon niet worden verwijderd**^ |
+| | 3a. Het systeem presenteert een melding om aan te geven dat de klant niet kon worden verwijderd |
+
+
+
