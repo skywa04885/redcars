@@ -193,6 +193,32 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 |                                                                        | 4. Er zijn geen voertuigen gevonden.                                                                                            |
 |                                                                        | 5. Toont een foutmelding en laat de klant stap 3 nog een keer uitvoeren                                                         |
 
+## GPS tracking
+
+|                                              |                                                              |
+| ---                                          | ---                                                          |
+| ^**Usecase**^                                | GPS Tracking                                                 |
+| ^**Primary Actor**^                          | Voertuig                                                     |
+| ^**Stakeholders**^                           | Voertuig                                                     |
+| ^**Preconditions**^                          | Het voertuig is geauthentiseerd en verbonden met het systeem |
+| ^**Postconditions**^                         | De locatie van het voertuig blijft (redelijk) up to date     |
+| ^**Main success scenario**^                  |                                                              |
+| ^**Actor action**^                           | ^**System action**^                                          |
+| 1. Het voertuig stuurt de huidige locatie op | 2. Het systeem slaat de locatie op                           |
+| 3. Het voertuig wacht 10 seconden            |                                                              |
+| 4. Het voertuig gaat terug naar stap 1       |                                                              |
+
+## Voertuig reserveren
+
+|                             |                                                                                                                                 |
+| ---                         | ---                                                                                                                             |
+| ^**Usecase**^               | Voertuig zoeken                                                                                                                 |
+| ^**Primary Actor**^         | Klant                                                                                                                           |
+| ^**Stakeholders**^          | Klant                                                                                                                           |
+| ^**Preconditions**^         | De klant is ingeloged met een geverifeerd account                                                                               |
+| ^**Postconditions**^        | Er is een voertuig geselecteerd (Deze is vrij op het moment van selecteren, maar het is niet gegarandeed dat deze vrij blijft). |
+| ^**Main success scenario**^ |                                                                                                                                 |
+| ^**Actor action**^          | ^**System action**^                                                                                                             |
 
 | | |
 | - | - |
