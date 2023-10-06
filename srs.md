@@ -248,7 +248,22 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 
 ## Inchecken
 
-Sla huidige km stand op
+|                                                |                                                                                                                             |
+| ---                                            | ---                                                                                                                         |
+| ^**Usecase**^                                  | Inchecken                                                                                                                   |
+| ^**Primary Actor**^                            | Klant                                                                                                                       |
+| ^**Stakeholders**^                             | Klant                                                                                                                       |
+| ^**Preconditions**^                            | De klant heeft een pas met een geverifeerd account.                                                                         |
+| ^**Postconditions**^                           | De kilometer stand is opgeslagen. De auto wordt gemarkeerd als in gebruik (impliciet wordt het station ontkoppeld hierdoor) |
+| ^**Main success scenario**^                    |                                                                                                                             |
+| ^**Actor action**^                             | ^**System action**^                                                                                                         |
+| 1. Een klant houd het pasje bij het auto slot. | 2. De auto verifeerd het verzoek als geldig                                                                                 |
+|                                                | 3. De auto gaat open                                                                                                        |
+|                                                | 4. De auto wordt gemarkeerd als in gebruik samen met de huidige kilometerstand                                              |
+| ^**Alternative flow**^                         |                                                                                                                             |
+| ^**Actor action**^                             | ^**System action**^                                                                                                         |
+|                                                | 2. De auto verifeerd het verzoek als ongeldig omdat het pas nummer niet matched met de huidige reservering                  |
+|                                                | 3. Het gelinkte station knippert rood.                                                                                      |
 
 ## Uitchecken
 
