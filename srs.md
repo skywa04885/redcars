@@ -155,6 +155,10 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 | ^**Alternative flow**^                                                                                        |                                                                                                                                             |
 | ^**Actor action**^                                                                                            | ^**System action**^                                                                                                                         |
 | 3. De klant maakt een syntactische fout in zijn emailadres, woon adres, naam of acepteerd de voorwaarden niet | 4. Het systeem toont een foutmelding en laat de klant stap 3 opnieuw uitvoeren.                                                             |
+| ^**Alternative flow**^                                                                                        |                                                                                                                                             |
+| ^**Actor action**^                                                                                            | ^**System action**^                                                                                                                         |
+| 7. De klant rond scenario van het betalingssysteem succesvol af met een bestaand account.                     | 8. Het systeem toont een foutmelding en toont een knop om stap 6 opnieuw uit te voeren
+
 
 ## Email veriferen
 
