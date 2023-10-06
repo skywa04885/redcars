@@ -123,34 +123,38 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 # Fully dressed usecases
 
 
- |                                                                                                               |                                                                                                                                             |
- |---------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
- | ^**Usecase**^                                                                                                 | Registreren als klant                                                                                                                       |
- | ^**Primary actor**^                                                                                           | Klant                                                                                                                                       |
- | ^**Stakeholders**^                                                                                            | Klant, Betalings systeem en redcars                                                                                                         |
- | ^**Preconditions**^                                                                                           | De klant is nog niet geregistreerd. De klant heeft een bank rekening dat werkt met het betalings systeem. De klant heeft een email account. |
- | ^**Postconditions**^                                                                                          | De klant is geregistreerd en goedgekeurd.                                                                                                   |
- | ^**Main success scenario**^                                                                                   |                                                                                                                                             |
- | ^**Actor action**^                                                                                            | ^**System action**^                                                                                                                         |
- | 1. De klant vraagt de registratie pagina op.                                                                  | 2. Het systeem toont de registratie pagina.                                                                                                 |
- | 3. De klant voert zijn naam, emailadres, woon adres, woonplaats in en gaat akkoord met de voorwaarden         | 4. Het systeem maakt een nieuw (en onvolledig) account aan.
- |                                                                                                               | 5. De usecase "Email verifiëren" wordt afgetrapt.                                                                                           |
- |                                                                                                               | 6. Het systeem stuurt de klant door naar een pagina van het betalingssysteem voor een goedkeuring van automatische incasso.
- | 7. De klant rond scenario van het betalingssysteem succesvol af.                                              |
- | 8. De klant rond de usecase "Email verifiëren" af                                                             | 9. De kosten van de leverancier worden doorgevoerd naar de klant.                                                                           |
- |                                                                                                               | 10. Het systeem registreert een nieuw pasje.                                                                                                |
- |                                                                                                               | 11. Het systeem stuurt een order van een pasje naar de leverancier.
- | ^**Alternative flow**^                                                                                        |                                                                                                                                             |
- | ^**Actor action**^                                                                                            | ^**System action**^                                                                                                                         |
- | 7. De klant rond het scenario van het betalingssysteem **niet** succesvol af.                                 | 8. Het systeem toont een foutmelding en toont een knop om stap 6 opnieuw uit te voeren.                                                     |
- | ^**Alternative flow**^                                                                                        |                                                                                                                                             |
- | ^**Actor action**^                                                                                            | ^**System action**^                                                                                                                         |
- |                                                                                                               | 9. Het systeem kan niet succesvol afschrijven.                                                                                              |
- |                                                                                                               | 10. Het systeem toont een foutmelding en toont een knop om stap 6 opnieuw uit te voeren.                                                    |
- | ^**Alternative flow**^                                                                                        |                                                                                                                                             |
- | ^**Actor action**^                                                                                            | ^**System action**^                                                                                                                         |
- | 3. De klant maakt een syntactische fout in zijn emailadres, woon adres, naam of acepteerd de voorwaarden niet | 4. Het systeem toont een foutmelding en laat de klant stap 3 opnieuw uitvoeren.                                                             |
- 
+## Registreren als klant
+
+|                                                                                                               |                                                                                                                                             |
+|---------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| ^**Usecase**^                                                                                                 | Registreren als klant                                                                                                                       |
+| ^**Primary actor**^                                                                                           | Klant                                                                                                                                       |
+| ^**Stakeholders**^                                                                                            | Klant, Betalings systeem en redcars                                                                                                         |
+| ^**Preconditions**^                                                                                           | De klant is nog niet geregistreerd. De klant heeft een bank rekening dat werkt met het betalings systeem. De klant heeft een email account. |
+| ^**Postconditions**^                                                                                          | De klant is geregistreerd en goedgekeurd.                                                                                                   |
+| ^**Main success scenario**^                                                                                   |                                                                                                                                             |
+| ^**Actor action**^                                                                                            | ^**System action**^                                                                                                                         |
+| 1. De klant vraagt de registratie pagina op.                                                                  | 2. Het systeem toont de registratie pagina.                                                                                                 |
+| 3. De klant voert zijn naam, emailadres, woon adres, woonplaats in en gaat akkoord met de voorwaarden         | 4. Het systeem maakt een nieuw (en onvolledig) account aan.
+|                                                                                                               | 5. De usecase "Email verifiëren" wordt afgetrapt.                                                                                           |
+|                                                                                                               | 6. Het systeem stuurt de klant door naar een pagina van het betalingssysteem voor een goedkeuring van automatische incasso.
+| 7. De klant rond scenario van het betalingssysteem succesvol af.                                              |
+| 8. De klant rond de usecase "Email verifiëren" af                                                             | 9. De kosten van de leverancier worden doorgevoerd naar de klant.                                                                           |
+|                                                                                                               | 10. Het systeem registreert een nieuw pasje.                                                                                                |
+|                                                                                                               | 11. Het systeem stuurt een order van een pasje naar de leverancier.
+| ^**Alternative flow**^                                                                                        |                                                                                                                                             |
+| ^**Actor action**^                                                                                            | ^**System action**^                                                                                                                         |
+| 7. De klant rond het scenario van het betalingssysteem **niet** succesvol af.                                 | 8. Het systeem toont een foutmelding en toont een knop om stap 6 opnieuw uit te voeren.                                                     |
+| ^**Alternative flow**^                                                                                        |                                                                                                                                             |
+| ^**Actor action**^                                                                                            | ^**System action**^                                                                                                                         |
+|                                                                                                               | 9. Het systeem kan niet succesvol afschrijven.                                                                                              |
+|                                                                                                               | 10. Het systeem toont een foutmelding en toont een knop om stap 6 opnieuw uit te voeren.                                                    |
+| ^**Alternative flow**^                                                                                        |                                                                                                                                             |
+| ^**Actor action**^                                                                                            | ^**System action**^                                                                                                                         |
+| 3. De klant maakt een syntactische fout in zijn emailadres, woon adres, naam of acepteerd de voorwaarden niet | 4. Het systeem toont een foutmelding en laat de klant stap 3 opnieuw uitvoeren.                                                             |
+
+## Email veriferen
+
 |                                        |                                                                                                           |
 | ---                                    | ---                                                                                                       |
 | ^**Usecase**^                          | Email verifiëren                                                                                          |
@@ -166,6 +170,28 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 | ^**Actor action**^                     | ^**System action**^                                                                                       |
 | 3. De klant klikt op een verlopen link | 4. Het systeem toont een foutmelding en een knop die stap 2 opnieuw uitvoert.                             |
 
+## Voertuig zoeken
+
+|                                                                        |                                                                                                                                 |
+| ---                                                                    | ---                                                                                                                             |
+| ^**Usecase**^                                                          | Voertuig zoeken                                                                                                                 |
+| ^**Primary Actor**^                                                    | Klant                                                                                                                           |
+| ^**Stakeholders**^                                                     | Klant                                                                                                                           |
+| ^**Preconditions**^                                                    | De klant is ingeloged met een geverifeerd account                                                                               |
+| ^**Postconditions**^                                                   | Er is een voertuig geselecteerd (Deze is vrij op het moment van selecteren, maar het is niet gegarandeed dat deze vrij blijft). |
+| ^**Main success scenario**^                                            |                                                                                                                                 |
+| ^**Actor action**^                                                     | ^**System action**^                                                                                                             |
+| 1. De klant geeft te kennen een voertuig te zoeken                     | 2. Het systeem toont de zoek pagina                                                                                             |
+| 3. De klant vult een een locatie en maximale afstand van de locatie in | 4. Het systeem toont all voertuigen die aan de gegeven zoek parameters voldoen en niet gereserveerd zijn.                       |
+| 5. De klant klikt op een voertuig                                      | 6. Het systeem toont het aangeklikte voertuig                                                                                   |
+| 7. De klant klikt op selecteert voertuig.                              | 8. Het systeem selecteerd het voertuig                                                                                          |
+| ^**Alternative flow**^                                                 |                                                                                                                                 |
+| 7. De klant klikt op de terug knop                                     | 8. Het systeem terug naar stap 4                                                                                                |
+| ^**Alternative flow**^                                                 |                                                                                                                                 |
+| 5. De klant vult andere zoek parameters in                             | 8. Het systeem terug naar stap 4                                                                                                |
+| ^**Alternative flow**^                                                 |                                                                                                                                 |
+|                                                                        | 4. Er zijn geen voertuigen gevonden.                                                                                            |
+|                                                                        | 5. Toont een foutmelding en laat de klant stap 3 nog een keer uitvoeren                                                         |
 
 
 | | |
