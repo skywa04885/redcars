@@ -217,33 +217,34 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 
 ## Voertuig reserveren
 
-|                                                         |                                                                                          |
-| ---                                                     | ---                                                                                      |
-| ^**Usecase**^                                           | Voertuig reserveren                                                                      |
-| ^**Primary Actor**^                                     | Klant                                                                                    |
-| ^**Stakeholders**^                                      | Klant, Betalings systeem                                                                 |
-| ^**Preconditions**^                                     | De klant is ingelogged met een geverifeerd account.                                      |
-| ^**Postconditions**^                                    | Er is een voertuig voor een bepaalde tijd gereserveerd. Er is een betaling overgemaakt.  |
-| ^**Main success scenario**^                             |                                                                                          |
-| ^**Actor action**^                                      | ^**System action**^                                                                      |
-| 1. De klant geeft te kennen een voertuig te reserveren. | 2. Usecase "Voertuig zoeken" wordt successvol uitgevoerd.                                |
-| 3. De klant geeft aan hoe lang de reservering duurt     | 4. De prijs wordt berekend op basis van abonnement, voertuig, tijd en eventueel locatie. |
-|                                                         | 5. Het systeem toont een bevestigings popup met de totale (minimum) prijs.               |
-| 6. De klant gaat akkoord                                | 7. Het systeem (atomisch) checkt en markeert het voertuig als gereserveerd.              |
-|                                                         | 8. Usecase "Factureren" wordt successvol uitgevoerd met de berekende prijs.              |
-| ^**Alternative flow**^                                  |                                                                                          |
-| ^**Actor action**^                                      | ^**System action**^                                                                      |
-|                                                         | 7. Het systeem komt er achter dat ondertussen iemand anders de auto heeft gereserveerd.  |
-|                                                         | 8. Het systeem toont een foutmelding en een knop om terug naar stap 2 te gaan.           |
-| ^**Alternative flow**^                                  |                                                                                          |
-| ^**Actor action**^                                      | ^**System action**^                                                                      |
-| 6. De klant gaat niet akkoord                           | 7. Het systeem gaat terug naar stap 3                                                    |
-| ^**Actor action**^                                      | ^**System action**^                                                                      |
-|                                                         | 8. De usecase "Factureren" is niet succesvol uitgevoerd                                  |
-|                                                         | 9. Het systeem markeert het voertuig als niet gereserveerd                               |
-|                                                         | 10. Het systeem toont een foutmelding en bied een knop om terug te gaan naar stap 3.                                                |
-
-
+|                                                                                  |                                                                                          |
+| ---                                                                              | ---                                                                                      |
+| ^**Usecase**^                                                                    | Voertuig reserveren                                                                      |
+| ^**Primary Actor**^                                                              | Klant                                                                                    |
+| ^**Stakeholders**^                                                               | Klant, Betalings systeem                                                                 |
+| ^**Preconditions**^                                                              | De klant is ingelogged met een geverifeerd account.                                      |
+| ^**Postconditions**^                                                             | Er is een voertuig voor een bepaalde tijd gereserveerd. Er is een betaling overgemaakt.  |
+| ^**Main success scenario**^                                                      |                                                                                          |
+| ^**Actor action**^                                                               | ^**System action**^                                                                      |
+| 1. De klant geeft te kennen een voertuig te reserveren.                          | 2. Usecase "Voertuig zoeken" wordt successvol uitgevoerd.                                |
+| 3. De klant geeft aan hoe lang de reservering duurt                              | 4. De prijs wordt berekend op basis van abonnement, voertuig, tijd en eventueel locatie. |
+|                                                                                  | 5. Het systeem toont een bevestigings popup met de totale (minimum) prijs.               |
+| 6. De klant gaat akkoord                                                         | 7. Het systeem (atomisch) checkt en markeert het voertuig als gereserveerd.              |
+|                                                                                  | 8. Usecase "Factureren" wordt successvol uitgevoerd met de berekende prijs.              |
+| ^**Alternative flow**^                                                           |                                                                                          |
+| ^**Actor action**^                                                               | ^**System action**^                                                                      |
+|                                                                                  | 7. Het systeem komt er achter dat ondertussen iemand anders de auto heeft gereserveerd.  |
+|                                                                                  | 8. Het systeem toont een foutmelding en een knop om terug naar stap 2 te gaan.           |
+| ^**Alternative flow**^                                                           |                                                                                          |
+| ^**Actor action**^                                                               | ^**System action**^                                                                      |
+| 6. De klant gaat niet akkoord                                                    | 7. Het systeem gaat terug naar stap 3                                                    |
+| ^**Actor action**^                                                               | ^**System action**^                                                                      |
+|                                                                                  | 8. De usecase "Factureren" is niet succesvol uitgevoerd                                  |
+|                                                                                  | 9. Het systeem markeert het voertuig als niet gereserveerd                               |
+|                                                                                  | 10. Het systeem toont een foutmelding en bied een knop om terug te gaan naar stap 3.     |
+| ^**Alternative flow**^                                                           |                                                                                          |
+| ^**Actor action**^                                                               | ^**System action**^                                                                      |
+| 1. De klant met een inactief account geeft te kennen een voertuig te reserveren. | 2. Het systeem toont een foutmelding met een knop om de achterstand te betalen           |
 
 ## Inchecken
 
