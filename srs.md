@@ -133,11 +133,12 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 | ^**Actor action**^ | ^**System action**^ |
 | 1. Een medewerker geeft te kennen een klant op te willen zoeken | 2. Het systeem presenteert de pagina waar klanten gezocht kunnen worden |
 | 3. De medewerker vult een zoekopdracht in op basis van een adres, naam, email of klantnummer | 4. Het systeem presenteert een lijst van gevonden klanten |
-| 5. De medewerker selecteert een van de klanten | 6. Het systeem presenteert de gegevens van de klant samen met de mogelijke opties |
+| 5. De medewerker selecteert een van de klanten | 6. Het systeem haalt de klantgegevens op |
+|  | 7. Het systeem presenteert de gegevens van de klant samen met de mogelijke opties |
 | ^**Alternative flow**^ | ^**Geen klanten gevonden**^ |
 | | 4a. Het systeem toont een melding om aan te geven dat geen klanten gevonden zijn |
 | ^**Alternative flow**^ | ^**Geselecteerde klant bestaat niet meer**^ |
-| | 6b. Het systeem toont een melding om aan te geven dat de klant verwijderd is na het zoeken. |
+| | 7b. Het systeem toont een melding om aan te geven dat de klant verwijderd is na het zoeken. |
 
 | | |
 | - | - |
