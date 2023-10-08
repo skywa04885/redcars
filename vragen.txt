@@ -19,3 +19,8 @@ Eerste ronde:
 
 	Q:
 	A: reserveren = betalen.
+
+voorstellen:
+	een reservering heeft meerdere in en uit checks
+	een reservering's begin tijd is altijd de huidige tijd
+	het pasje mag op kosten van de klant om misbruik te voorkomen
