@@ -290,6 +290,10 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 |                                                              | 10. Het licht van het station en voertuig gaan uit.                                                  |
 |                                                              | 11. Het voertuig wordt gemarkeerd als niet in gebruik samen met de huidige kilometerstand.           |
 |                                                              | 12. Usecase "Factureren" wordt afgetrapt met een bedrag op basis van voertuig en kilometers gereden. |
+| ^**Alternative flow**^                                       |                                                                                                      |
+| ^**Actor action**^                                           | ^**System action**^                                                                                  |
+|                                                              | 4. Het systeem detecteert dat het voertuiglimiet is bereikt.                                         |
+|                                                              | 5. Het station zet rood ligt aan voor 5 seconden                                                     |
 
 
 | | |
