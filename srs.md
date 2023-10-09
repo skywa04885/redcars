@@ -305,7 +305,7 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 | ---                           | ---                                                                                                                |
 | ^**Usecase**^                 | Factureren                                                                                                         |
 | ^**Primary Actor**^           | Klant                                                                                                              |
-| ^**Stakeholders**^            | Klant, Betalingssysteem                                                                                           |
+| ^**Stakeholders**^            | Klant, Betalingssysteem                                                                                            |
 | ^**Preconditions**^           | De klant heeft een account.                                                                                        |
 | ^**Postconditions**^          | Een geld transactie is afgehandeld                                                                                 |
 | ^**Main success scenario**^   |                                                                                                                    |
@@ -318,8 +318,10 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 |                               | 3. Het systeem zet het bedrag als schuld op het account.                                                           |
 |                               | 4. Het systeem markeert het account als inactief                                                                   |
 |                               | 5. Het systeem stuurt een email waar de klant een link krijgt om de schuld af te betalen via het betalings systeem |
-| 6. De klant betaalt de schuld | 7. Het systeem haalt de schuld af van het account.                                                                  |
-| | 8. Het systeem markeert het acccount als actief. |
+| 6. De klant betaalt de schuld | 7. Het systeem haalt de schuld af van het account.                                                                 |
+|                               | 8. Het systeem markeert het acccount als actief.                                                                   |
+
+## Abbonnement afsluiten
 
 
 | | |
@@ -338,6 +340,7 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 | | 4a. Het systeem toont een melding om aan te geven dat geen klanten gevonden zijn |
 | ^**Alternative flow**^ | ^**Geselecteerde klant bestaat niet meer**^ |
 | | 6b. Het systeem toont een melding om aan te geven dat de klant verwijderd is na het zoeken. |
+
 
 | | |
 | - | - |
