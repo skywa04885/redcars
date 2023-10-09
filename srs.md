@@ -379,12 +379,14 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 |                                                                                    | 5b. Het systeemt toont een melding om aan te geven dat de klant niet inactief gesteld kan worden |
 
 
-|                             |                                                     |
-| --------------------------- | --------------------------------------------------- |
-| ^**Usecase**^               | \<CRUD\> Klanten beheer - Email van klant aanpassen |
-| ^**Primary actor**^         | Medewerker                                          |
-| ^**Stakeholders**^          | Klant                                               |
-| ^**Preconditions**^         | De medewerker heeft een klant geselecteerd          |
-| ^**Postconditions**^        | De geselecteerde klant is inactief gesteld          |
-| ^**Main success scenario**^ | De medewerker stelt de geselecteerde klant inactief |
-| ^**Actor action**^          | ^**System action**^                                 |
+|                                                                              |                                                                               |
+| ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| ^**Usecase**^                                                                | \<CRUD\> Klanten beheer - Gegevens van klant aanpassen                        |
+| ^**Primary actor**^                                                          | Medewerker                                                                    |
+| ^**Stakeholders**^                                                           | Klant                                                                         |
+| ^**Preconditions**^                                                          | De medewerker heeft een klant geselecteerd                                    |
+| ^**Postconditions**^                                                         | De gegevens van de klant zijn aangepast                                       |
+| ^**Main success scenario**^                                                  | De past de gegevens van de klant aan                                          |
+| ^**Actor action**^                                                           | ^**System action**^                                                           |
+| 1. De medewerker geeft te kennen de geselecteerde klant aan te willen passen | 2. Het systeem presenteert een pagina waarin gegevens aangepast kunnen worden |
+| 3. De medewerker past de gegevens aan in de pagina                           | 4. Het systeem valideert de gegeven aanpassingen                              |
