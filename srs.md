@@ -145,19 +145,20 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 | 8. De klant rond de usecase "Email verifiëren" af                                                             | 9. De kosten van de leverancier worden doorgevoerd naar de klant.                                                                           |
 |                                                                                                               | 10. Het systeem registreert een nieuw pasje.                                                                                                |
 |                                                                                                               | 11. Het systeem stuurt een order van een pasje naar de leverancier.
-| ^**Alternative flow**^                                                                                        |                                                                                                                                             |
+| ^**Alternative flow**^                                                                                        | Er is een fout met het opvragen van automatische incasso                                                                                    |
 | ^**Actor action**^                                                                                            | ^**System action**^                                                                                                                         |
 | 7. De klant rond het scenario van het betalingssysteem **niet** succesvol af.                                 | 8. Het systeem toont een foutmelding en toont een knop om stap 6 opnieuw uit te voeren.                                                     |
-| ^**Alternative flow**^                                                                                        |                                                                                                                                             |
+| ^**Alternative flow**^                                                                                        | Het afschrijven van de kosten van het pasje lukt niet                                                                                       |
 | ^**Actor action**^                                                                                            | ^**System action**^                                                                                                                         |
 |                                                                                                               | 9. Het systeem kan niet succesvol afschrijven.                                                                                              |
 |                                                                                                               | 10. Het systeem toont een foutmelding en toont een knop om stap 6 opnieuw uit te voeren.                                                    |
-| ^**Alternative flow**^                                                                                        |                                                                                                                                             |
+| ^**Alternative flow**^                                                                                        | De klant maakt een fout tijdens het invlullen van gegevens                                                                                  |
 | ^**Actor action**^                                                                                            | ^**System action**^                                                                                                                         |
 | 3. De klant maakt een syntactische fout in zijn emailadres, woon adres, naam of acepteerd de voorwaarden niet | 4. Het systeem toont een foutmelding en laat de klant stap 3 opnieuw uitvoeren.                                                             |
-| ^**Alternative flow**^                                                                                        |                                                                                                                                             |
+| ^**Alternative flow**^                                                                                        | Het rekening nummer is al bekend in het systeem                                                                                             |
 | ^**Actor action**^                                                                                            | ^**System action**^                                                                                                                         |
 | 7. De klant rond scenario van het betalingssysteem succesvol af met een bestaand account.                     | 8. Het systeem toont een foutmelding en toont een knop om stap 6 opnieuw uit te voeren
+
 
 
 ## Email veriferen
@@ -173,7 +174,7 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 | ^**Actor action**^                     | ^**System action**^                                                                                       |
 | 1. De klant verstuurd een emailadres   | 2. Het systeem verstuurt een email met een link die een validatie token bevat, die voor 1 uur geldig is.. |
 | 3. De klant klikt op de link           | 4. Het systeem markeert de email als gevalideerd                                                          |
-| ^**Alternative flow**^                 |                                                                                                           |
+| ^**Alternative flow**^                 | De link in de email is verlopen                                                                           |
 | ^**Actor action**^                     | ^**System action**^                                                                                       |
 | 3. De klant klikt op een verlopen link | 4. Het systeem toont een foutmelding en een knop die stap 2 opnieuw uitvoert.                             |
 
@@ -192,11 +193,11 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 | 3. De klant vult een een locatie en maximale afstand van de locatie in | 4. Het systeem toont all voertuigen die aan de gegeven zoek parameters voldoen en niet gereserveerd zijn.                       |
 | 5. De klant klikt op een voertuig                                      | 6. Het systeem toont het aangeklikte voertuig                                                                                   |
 | 7. De klant klikt op selecteert voertuig.                              | 8. Het systeem selecteerd het voertuig                                                                                          |
-| ^**Alternative flow**^                                                 |                                                                                                                                 |
+| ^**Alternative flow**^                                                 | De klant wil een ander voertuig kiezen                                                                                          |
 | 7. De klant klikt op de terug knop                                     | 8. Het systeem terug naar stap 4                                                                                                |
-| ^**Alternative flow**^                                                 |                                                                                                                                 |
+| ^**Alternative flow**^                                                 | De klant wil naar een ander voetuig zoeken                                                                                      |
 | 5. De klant vult andere zoek parameters in                             | 8. Het systeem terug naar stap 4                                                                                                |
-| ^**Alternative flow**^                                                 |                                                                                                                                 |
+| ^**Alternative flow**^                                                 | Het kunnnen geen voertuigen gevonden worden                                                                                     |
 |                                                                        | 4. Er zijn geen voertuigen gevonden.                                                                                            |
 |                                                                        | 5. Toont een foutmelding en laat de klant stap 3 nog een keer uitvoeren                                                         |
 
@@ -231,21 +232,21 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 |                                                                                                | 5. Het systeem toont een bevestigings popup met de totale (minimum) prijs.                   |
 | 6. De klant gaat akkoord                                                                       | 7. Het systeem (atomisch) checkt en markeert het voertuig als gereserveerd.                  |
 |                                                                                                | 8. Usecase "Factureren" wordt successvol uitgevoerd met de berekende prijs.                  |
-| ^**Alternative flow**^                                                                         |                                                                                              |
+| ^**Alternative flow**^                                                                         | De klant probeert een bezet voertuig te reserveren                                           |
 | ^**Actor action**^                                                                             | ^**System action**^                                                                          |
 |                                                                                                | 7. Het systeem komt er achter dat ondertussen iemand anders het voertuig heeft gereserveerd. |
 |                                                                                                | 8. Het systeem toont een foutmelding en een knop om terug naar stap 2 te gaan.               |
-| ^**Alternative flow**^                                                                         |                                                                                              |
+| ^**Alternative flow**^                                                                         | De klant gaat niet akkoord met de voorwaarden                                                |
 | ^**Actor action**^                                                                             | ^**System action**^                                                                          |
 | 6. De klant gaat niet akkoord                                                                  | 7. Het systeem gaat terug naar stap 3                                                        |
 | ^**Actor action**^                                                                             | ^**System action**^                                                                          |
 |                                                                                                | 8. De usecase "Factureren" is niet succesvol uitgevoerd                                      |
 |                                                                                                | 9. Het systeem markeert het voertuig als niet gereserveerd                                   |
 |                                                                                                | 10. Het systeem toont een foutmelding en bied een knop om terug te gaan naar stap 3.         |
-| ^**Alternative flow**^                                                                         |                                                                                              |
+| ^**Alternative flow**^                                                                         | Het account van de klant is niet actief                                                      |
 | ^**Actor action**^                                                                             | ^**System action**^                                                                          |
 | 1. De klant met een inactief account geeft te kennen een voertuig te reserveren.               | 2. Het systeem toont een foutmelding met een knop om de achterstand te betalen               |
-| ^**Alternative flow**^                                                                         |                                                                                              |
+| ^**Alternative flow**^                                                                         | De klant probeert te reserveren terwijl er een adere reservering open staat                  |
 | ^**Actor action**^                                                                             | ^**System action**^                                                                          |
 | 1. De klant met een andere openstaande reservering geeft te kennen een voertuig te reserveren. | 2. Het systeem toont een foutmelding.                                                        |
 
@@ -264,11 +265,11 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 |                                           | 3. Het voertuig gaat open                                                                                                  |
 |                                           | 4. Het voertuig staat het aanzetten van de motor toe.                                                                      |
 |                                           | 5. Het voertuig wordt gemarkeerd als in gebruik samen met de huidige kilometerstand en het station woordt ontkoppeld       |
-| ^**Alternative flow**^                    |                                                                                                                            |
+| ^**Alternative flow**^                    | De klant probeert in te checken met een pasje dat niet gekoppeld is aan de reservering                                     |
 | ^**Actor action**^                        | ^**System action**^                                                                                                        |
 |                                           | 2. Het voertuig verifeert het verzoek als ongeldig omdat het pas nummer niet matchet met de huidige reservering            |
 |                                           | 3. Het gelinkte station knippert 3 seconden rood.                                                                          |
-| ^**Alternative flow**^                    |                                                                                                                            |
+| ^**Alternative flow**^                    | De klant probeert in te checken met een inactief account                                                                   |
 | ^**Actor action**^                        | ^**System action**^                                                                                                        |
 |                                           | 2. Het voertuig verifeert het verzoek als ongeldig omdat het account inactief is.                                          |
 |                                           | 3. Het gelinkte station knippert 3 seconden rood.                                                                          |
@@ -294,10 +295,16 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 |                                                              | 10. Het licht van het station en voertuig gaan uit.                                                                                         |
 |                                                              | 11. Het voertuig wordt gemarkeerd als niet in gebruik samen met de huidige kilometerstand.                                                  |
 |                                                              | 12. Usecase "Factureren" wordt afgetrapt met een bedrag op basis van voertuig en kilometers gereden en (optineel) te laat uitgechecte tijd. |
-| ^**Alternative flow**^                                       |                                                                                                                                             |
+| ^**Alternative flow**^                                       | De klant overschijd het voertuig limiet van het station                                                                                     |
 | ^**Actor action**^                                           | ^**System action**^                                                                                                                         |
 |                                                              | 4. Het systeem detecteert dat het voertuiglimiet is bereikt.                                                                                |
 |                                                              | 5. Het station zet rood ligt aan voor 5 seconden                                                                                            |
+| ^**Alternative flow**^                                       | De klant probeert in te checken met een pasje dat niet gekoppeld is aan de reservering                                                      |
+| ^**Actor action**^                                           | ^**System action**^                                                                                                                         |
+|                                                              | 2. Het voertuig verifeert het verzoek als ongeldig omdat het pas nummer niet matchet met de huidige reservering                             |
+|                                                              | 3. Het gelinkte station knippert 3 seconden rood.                                                                                           |
+|
+
 
 ## Factureren
 
@@ -312,7 +319,7 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 | ^**Actor action**^            | ^**System action**^                                                                                                |
 |                               | 1. Het systeem stuurt een bericht naar het betaal systeem om geld af te schrijven                                  |
 |                               | 2. Het systeem krijgt een bericht binnen dat het geld successvol is afgeschreven                                   |
-| ^**Alternative flow**^        |                                                                                                                    |
+| ^**Alternative flow**^        | Het geld kan niet afgeschreven worden.                                                                                                           |
 | ^**Actor action**^            | ^**System action**^                                                                                                |
 |                               | 2. Het systeem krijgt een beright dat het geld niet afgeschreven kan worden                                        |
 |                               | 3. Het systeem zet het bedrag als schuld op het account.                                                           |
