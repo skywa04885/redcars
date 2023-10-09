@@ -308,25 +308,25 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 
 ## Factureren
 
-|                               |                                                                                                                    |
-| ----------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| ^**Usecase**^                 | Factureren                                                                                                         |
-| ^**Primary Actor**^           | Klant                                                                                                              |
-| ^**Stakeholders**^            | Klant, Betalingssysteem                                                                                            |
-| ^**Preconditions**^           | De klant heeft een account.                                                                                        |
-| ^**Postconditions**^          | Een geld transactie is afgehandeld                                                                                 |
-| ^**Main success scenario**^   |                                                                                                                    |
-| ^**Actor action**^            | ^**System action**^                                                                                                |
-|                               | 1. Het systeem stuurt een bericht naar het betaal systeem om geld af te schrijven                                  |
-|                               | 2. Het systeem krijgt een bericht binnen dat het geld successvol is afgeschreven                                   |
-| ^**Alternative flow**^        | Het geld kan niet afgeschreven worden.                                                                             |
-| ^**Actor action**^            | ^**System action**^                                                                                                |
-|                               | 2. Het systeem krijgt een beright dat het geld niet afgeschreven kan worden                                        |
-|                               | 3. Het systeem zet het bedrag als schuld op het account.                                                           |
-|                               | 4. Het systeem markeert het account als inactief                                                                   |
-|                               | 5. Het systeem stuurt een email waar de klant een link krijgt om de schuld af te betalen via het betalings systeem |
-| 6. De klant betaalt de schuld | 7. Het systeem haalt de schuld af van het account.                                                                 |
-|                               | 8. Het systeem markeert het acccount als actief.                                                                   |
+|                                |                                                                                                                     |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------- |
+| ^**Usecase**^                  | Factureren                                                                                                          |
+| ^**Primary Actor**^            | Klant                                                                                                               |
+| ^**Stakeholders**^             | Klant, Betalingssysteem                                                                                             |
+| ^**Preconditions**^            | De klant heeft een account.                                                                                         |
+| ^**Postconditions**^           | Een geld transactie is afgehandeld                                                                                  |
+| ^**Main success scenario**^    |                                                                                                                     |
+| ^**Actor action**^             | ^**System action**^                                                                                                 |
+|                                | 1. Het systeem stuurt een bericht naar het betaal systeem om geld af te schrijven                                   |
+|                                | 2. Het systeem krijgt een bericht binnen dat het geld successvol is afgeschreven                                    |
+| ^**Alternative flow**^         | Het geld kan niet afgeschreven worden.                                                                              |
+| ^**Actor action**^             | ^**System action**^                                                                                                 |
+|                                | 2a. Het systeem krijgt een beright dat het geld niet afgeschreven kan worden                                        |
+|                                | 3a. Het systeem zet het bedrag als schuld op het account.                                                           |
+|                                | 4a. Het systeem markeert het account als inactief                                                                   |
+|                                | 5a. Het systeem stuurt een email waar de klant een link krijgt om de schuld af te betalen via het betalings systeem |
+| 6a. De klant betaalt de schuld | 7a. Het systeem haalt de schuld af van het account.                                                                 |
+|                                | 8a. Het systeem markeert het acccount als actief.                                                                   |
 
 ## Abbonnement afsluiten
 
@@ -386,14 +386,18 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 |                                                                                    | 5b. Het systeemt toont een melding om aan te geven dat de klant niet inactief gesteld kan worden |
 
 
-|                                                                              |                                                                               |
-| ---------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| ^**Usecase**^                                                                | \<CRUD\> Klanten beheer - Gegevens van klant aanpassen                        |
-| ^**Primary actor**^                                                          | Medewerker                                                                    |
-| ^**Stakeholders**^                                                           | Klant                                                                         |
-| ^**Preconditions**^                                                          | De medewerker heeft een klant geselecteerd                                    |
-| ^**Postconditions**^                                                         | De gegevens van de klant zijn aangepast                                       |
-| ^**Main success scenario**^                                                  | De past de gegevens van de klant aan                                          |
-| ^**Actor action**^                                                           | ^**System action**^                                                           |
-| 1. De medewerker geeft te kennen de geselecteerde klant aan te willen passen | 2. Het systeem presenteert een pagina waarin gegevens aangepast kunnen worden |
-| 3. De medewerker past de gegevens aan in de pagina                           | 4. Het systeem valideert de gegeven aanpassingen                              |
+|                                                                              |                                                                                        |
+| ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| ^**Usecase**^                                                                | \<CRUD\> Klanten beheer - Gegevens van klant aanpassen                                 |
+| ^**Primary actor**^                                                          | Medewerker                                                                             |
+| ^**Stakeholders**^                                                           | Klant                                                                                  |
+| ^**Preconditions**^                                                          | De medewerker heeft een klant geselecteerd                                             |
+| ^**Postconditions**^                                                         | De gegevens van de klant zijn aangepast                                                |
+| ^**Main success scenario**^                                                  | De past de gegevens van de klant aan                                                   |
+| ^**Actor action**^                                                           | ^**System action**^                                                                    |
+| 1. De medewerker geeft te kennen de geselecteerde klant aan te willen passen | 2. Het systeem presenteert een pagina waarin gegevens aangepast kunnen worden          |
+| 3. De medewerker past de gegevens aan in de pagina                           | 4. Het systeem valideert de gegeven aanpassingen                                       |
+|                                                                              | 5. Het systeem voert de aanpassingen door                                              |
+|                                                                              | 6. Het systeem meld dat de aanpassingen gelukt zijn                                    |
+| ^**Alternative flow**^                                                       | ^**De nieuwe gegevens zijn niet geldig**^                                              |
+|                                                                              | 5a. Het systeem geeft een foutmelding om aan te geven dat de gegevens niet geldig zijn |
