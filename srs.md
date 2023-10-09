@@ -268,28 +268,60 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 | ^**Actor action**^                        | ^**System action**^                                                                                                        |
 |                                           | 2. Het voertuig verifeert het verzoek als ongeldig omdat het pas nummer niet matchet met de huidige reservering            |
 |                                           | 3. Het gelinkte station knippert 3 seconden rood.                                                                          |
+| ^**Alternative flow**^                    |                                                                                                                            |
+| ^**Actor action**^                        | ^**System action**^                                                                                                        |
+|                                           | 2. Het voertuig verifeert het verzoek als ongeldig omdat het account inactief is.                                          |
+|                                           | 3. Het gelinkte station knippert 3 seconden rood.                                                                          |
 
 ## Uitchecken
 
-|                                                              |                                                                                                      |
-| ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
-| ^**Usecase**^                                                | Uitchecken                                                                                           |
-| ^**Primary Actor**^                                          | Klant                                                                                                |
-| ^**Stakeholders**^                                           | Klant                                                                                                |
-| ^**Preconditions**^                                          | De klant heeft een pas met een geverifeerd account.                                                  |
-| ^**Postconditions**^                                         | Het voertuig wordt gemarkeerd als niet in gebruik. Het station is gekoppeld aan het voertuig.        |
-| ^**Main success scenario**^                                  |                                                                                                      |
-| ^**Actor action**^                                           | ^**System action**^                                                                                  |
-| 1. De klant zet de motor stil en doet de deur open.          | 2. Usecase "GPS tacking" wordt succesvol uitgevoerd.                                                 |
-|                                                              | 3. Het systeem detecteert dat het voertuig zich binnen 5 meter van een station bevind                |
-|                                                              | 4. Het systeem verifeerd dat het station niet het voertuiglimiet heeft bereikt                       |
-|                                                              | 5. Het voertuig blokkeert het aanzetten van de motor.                                                |
-|                                                              | 6. Het systeem koppelt het station aan het voertuig                                                  |
-|                                                              | 7. Het systeem zet het licht van het station en voertuig op rood.                                    |
-| 8. De klant houdt zijn pasje tegen het slot van het voertuig | 9. Het voertuig gaat op slot.                                                                        |
-|                                                              | 10. Het licht van het station en voertuig gaan uit.                                                  |
-|                                                              | 11. Het voertuig wordt gemarkeerd als niet in gebruik samen met de huidige kilometerstand.           |
-|                                                              | 12. Usecase "Factureren" wordt afgetrapt met een bedrag op basis van voertuig en kilometers gereden. |
+|                                                              |                                                                                                                                             |
+| ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| ^**Usecase**^                                                | Uitchecken                                                                                                                                  |
+| ^**Primary Actor**^                                          | Klant                                                                                                                                       |
+| ^**Stakeholders**^                                           | Klant                                                                                                                                       |
+| ^**Preconditions**^                                          | De klant heeft een pas met een geverifeerd account.                                                                                         |
+| ^**Postconditions**^                                         | Het voertuig wordt gemarkeerd als niet in gebruik. Het station is gekoppeld aan het voertuig.                                               |
+| ^**Main success scenario**^                                  |                                                                                                                                             |
+| ^**Actor action**^                                           | ^**System action**^                                                                                                                         |
+| 1. De klant zet de motor stil en doet de deur open.          | 2. Usecase "GPS tacking" wordt succesvol uitgevoerd.                                                                                        |
+|                                                              | 3. Het systeem detecteert dat het voertuig zich binnen 5 meter van een station bevind                                                       |
+|                                                              | 4. Het systeem verifeerd dat het station niet het voertuiglimiet heeft bereikt                                                              |
+|                                                              | 5. Het voertuig blokkeert het aanzetten van de motor.                                                                                       |
+|                                                              | 6. Het systeem koppelt het station aan het voertuig                                                                                         |
+|                                                              | 7. Het systeem zet het licht van het station en voertuig op rood.                                                                           |
+| 8. De klant houdt zijn pasje tegen het slot van het voertuig | 9. Het voertuig gaat op slot.                                                                                                               |
+|                                                              | 10. Het licht van het station en voertuig gaan uit.                                                                                         |
+|                                                              | 11. Het voertuig wordt gemarkeerd als niet in gebruik samen met de huidige kilometerstand.                                                  |
+|                                                              | 12. Usecase "Factureren" wordt afgetrapt met een bedrag op basis van voertuig en kilometers gereden en (optineel) te laat uitgechecte tijd. |
+| ^**Alternative flow**^                                       |                                                                                                                                             |
+| ^**Actor action**^                                           | ^**System action**^                                                                                                                         |
+|                                                              | 4. Het systeem detecteert dat het voertuiglimiet is bereikt.                                                                                |
+|                                                              | 5. Het station zet rood ligt aan voor 5 seconden                                                                                            |
+
+## Factureren
+
+|                               |                                                                                                                    |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------ |
+| ^**Usecase**^                 | Factureren                                                                                                         |
+| ^**Primary Actor**^           | Klant                                                                                                              |
+| ^**Stakeholders**^            | Klant, Betalingssysteem                                                                                            |
+| ^**Preconditions**^           | De klant heeft een account.                                                                                        |
+| ^**Postconditions**^          | Een geld transactie is afgehandeld                                                                                 |
+| ^**Main success scenario**^   |                                                                                                                    |
+| ^**Actor action**^            | ^**System action**^                                                                                                |
+|                               | 1. Het systeem stuurt een bericht naar het betaal systeem om geld af te schrijven                                  |
+|                               | 2. Het systeem krijgt een bericht binnen dat het geld successvol is afgeschreven                                   |
+| ^**Alternative flow**^        |                                                                                                                    |
+| ^**Actor action**^            | ^**System action**^                                                                                                |
+|                               | 2. Het systeem krijgt een beright dat het geld niet afgeschreven kan worden                                        |
+|                               | 3. Het systeem zet het bedrag als schuld op het account.                                                           |
+|                               | 4. Het systeem markeert het account als inactief                                                                   |
+|                               | 5. Het systeem stuurt een email waar de klant een link krijgt om de schuld af te betalen via het betalings systeem |
+| 6. De klant betaalt de schuld | 7. Het systeem haalt de schuld af van het account.                                                                 |
+|                               | 8. Het systeem markeert het acccount als actief.                                                                   |
+
+## Abbonnement afsluiten
 
 
 |                                                                                              |                                                                                             |
@@ -311,6 +343,7 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 | ^**Alternative flow**^                                                                       | ^**Geselecteerde klant bestaat niet meer**^                                                 |
 |                                                                                              | 8b. Het systeem toont een melding om aan te geven dat de klant verwijderd is na het zoeken. |
 
+
 |                                                                 |                                                                                                 |
 | --------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
 | ^**Usecase**^                                                   | \<CRUD\> Klanten beheer - Klant verwijderen                                                     |
@@ -321,10 +354,10 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 | ^**Main success scenario**^                                     | De medewerker verwijderd een klant                                                              |
 | ^**Actor action**^                                              | ^**System action**^                                                                             |
 | 1. De medewerker geeft te kennen de klant te willen verwijderen | 2. Het systeem vraagt de medewerker om het verwijderen te bevestigen                            |
-| 3. De medewerker beslist om wel of niet door te gaan            | 4. Het systeem verwijderd de klant                                                              |
+| 3. De medewerker bevestigd het verwijderen van de klant         | 4. Het systeem verwijderd de klant                                                              |
 |                                                                 | 5. Het systeem presenteert een melding om aan te geven dat de klant verwijderd is               |
 | ^**Alternative flow**^                                          | ^**De medewerker bevestigd het verwijderen van de klant niet**^                                 |
-|                                                                 | 3a. Het systeem verwijderd de klant niet                                                        |
+| 3a. De medewerker bevestigd het verwijderen van de klant niet   | 3b. Het systeem verwijderd de klant niet                                                        |
 | ^**Alternative flow**^                                          | ^**Klant kon niet worden verwijderd**^                                                          |
 |                                                                 | 5b. Het systeem presenteert een melding om aan te geven dat de klant niet kon worden verwijderd |
 
