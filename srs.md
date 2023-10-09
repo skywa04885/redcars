@@ -129,7 +129,7 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 ## Registreren als klant
 
 |                                                                                                               |                                                                                                                                             |
-|---------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| ------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
 | ^**Usecase**^                                                                                                 | Registreren als klant                                                                                                                       |
 | ^**Primary actor**^                                                                                           | Klant                                                                                                                                       |
 | ^**Stakeholders**^                                                                                            | Klant, Betalings systeem en redcars                                                                                                         |
@@ -138,13 +138,13 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 | ^**Main success scenario**^                                                                                   |                                                                                                                                             |
 | ^**Actor action**^                                                                                            | ^**System action**^                                                                                                                         |
 | 1. De klant vraagt de registratie pagina op.                                                                  | 2. Het systeem toont de registratie pagina.                                                                                                 |
-| 3. De klant voert zijn naam, emailadres, woon adres, woonplaats in en gaat akkoord met de voorwaarden         | 4. Het systeem maakt een nieuw (en onvolledig) account aan.
+| 3. De klant voert zijn naam, emailadres, woon adres, woonplaats in en gaat akkoord met de voorwaarden         | 4. Het systeem maakt een nieuw (en onvolledig) account aan.                                                                                 |
 |                                                                                                               | 5. De usecase "Email verifiëren" wordt afgetrapt.                                                                                           |
-|                                                                                                               | 6. Het systeem stuurt de klant door naar een pagina van het betalingssysteem voor een goedkeuring van automatische incasso.
+|                                                                                                               | 6. Het systeem stuurt de klant door naar een pagina van het betalingssysteem voor een goedkeuring van automatische incasso.                 |
 | 7. De klant rond scenario van het betalingssysteem succesvol af.                                              |
 | 8. De klant rond de usecase "Email verifiëren" af                                                             | 9. De kosten van de leverancier worden doorgevoerd naar de klant.                                                                           |
 |                                                                                                               | 10. Het systeem registreert een nieuw pasje.                                                                                                |
-|                                                                                                               | 11. Het systeem stuurt een order van een pasje naar de leverancier.
+|                                                                                                               | 11. Het systeem stuurt een order van een pasje naar de leverancier.                                                                         |
 | ^**Alternative flow**^                                                                                        |                                                                                                                                             |
 | ^**Actor action**^                                                                                            | ^**System action**^                                                                                                                         |
 | 7. De klant rond het scenario van het betalingssysteem **niet** succesvol af.                                 | 8. Het systeem toont een foutmelding en toont een knop om stap 6 opnieuw uit te voeren.                                                     |
@@ -157,13 +157,13 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 | 3. De klant maakt een syntactische fout in zijn emailadres, woon adres, naam of acepteerd de voorwaarden niet | 4. Het systeem toont een foutmelding en laat de klant stap 3 opnieuw uitvoeren.                                                             |
 | ^**Alternative flow**^                                                                                        |                                                                                                                                             |
 | ^**Actor action**^                                                                                            | ^**System action**^                                                                                                                         |
-| 7. De klant rond scenario van het betalingssysteem succesvol af met een bestaand account.                     | 8. Het systeem toont een foutmelding en toont een knop om stap 6 opnieuw uit te voeren
+| 7. De klant rond scenario van het betalingssysteem succesvol af met een bestaand account.                     | 8. Het systeem toont een foutmelding en toont een knop om stap 6 opnieuw uit te voeren                                                      |
 
 
 ## Email veriferen
 
 |                                        |                                                                                                           |
-| ---                                    | ---                                                                                                       |
+| -------------------------------------- | --------------------------------------------------------------------------------------------------------- |
 | ^**Usecase**^                          | Email verifiëren                                                                                          |
 | ^**Primary Actor**^                    | Klant                                                                                                     |
 | ^**Stakeholders**^                     | Klant                                                                                                     |
@@ -180,7 +180,7 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 ## Voertuig zoeken
 
 |                                                                        |                                                                                                                                 |
-| ---                                                                    | ---                                                                                                                             |
+| ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
 | ^**Usecase**^                                                          | Voertuig zoeken                                                                                                                 |
 | ^**Primary Actor**^                                                    | Klant                                                                                                                           |
 | ^**Stakeholders**^                                                     | Klant                                                                                                                           |
@@ -203,7 +203,7 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 ## GPS tracking
 
 |                                              |                                                              |
-| ---                                          | ---                                                          |
+| -------------------------------------------- | ------------------------------------------------------------ |
 | ^**Usecase**^                                | GPS Tracking                                                 |
 | ^**Primary Actor**^                          | Voertuig                                                     |
 | ^**Stakeholders**^                           | Voertuig                                                     |
@@ -218,7 +218,7 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 ## Voertuig reserveren
 
 |                                                                                                |                                                                                              |
-| ---                                                                                            | ---                                                                                          |
+| ---------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | ^**Usecase**^                                                                                  | Voertuig reserveren                                                                          |
 | ^**Primary Actor**^                                                                            | Klant                                                                                        |
 | ^**Stakeholders**^                                                                             | Klant, Betalings systeem                                                                     |
@@ -252,7 +252,7 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 ## Inchecken
 
 |                                           |                                                                                                                            |
-| ---                                       | ---                                                                                                                        |
+| ----------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
 | ^**Usecase**^                             | Inchecken                                                                                                                  |
 | ^**Primary Actor**^                       | Klant                                                                                                                      |
 | ^**Stakeholders**^                        | Klant                                                                                                                      |
@@ -272,7 +272,7 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 ## Uitchecken
 
 |                                                              |                                                                                                      |
-| ---                                                          | ---                                                                                                  |
+| ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
 | ^**Usecase**^                                                | Uitchecken                                                                                           |
 | ^**Primary Actor**^                                          | Klant                                                                                                |
 | ^**Stakeholders**^                                           | Klant                                                                                                |
@@ -292,65 +292,66 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 |                                                              | 12. Usecase "Factureren" wordt afgetrapt met een bedrag op basis van voertuig en kilometers gereden. |
 
 
-| | |
-| - | - |
-| ^**Usecase**^ | \<CRUD\> Klanten beheer - Klant selecteren |
-| ^**Primary actor**^ | Medewerker |
-| ^**Stakeholders**^ | \- |
-| ^**Preconditions**^ | De medewerker is ingelogd in het systeem |
-| ^**Postconditions**^ | Er is een klant geselecteerd |
-| ^**Main success scenario**^ | De medewerker zoekt een klant en kan deze vinden |
-| ^**Actor action**^ | ^**System action**^ |
-| 1. Een medewerker geeft te kennen een klant op te willen zoeken | 2. Het systeem presenteert de pagina waar klanten gezocht kunnen worden |
-| 3. De medewerker vult een zoekopdracht in op basis van een adres, naam, email of klantnummer | 4. Het systeem presenteert een lijst van gevonden klanten |
-| 5. De medewerker selecteert een van de klanten | 6. Het systeem haalt de klantgegevens op |
-|  | 7. Het systeem presenteert de gegevens van de klant samen met de mogelijke opties |
-| ^**Alternative flow**^ | ^**Geen klanten gevonden**^ |
-| | 4a. Het systeem toont een melding om aan te geven dat geen klanten gevonden zijn |
-| ^**Alternative flow**^ | ^**Geselecteerde klant bestaat niet meer**^ |
-| | 7b. Het systeem toont een melding om aan te geven dat de klant verwijderd is na het zoeken. |
+|                                                                                              |                                                                                             |
+| -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| ^**Usecase**^                                                                                | \<CRUD\> Klanten beheer - Klant selecteren                                                  |
+| ^**Primary actor**^                                                                          | Medewerker                                                                                  |
+| ^**Stakeholders**^                                                                           | \-                                                                                          |
+| ^**Preconditions**^                                                                          | De medewerker is ingelogd in het systeem                                                    |
+| ^**Postconditions**^                                                                         | Er is een klant geselecteerd                                                                |
+| ^**Main success scenario**^                                                                  | De medewerker zoekt een klant en kan deze vinden                                            |
+| ^**Actor action**^                                                                           | ^**System action**^                                                                         |
+| 1. Een medewerker geeft te kennen een klant op te willen zoeken                              | 2. Het systeem presenteert de pagina waar klanten gezocht kunnen worden                     |
+|                                                                                              | 4. Het systeem haalt de lijst van klanten op                                                |
+| 3. De medewerker vult een zoekopdracht in op basis van een adres, naam, email of klantnummer | 5. Het systeem presenteert een lijst van gevonden klanten                                   |
+| 6. De medewerker selecteert een van de klanten                                               | 7. Het systeem haalt de klantgegevens op                                                    |
+|                                                                                              | 8. Het systeem presenteert de gegevens van de klant samen met de mogelijke opties           |
+| ^**Alternative flow**^                                                                       | ^**Geen klanten gevonden**^                                                                 |
+|                                                                                              | 5a. Het systeem toont een melding om aan te geven dat geen klanten gevonden zijn            |
+| ^**Alternative flow**^                                                                       | ^**Geselecteerde klant bestaat niet meer**^                                                 |
+|                                                                                              | 8b. Het systeem toont een melding om aan te geven dat de klant verwijderd is na het zoeken. |
 
-| | |
-| - | - |
-| ^**Usecase**^ | \<CRUD\> Klanten beheer - Klant verwijderen |
-| ^**Primary actor**^ | Medewerker |
-| ^**Stakeholders**^ | Klant |
-| ^**Preconditions**^ | De medewerker heeft een klant geselecteerd |
-| ^**Postconditions**^ | De klant is verwijderd uit het systeem |
-| ^**Main success scenario**^ | De medewerker verwijderd een klant |
-| ^**Actor action**^ | ^**System action**^ |
-| 1. De medewerker geeft te kennen de klant te willen verwijderen | 2. Het systeem vraagt de medewerker om het verwijderen te bevestigen |
-| 3. De medewerker bevestigd het verwijderen van de klant | 4. Het systeem verwijderd de klant |
-| | 5. Het systeem presenteert een melding om aan te geven dat de klant verwijderd is |
-| ^**Alternative flow**^ | ^**De medewerker bevestigd het verwijderen van de klant niet**^ |
-| 3a. De medewerker bevestigd het verwijderen van de klant niet | 3b. Het systeem verwijderd de klant niet |
-| ^**Alternative flow**^ | ^**Klant kon niet worden verwijderd**^ |
-| | 5b. Het systeem presenteert een melding om aan te geven dat de klant niet kon worden verwijderd |
+|                                                                 |                                                                                                 |
+| --------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| ^**Usecase**^                                                   | \<CRUD\> Klanten beheer - Klant verwijderen                                                     |
+| ^**Primary actor**^                                             | Medewerker                                                                                      |
+| ^**Stakeholders**^                                              | Klant                                                                                           |
+| ^**Preconditions**^                                             | De medewerker heeft een klant geselecteerd                                                      |
+| ^**Postconditions**^                                            | De klant is verwijderd uit het systeem                                                          |
+| ^**Main success scenario**^                                     | De medewerker verwijderd een klant                                                              |
+| ^**Actor action**^                                              | ^**System action**^                                                                             |
+| 1. De medewerker geeft te kennen de klant te willen verwijderen | 2. Het systeem vraagt de medewerker om het verwijderen te bevestigen                            |
+| 3. De medewerker beslist om wel of niet door te gaan            | 4. Het systeem verwijderd de klant                                                              |
+|                                                                 | 5. Het systeem presenteert een melding om aan te geven dat de klant verwijderd is               |
+| ^**Alternative flow**^                                          | ^**De medewerker bevestigd het verwijderen van de klant niet**^                                 |
+|                                                                 | 3a. Het systeem verwijderd de klant niet                                                        |
+| ^**Alternative flow**^                                          | ^**Klant kon niet worden verwijderd**^                                                          |
+|                                                                 | 5b. Het systeem presenteert een melding om aan te geven dat de klant niet kon worden verwijderd |
 
-| | |
-| - | - |
-| ^**Usecase**^ | \<CRUD\> Klanten beheer - Klant inactief stellen |
-| ^**Primary actor**^ | Medewerker |
-| ^**Stakeholders**^ | Klant |
-| ^**Preconditions**^ | De medewerker heeft een klant geselecteerd |
-| ^**Postconditions**^ | De geselecteerde klant is inactief gesteld |
+|                                                                                    |                                                                                                  |
+| ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| ^**Usecase**^                                                                      | \<CRUD\> Klanten beheer - Klant inactief stellen                                                 |
+| ^**Primary actor**^                                                                | Medewerker                                                                                       |
+| ^**Stakeholders**^                                                                 | Klant                                                                                            |
+| ^**Preconditions**^                                                                | De medewerker heeft een klant geselecteerd                                                       |
+| ^**Postconditions**^                                                               | De geselecteerde klant is inactief gesteld                                                       |
+| ^**Main success scenario**^                                                        | De medewerker stelt de geselecteerde klant inactief                                              |
+| ^**Actor action**^                                                                 | ^**System action**^                                                                              |
+| 1. De medewerker geeft te kennen de geselecteerde klant inactief te willen stellen | 2. Het systeem vraagt de gebruiker om het inactief stellen te bevestigen                         |
+| 3. De medewerker beslist om wel of niet te bevestigen.                             | 4. Het systeem stelt de klant inactief                                                           |
+|                                                                                    | 5. Het systeem toont een melding dat de klant inactief is gesteld                                |
+| ^**Alternative flow**^                                                             | ^**De medewerker bevestigd het inactief stellen niet**^                                          |
+|                                                                                    | 4a. Het systeem stelt de gebruiker niet inactief                                                 |
+| ^**Alternative flow**^                                                             | ^**De klant kan niet inactief worden gesteld**^                                                  |
+|                                                                                    | 5b. Het systeemt toont een melding om aan te geven dat de klant niet inactief gesteld kan worden |
+
+
+|                             |                                                     |
+| --------------------------- | --------------------------------------------------- |
+| ^**Usecase**^               | \<CRUD\> Klanten beheer - Email van klant aanpassen |
+| ^**Primary actor**^         | Medewerker                                          |
+| ^**Stakeholders**^          | Klant                                               |
+| ^**Preconditions**^         | De medewerker heeft een klant geselecteerd          |
+| ^**Postconditions**^        | De geselecteerde klant is inactief gesteld          |
 | ^**Main success scenario**^ | De medewerker stelt de geselecteerde klant inactief |
-| ^**Actor action**^ | ^**System action**^ |
-| 1. De medewerker geeft te kennen de geselecteerde klant inactief te willen stellen | 2. Het systeem vraagt de gebruiker om het inactief stellen te bevestigen |
-| 3. De medewerker bevestigd het inactief stellen | 4. Het systeem stelt de klant inactief |
-| | 5. Het systeem toont een melding dat de klant inactief is gesteld |
-| ^**Alternative flow**^ | ^**De medewerker bevestigd het inactief stellen niet**^ |
-| 3a. De medewerker bevestigd het inactief stellen van de gebruiker niet | 4a. Het systeem stelt de gebruiker niet inactief |
-| ^**Alternative flow**^ | ^**De klant kan niet inactief worden gesteld**^ |
-| | 5b. Het systeemt toont een melding om aan te geven dat de klant niet inactief gesteld kan worden |
-
-
-| | |
-| - | - |
-| ^**Usecase**^ | \<CRUD\> Klanten beheer - Email van klant aanpassen |
-| ^**Primary actor**^ | Medewerker |
-| ^**Stakeholders**^ | Klant |
-| ^**Preconditions**^ | De medewerker heeft een klant geselecteerd |
-| ^**Postconditions**^ | De geselecteerde klant is inactief gesteld |
-| ^**Main success scenario**^ | De medewerker stelt de geselecteerde klant inactief |
-| ^**Actor action**^ | ^**System action**^ |
+| ^**Actor action**^          | ^**System action**^                                 |
