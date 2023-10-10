@@ -1,6 +1,9 @@
-CPPFLAGS=-Wall -std=c++17
+CC = g++
+CPPFLAGS=-Wall -pedantic -std=c++17 -Wextra
 
-redcars: redcars.o
+TARGET = redcars
+
+$(TARGET): redcars.o GeoPosition.o Vehicle.o Card.o Customer.o Reservation.o Station.o User.o Usage.o Distance.o TimeFrame.o Money.o Charge.o
 
 clean:
-	rm *.o redcars
+	rm -f *.o $(TARGET)
