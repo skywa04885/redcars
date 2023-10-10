@@ -168,7 +168,7 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 | ^**Usecase**^                          | Email verifiëren                                                                                          |
 | ^**Primary Actor**^                    | Klant                                                                                                     |
 | ^**Stakeholders**^                     | Klant                                                                                                     |
-| ^**Preconditions**^                    | De klant heeft een account (volledig of onvolledig). De email van het account is niet geverifeerd.        |
+| ^**Preconditions**^                    | De klant heeft een account (geverifeerd of ongegeverifeerd). De email van het account is niet geverifeerd.        |
 | ^**Postconditions**^                   | De email van het account is geverifeerd.                                                                  |
 | ^**Main success scenario**^            |                                                                                                           |
 | ^**Actor action**^                     | ^**System action**^                                                                                       |
@@ -329,6 +329,25 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 |                                | 8a. Het systeem markeert het acccount als actief.                                                                   |
 
 ## Abbonnement afsluiten
+
+## Inloggen
+
+|                                             |                                                                                                                     |
+| ------------------------------              | ------------------------------------------------------------------------------------------------------------------- |
+| ^**Usecase**^                               | Inloggen                                                                                                            |
+| ^**Primary Actor**^                         | Klant                                                                                                               |
+| ^**Stakeholders**^                          | Klant                                                                                                               |
+| ^**Preconditions**^                         | De klant heeft een account. De klant heeft een pasje. Het email van de klant is geverifeerd                         |
+| ^**Postconditions**^                        | De klant is ingelogged                                                                                              |
+| ^**Main success scenario**^                 |                                                                                                                     |
+| ^**Actor action**^                          | ^**System action**^                                                                                                 |
+| 1. De klant vult zijn email en pasnummer in | 2. Het systeem verifeerd of het email adress bestaat en het pasnummer matched                                       |
+|                                             | 3. Het systeem logged de klant in.                                                                                  |
+| ^**Alternative flow**^                      | De inloggegevens kloppen niet                                                                                       |
+| ^**Actor action**^                          | ^**System action**^                                                                                                 |
+|                                             | 2. Het systeem verifeerd of het email adress bestaat en het pasnummer niet matched                                  |
+|                                             | 3. Het systeem toont een fout melding en laat de klant stap 1 nog een keer uitvoeren.                               |
+
 
 
 |                                                                                              |                                                                                             |
