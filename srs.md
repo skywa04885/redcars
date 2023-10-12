@@ -314,7 +314,7 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 | ^**Main success scenario**^    |                                                                                                                     |
 | ^**Actor action**^             | ^**System action**^                                                                                                 |
 |                                | 1. Het systeem stuurt een bericht naar het betaalsysteem om geld af te schrijven                                    |
-|                                | 2. Het systeem krijgt een bericht binnen dat het geld succesvol is afgeschreven                                    |
+|                                | 2. Het systeem krijgt een bericht binnen dat het geld succesvol is afgeschreven                                     |
 | ^**alternative flow**^         | het geld kan niet afgeschreven worden.                                                                              |
 | ^**actor action**^             | ^**system action**^                                                                                                 |
 |                                | 2a. Het systeem krijgt een bericht dat het geld niet afgeschreven kan worden                                        |
@@ -332,21 +332,19 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 | ^**Primary Actor**^                                      | Klant                                                                                                               |
 | ^**Stakeholders**^                                       | Klant, betalingssysteem                                                                                             |
 | ^**Preconditions**^                                      | De klant heeft een geverifieerd en actief account.                                                                  |
-| ^**Postconditions**^                                     | De klant is ingelogd                                                                                                |
+| ^**Postconditions**^                                     | De klant heeft een actief abonnement. Er is geld overgemaakt.                                                       |
 | ^**Main success scenario**^                              |                                                                                                                     |
 | ^**Actor action**^                                       | ^**System action**^                                                                                                 |
 | 1. De klant geeft te kennen een abonnement af te sluiten | 2. Het systeem toont een lijst met abonnementen.                                                                    |
 | 3. De klant selecteert een abonnement                    | 4. Het systeem toont een bevestiging.                                                                               |
-| 5. De klant gaat akkoord                                 | 6. Het systeem zet optioneel een oud abonnement stop                                                                |
-|                                                          | 7. De usecase "Factureren" wordt uitgevoerd met de prijs van het abonnement                                         |
+| 5. De klant gaat akkoord                                 | 6. Het systeem zet optioneel een oud abonnement stop.                                                               |
+|                                                          | 7. De usecase "Factureren" wordt uitgevoerd met de prijs van het abonnement.                                        |
 |                                                          | 8. Het abonnement wordt als actief ingesteld                                                                        |
 | ^**alternative flow**^                                   | het geld kan niet afgeschreven worden.                                                                              |
 | ^**actor action**^                                       | ^**system action**^                                                                                                 |
-|                                                          | 7. De usecase "Factueren" kan niet succesvol worden afgerond.                                                      |
+|                                                          | 7. De usecase "Factueren" kan niet succesvol worden afgerond.                                                       |
 |                                                          | 8. Het systeem zet het oude abonnement weer als actief.                                                             |
-|                                                          | 9. Het systeem toont een foutmeldingen een knop om stap 3 nog een keer uit te voeren                                |
-
-
+|                                                          | 9. Het systeem toont een foutmeldingen een knop om stap 3 nog een keer uit te voeren.                               |
 
 ## Inloggen
 
@@ -360,11 +358,11 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 | ^**Main success scenario**^                 |                                                                                                                     |
 | ^**Actor action**^                          | ^**System action**^                                                                                                 |
 | 1. De klant vult zijn email en pasnummer in | 2. Het systeem verifieert of het mailadres bestaat en het pasnummer matcht                                          |
-|                                             | 3. Het systeem logt de klant in.                                                                                  |
+|                                             | 3. Het systeem logt de klant in.                                                                                    |
 | ^**Alternative flow**^                      | De inloggegevens kloppen niet                                                                                       |
 | ^**Actor action**^                          | ^**System action**^                                                                                                 |
-|                                             | 2. Het systeem verifieert of het mailadres bestaat en het pasnummer niet matcht                                  |
-|                                             | 3. Het systeem toont een foutmelding en laat de klant stap 1 nog een keer uitvoeren.                               |
+|                                             | 2. Het systeem verifieert of het mailadres bestaat en het pasnummer niet matcht                                     |
+|                                             | 3. Het systeem toont een foutmelding en laat de klant stap 1 nog een keer uitvoeren.                                |
 
 
 
