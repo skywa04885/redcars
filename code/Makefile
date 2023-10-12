@@ -7,9 +7,11 @@ MODEL = model/GeoPosition.o model/Vehicle.o model/Card.o model/Customer.o model/
 CONTROLLERS = controllers/Controller.o controllers/CliController.o controllers/RegisterController.o
 PAYMENT = payment/PaymentSystem.o
 MOCK = mock/CliMock.o
-REPO = repo/Repository.o repo/CustomerRepository.o
+REPO = repo/Repository.o repo/CustomerRepository.o repo/BankAccountRepository.o repo/CardRepository.o
+MAIL = mail/EmailSystem.o
+DELIVERY = delivery/DeliverySystem.o
 
-OBJECTS = $(MODEL) $(CONTROLLERS) $(PAYMENT) $(REPO) $(MOCK)
+OBJECTS = $(MODEL) $(CONTROLLERS) $(PAYMENT) $(REPO) $(MOCK) $(MAIL) $(DELIVERY)
 
 all: $(TARGET)
 

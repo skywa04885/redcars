@@ -15,7 +15,7 @@ int main() {
 
     mock::CliMock mock(std::cout);
 
-    RegisterController registerController(mock, mock);
+    RegisterController registerController(mock, mock, mock, mock);
 
     CliController cliController(registerController);
     runController(cliController);
