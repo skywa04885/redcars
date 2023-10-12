@@ -9,6 +9,12 @@ namespace redcars::model {
 
         virtual ~User() = default;
 
+        const std::string &getFirstname() const;
+
+        const std::string &getLastname() const;
+
+        const std::string &getEmail() const;
+
     private:
         std::string firstname;
         std::string lastname;

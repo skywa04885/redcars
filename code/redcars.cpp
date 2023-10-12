@@ -1,5 +1,6 @@
 #include "controllers/Controller.hpp"
 #include "controllers/CliController.hpp"
+#include "mock/CliMock.hpp"
 
 #include <iostream>
 
@@ -12,7 +13,9 @@ void runController(controllers::Controller &controller) {
 int main() {
     using namespace controllers;
 
-    RegisterController registerController;
+    mock::CliMock mock(std::cout);
+
+    RegisterController registerController(mock, mock);
 
     CliController cliController(registerController);
     runController(cliController);

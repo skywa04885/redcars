@@ -14,7 +14,7 @@ namespace redcars::controllers {
         void runInteractive(std::istream &input, std::ostream &output) override;
 
     private:
-        void showHelp(std::ostream& output) const;
+        void showHelp(std::ostream &output) const;
 
         struct ControllerEntry {
             std::string description;

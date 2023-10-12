@@ -9,6 +9,7 @@ void redcars::controllers::CliController::runInteractive(std::istream &input, st
 
         char action;
         input >> action;
+        action = (char) std::toupper((char) action);
 
         if (action == 'Q') {
             break;

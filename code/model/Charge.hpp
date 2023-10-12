@@ -11,6 +11,8 @@ namespace redcars::model {
 
         void pay();
 
+        const Money &getAmount() const;
+
     private:
         bool paid;
         Money amount;

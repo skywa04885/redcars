@@ -11,6 +11,8 @@ namespace redcars::model {
 
         virtual ~Customer() = default;
 
+        const std::optional<Card> &getCard() const;
+
     private:
         std::optional<Card> card;
     };
