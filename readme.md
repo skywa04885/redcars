@@ -10,3 +10,4 @@
 * In en uit checken is een extend geen include naar reserveren
 * consistente naamgeving
 * handel het (niet) opladen af
+* crud steriotype
