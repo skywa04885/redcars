@@ -10,8 +10,8 @@ MOCK = mock/CliMock.o
 REPO = repo/Repository.o repo/CustomerRepository.o repo/BankAccountRepository.o repo/CardRepository.o repo/VehicleRepository.o repo/ReservationRepository.o
 DELIVERY = delivery/DeliverySystem.o
 MAIL = mail/EmailSystem.o
-
-OBJECTS = $(MODEL) $(CONTROLLERS) $(PAYMENT) $(REPO) $(MOCK) $(MAIL) $(DELIVERY)
+VIEW = view/View.o
+OBJECTS = $(MODEL) $(CONTROLLERS) $(PAYMENT) $(REPO) $(MOCK) $(MAIL) $(DELIVERY) $(VIEW)
 
 all: $(TARGET)
 

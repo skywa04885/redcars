@@ -6,22 +6,20 @@
 
 using namespace redcars;
 
-void runController(controllers::Controller &controller) {
-    controller.runInteractive(std::cin, std::cout);
-}
 
 int main() {
     using namespace controllers;
 
-    mock::CliMock mock(std::cout);
+    mock::CliMock mock(std::cout, std::cin);
 
     RegisterController registerController(mock, mock, mock, mock);
     VehicleSearchController vehicleSearchController(mock);
     ReservationController reservationController(vehicleSearchController, mock, mock);
 
-    CliController cliController(registerController, reservationController);
-    runController(cliController);
+    CliController cliController(registerController, reservationController, std::cout);
 
+    // run the application.
+    cliController.run(mock);
 
     return 0;
 }

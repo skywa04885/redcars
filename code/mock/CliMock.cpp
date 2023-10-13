@@ -1,10 +1,11 @@
 #include "CliMock.hpp"
 #include <ctime>
 #include <algorithm>
+#include <iostream>
 
 using namespace redcars::model;
 
-redcars::mock::CliMock::CliMock(std::ostream &output) : output(output) {
+redcars::mock::CliMock::CliMock(std::ostream &output, std::istream &input) : output(output), input(input) {
 
 }
 
@@ -102,4 +103,57 @@ void redcars::mock::CliMock::addReservation(const Reservation &) {
 
 bool redcars::mock::CliMock::fulfillCharge(Charge &charge, const Customer &customer) {
     return fulfillCharge(charge, customer.getBankAccount());
+}
+
+void redcars::mock::CliMock::getInput(const char *valueName, std::string &target) {
+    output << "Enter your " << valueName << ": ";
+    input >> target;
+}
+
+void redcars::mock::CliMock::getInput(const char *valueName, unsigned int &target) {
+    std::string buff;
+
+    while (true) {
+        getInput(valueName, buff);
+
+        try {
+            target = std::abs(std::stoi(buff));
+            break;
+        }
+        catch (std::exception &e) {
+            output << "Please enter a number" << std::endl;
+        }
+    }
+}
+
+bool redcars::mock::CliMock::confirm(const char *msg) {
+    char answer;
+
+    while (true) {
+        output << msg << " [Y/N]: ";
+        input >> answer;
+        answer = (char) std::toupper((char) answer);
+
+        switch (answer) {
+            case 'Y':
+                return true;
+            case 'N':
+                return false;
+            default:
+                output << "Invalid input!" << std::endl;
+        }
+    }
+}
+
+void redcars::mock::CliMock::getInput(const char *valueName, char &target) {
+    output << "Enter your " << valueName << ": ";
+    input >> target;
+}
+
+void redcars::mock::CliMock::displayErrorMessage(const char *msg) {
+    output << "ERROR: " << msg << std::endl;
+}
+
+void redcars::mock::CliMock::displayMessage(const char *msg) {
+    output << msg << std::endl;
 }

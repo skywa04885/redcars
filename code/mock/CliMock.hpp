@@ -4,6 +4,7 @@
 #include "../repo/Repository.hpp"
 #include "../mail/EmailSystem.hpp"
 #include "../delivery/DeliverySystem.hpp"
+#include "../view/View.hpp"
 
 
 #include <ostream>
@@ -18,9 +19,10 @@ namespace redcars::mock {
               public delivery::DeliverySystem,
               public repo::CardRepository,
               public repo::VehicleRepository,
-              public repo::ReservationRepository {
+              public repo::ReservationRepository,
+              public view::View {
     public:
-        CliMock(std::ostream &output);
+        CliMock(std::ostream &output, std::istream &input);
 
         bool fulfillCharge(model::Charge &charge, const model::BankAccount &from) override;
 
@@ -58,7 +60,20 @@ namespace redcars::mock {
 
         bool fulfillCharge(model::Charge &charge, const model::Customer &customer) override;
 
+        void getInput(const char *valueName, std::string &target) override;
+
+        void getInput(const char *valueName, unsigned int &target) override;
+
+        bool confirm(const char *msg) override;
+
+        void getInput(const char *valueName, char &target) override;
+
+        void displayErrorMessage(const char *msg) override;
+
+        void displayMessage(const char *msg) override;
+
     private:
         std::ostream &output;
+        std::istream &input;
     };
 }

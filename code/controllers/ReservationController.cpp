@@ -1,14 +1,15 @@
 #include "ReservationController.hpp"
+#include <sstream>
 
-bool redcars::controllers::ReservationController::runInteractive(std::istream &input, std::ostream &output) {
-    if (!vehicleSearchController.runInteractive(input, output)) {
+bool redcars::controllers::ReservationController::run(view::View& view) {
+    if (!vehicleSearchController.run(view)) {
         return false;
     }
 
     while (true) {
         unsigned int durationInHours;
 
-        getInput(input, output, "reservation duration in hours", durationInHours);
+        view.getInput("reservation duration in hours", durationInHours);
 
         model::Customer customer = repo.customers().getCurrentCustomer();
         model::Reservation newReservation = model::Reservation::calculateNew(
@@ -17,10 +18,14 @@ bool redcars::controllers::ReservationController::runInteractive(std::istream &i
                 customer
         );
 
-        output << "De reservering gaat (initeel) €" << newReservation.getInitialCharge().getAmount().eurosAsFloat()
-               << " kosten" << std::endl;
+        std::stringstream ss;
+        ss << "De reservering gaat (initeel) €";
+        ss << newReservation.getInitialCharge().getAmount().eurosAsFloat();
+        ss << " kosten";
 
-        if (!confirm(input, output, "Is dit okay?")) {
+        view.displayMessage(ss.str().c_str());
+
+        if (!view.confirm("Is dit okay?")) {
             continue;
         }
 

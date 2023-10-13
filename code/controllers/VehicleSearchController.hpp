@@ -8,7 +8,7 @@ namespace redcars::controllers {
     public:
         explicit VehicleSearchController(repo::Repository &repo);
 
-        bool runInteractive(std::istream &input, std::ostream &output) override;
+        bool run(view::View& view) override;
 
         const std::optional<model::Vehicle> &getSelected() const;
 

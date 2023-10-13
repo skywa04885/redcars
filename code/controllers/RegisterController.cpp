@@ -1,7 +1,7 @@
 
 #include "RegisterController.hpp"
 
-bool redcars::controllers::RegisterController::runInteractive(std::istream &input, std::ostream &output) {
+bool redcars::controllers::RegisterController::run(view::View& view) {
     while (true) {
         std::string firstname;
         std::string lastname;
@@ -10,14 +10,14 @@ bool redcars::controllers::RegisterController::runInteractive(std::istream &inpu
         std::string bankAccount;
 
         while (true) {
-            getInput(input, output, "firstname", firstname);
-            getInput(input, output, "lastname", lastname);
-            getInput(input, output, "email", email);
-            getInput(input, output, "address", address);
-            getInput(input, output, "bank account", bankAccount);
+            view.getInput("firstname", firstname);
+            view.getInput("lastname", lastname);
+            view.getInput("email", email);
+            view.getInput("address", address);
+            view.getInput("bank account", bankAccount);
 
-            if (!confirm(input, output, "Do you accept the terms of service?")) {
-                output << "You must accept the terms of service to continue" << std::endl;
+            if (!view.confirm("Do you accept the terms of service?")) {
+                view.displayErrorMessage("You must accept the terms of service to continue");
                 continue;
             }
 
@@ -26,13 +26,13 @@ bool redcars::controllers::RegisterController::runInteractive(std::istream &inpu
 
         auto existingAccount = repo.bankAccounts().getBankAccountByNumber(bankAccount);
         if (existingAccount.has_value()) {
-            output << "Bank account exists" << std::endl;
+            view.displayErrorMessage("Bank account exists");
             continue;
         }
 
         auto existingCustomer = repo.customers().getCustomerByEmail(email);
         if (existingCustomer.has_value()) {
-            output << "Email exists" << std::endl;
+            view.displayErrorMessage("Email exists");
             continue;
         }
 
@@ -41,7 +41,7 @@ bool redcars::controllers::RegisterController::runInteractive(std::istream &inpu
 
         model::BankAccount account(bankAccount);
         if (!paymentSystem.requestAutomaticCharging(account)) {
-            if (confirm(input, output, "Failed to request automatic charging, would you like to try again?")) {
+            if (view.confirm("Failed to request automatic charging, would you like to try again?")) {
                 continue;
             } else {
                 return false;
@@ -56,7 +56,7 @@ bool redcars::controllers::RegisterController::runInteractive(std::istream &inpu
         model::Charge cardCharge(false, cardMoney);
 
         while (!paymentSystem.fulfillCharge(cardCharge, account)) {
-            if (!confirm(input, output, "Could not pay for the card, would you like to try again? ")) {
+            if (!view.confirm("Could not pay for the card, would you like to try again? ")) {
                 return false;
             }
         }

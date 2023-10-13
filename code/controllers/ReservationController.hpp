@@ -12,7 +12,7 @@ namespace redcars::controllers {
                 redcars::payment::PaymentSystem &paymentSystem);
 
     public:
-        bool runInteractive(std::istream &input, std::ostream &output) override;
+        bool run(view::View& view) override;
 
     private:
         VehicleSearchController &vehicleSearchController;

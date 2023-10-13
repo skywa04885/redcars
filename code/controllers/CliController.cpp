@@ -1,20 +1,17 @@
 #include "CliController.hpp"
 
-bool redcars::controllers::CliController::runInteractive(std::istream &input, std::ostream &output) {
-    showHelp(output);
+bool redcars::controllers::CliController::run(view::View& view) {
+    showHelp();
 
     while (true) {
-
-        output << "Choose your action: ";
-
         char action;
-        input >> action;
+        view.getInput("action", action);
         action = (char) std::toupper((char) action);
 
         if (action == 'Q') {
             break;
         } else if (action == 'H') {
-            showHelp(output);
+            showHelp();
             continue;
         }
 
@@ -26,7 +23,7 @@ bool redcars::controllers::CliController::runInteractive(std::istream &input, st
         }
 
         output << "Running action \"" << controller->second.description << "\"" << std::endl;
-        bool result = controller->second.controller.runInteractive(input, output);
+        bool result = controller->second.controller.run(view);
         output << "Action finished " << (result ? "successfully" : "and failed") << std::endl;
     }
 
@@ -34,12 +31,13 @@ bool redcars::controllers::CliController::runInteractive(std::istream &input, st
 }
 
 redcars::controllers::CliController::CliController(redcars::controllers::RegisterController &registerController,
-                                                   ReservationController &reservationController) {
+                                                   ReservationController &reservationController,
+                                                   std::ostream &output) : output(output) {
     controllers.insert({'R', {"Register as customer", registerController}});
     controllers.insert({'P', {"Create reservation", reservationController}});
 }
 
-void redcars::controllers::CliController::showHelp(std::ostream &output) const {
+void redcars::controllers::CliController::showHelp() const {
     for (auto &[action, controller]: controllers) {
         output << action << " = " << controller.description << std::endl;
     }

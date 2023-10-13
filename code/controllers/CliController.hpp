@@ -11,12 +11,14 @@
 namespace redcars::controllers {
     class CliController : public Controller {
     public:
-        CliController(RegisterController &registerController, ReservationController &reservationController);
+        CliController(redcars::controllers::RegisterController &registerController,
+                      ReservationController &reservationController,
+                      std::ostream &output);
 
-        bool runInteractive(std::istream &input, std::ostream &output) override;
+        bool run(view::View& view) override;
 
     private:
-        void showHelp(std::ostream &output) const;
+        void showHelp() const;
 
         struct ControllerEntry {
             std::string description;
@@ -24,6 +26,7 @@ namespace redcars::controllers {
         };
 
         std::map<char, ControllerEntry> controllers;
+        std::ostream& output;
     };
 
 }

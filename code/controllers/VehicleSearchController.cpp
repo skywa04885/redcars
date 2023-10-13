@@ -1,11 +1,12 @@
 #include "VehicleSearchController.hpp"
+#include <sstream>
 
-bool redcars::controllers::VehicleSearchController::runInteractive(std::istream &input, std::ostream &output) {
+bool redcars::controllers::VehicleSearchController::run(view::View& view) {
     std::string location;
     unsigned int maxDistanceKm;
 
-    getInput(input, output, "location", location);
-    getInput(input, output, "max distance (km)", maxDistanceKm);
+    view.getInput("location", location);
+    view.getInput("max distance (km)", maxDistanceKm);
 
     model::Distance maxDistance = model::Distance::fromKm((int) maxDistanceKm);
 
@@ -13,40 +14,41 @@ bool redcars::controllers::VehicleSearchController::runInteractive(std::istream 
 
     while (true) {
         for (std::size_t i = 0; i < searchResult.size(); ++i) {
-            output << "#" << i + 1 << std::endl;
+            std::stringstream ss;
+            ss << "#";
+            ss << i + 1;
+            view.displayMessage(ss.str().c_str());
         }
 
         unsigned int selectedVehicle;
 
         while (true) {
             std::string selectedVehicleInput;
-            getInput(input, output, "Choose a vehicle", selectedVehicle);
+            view.getInput("Choose a vehicle", selectedVehicle);
             selectedVehicle -= 1;
 
 
             if (selectedVehicle > (unsigned int) searchResult.size()) {
-                output << "Please enter a valid id" << std::endl;
+                view.displayErrorMessage("Please enter a valid id");
                 continue;
             }
 
             break;
         }
 
-        output << "Selected a ";
+        view.displayMessage("Selected:");
 
         switch (searchResult[selectedVehicle].getKind()) {
 
             case model::VehicleKind::Station:
-                output << "station wagon";
+                view.displayMessage("\tstation wagon");
                 break;
             case model::VehicleKind::Personal:
-                output << "personal vehicle";
+                view.displayMessage("\tpersonal vehicle");
                 break;
         }
 
-        output << std::endl;
-
-        if (confirm(input, output, "is this correct?")) {
+        if (view.confirm("is this correct?")) {
             selected = searchResult[selectedVehicle];
             break;
         }
