@@ -93,8 +93,8 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 ## (F)unctionality
 
 1. Tijdens het registreren moet de naam, het adres en de woonplaats worden opgegeven door de klant.
-1. Tijdens het registreren moet een e-mail adres worden opgegeven.
-1. Tijdens het registreren moet het e-mail adres worden geverifieerd.
+1. Tijdens het registreren moet een mailadres worden opgegeven.
+1. Tijdens het registreren moet het mailadres worden geverifieerd.
 1. Tijdens het registreren moet een bankrekeningnummer worden opgegeven.
 1. Tijdens het registreren moet er toestemming worden gevraagd voor automatische incasso.
 1. Na het registreren moet een klantenpas worden opgestuurd naar de klant.
