@@ -11,16 +11,20 @@ namespace redcars::model {
 
     class Vehicle {
     public:
-        Vehicle(GeoPosition position, time_t lastPositionUpdate,
+        Vehicle(GeoPosition position, std::time_t lastPositionUpdate,
                 VehicleKind kind);
 
         virtual ~Vehicle() = default;
 
         void updatePosition(GeoPosition position);
 
+        const GeoPosition &getPosition() const;
+
+        VehicleKind getKind() const;
+
     private:
         GeoPosition position;
-        time_t lastPositionUpdate;
+        std::time_t lastPositionUpdate;
         VehicleKind kind;
     };
 

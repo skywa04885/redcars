@@ -3,15 +3,17 @@
 
 #include <map>
 #include <string>
+
 #include "Controller.hpp"
 #include "RegisterController.hpp"
+#include "ReservationController.hpp"
 
 namespace redcars::controllers {
     class CliController : public Controller {
     public:
-        CliController(RegisterController &registerController);
+        CliController(RegisterController &registerController, ReservationController &reservationController);
 
-        void runInteractive(std::istream &input, std::ostream &output) override;
+        bool runInteractive(std::istream &input, std::ostream &output) override;
 
     private:
         void showHelp(std::ostream &output) const;

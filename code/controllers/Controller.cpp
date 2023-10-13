@@ -24,3 +24,20 @@ bool redcars::controllers::Controller::confirm(std::istream &input, std::ostream
         }
     }
 }
+
+void redcars::controllers::Controller::getInput(std::istream &input, std::ostream &output, const char *valueName,
+                                                unsigned int &target) {
+    std::string buff;
+
+    while (true) {
+        getInput(input, output, valueName, buff);
+
+        try {
+            target = std::abs(std::stoi(buff));
+            break;
+        }
+        catch (std::exception &e) {
+            output << "Please enter a number" << std::endl;
+        }
+    }
+}

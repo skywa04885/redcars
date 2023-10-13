@@ -1,4 +1,6 @@
 #include "CliMock.hpp"
+#include <ctime>
+#include <algorithm>
 
 using namespace redcars::model;
 
@@ -59,4 +61,45 @@ Card redcars::mock::CliMock::generateCard() {
 
 void redcars::mock::CliMock::registerCard(const Card &card) {
     output << "Registering card " << card.getNumber() << std::endl;
+}
+
+redcars::repo::VehicleRepository &redcars::mock::CliMock::vehicles() {
+    return *this;
+}
+
+std::vector<redcars::model::Vehicle>
+redcars::mock::CliMock::searchVehicles(GeoPosition position, Distance maxDistance) {
+    output << "Searching vehicles" << std::endl;
+
+    std::vector<model::Vehicle> vehicles = {
+            model::Vehicle(GeoPosition(10, 10), std::time(nullptr), model::VehicleKind::Personal),
+            model::Vehicle(GeoPosition(11, 11), std::time(nullptr), model::VehicleKind::Personal),
+            model::Vehicle(GeoPosition(9, 9), std::time(nullptr), model::VehicleKind::Station),
+    };
+
+    vehicles.erase(std::remove_if(vehicles.begin(), vehicles.end(), [&](const Vehicle &vehicle) {
+        Distance distance = vehicle.getPosition().distanceFrom(position);
+        return distance > maxDistance;
+    }), vehicles.end());
+
+    return vehicles;
+}
+
+Customer redcars::mock::CliMock::getCurrentCustomer() {
+    output << "Getting current customer" << std::endl;
+
+    return model::Customer("John", "Doe", "basicjohn@hotmail.co.uk", true,
+                           "somewhere green", std::optional(model::Card("1")), BankAccount("1234"));
+}
+
+redcars::repo::ReservationRepository &redcars::mock::CliMock::reservations() {
+    return *this;
+}
+
+void redcars::mock::CliMock::addReservation(const Reservation &) {
+    output << "Adding reservation" << std::endl;
+}
+
+bool redcars::mock::CliMock::fulfillCharge(Charge &charge, const Customer &customer) {
+    return fulfillCharge(charge, customer.getBankAccount());
 }

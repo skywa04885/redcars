@@ -11,7 +11,7 @@ namespace redcars::controllers {
     public:
         explicit RegisterController(payment::PaymentSystem &paymentSystem, repo::Repository &repo, mail::EmailSystem& mail, delivery::DeliverySystem& delivery);
 
-        void runInteractive(std::istream &input, std::ostream &output) override;
+        bool runInteractive(std::istream &input, std::ostream &output) override;
 
     private:
         payment::PaymentSystem &paymentSystem;

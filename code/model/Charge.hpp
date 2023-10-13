@@ -13,6 +13,8 @@ namespace redcars::model {
 
         const Money &getAmount() const;
 
+        bool isPaid() const;
+
     private:
         bool paid;
         Money amount;

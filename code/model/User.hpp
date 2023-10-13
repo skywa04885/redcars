@@ -5,7 +5,7 @@
 namespace redcars::model {
     class User {
     public:
-        User(std::string firstname, std::string lastname, std::string email);
+        User(std::string firstname, std::string lastname, std::string email, bool emailVerified);
 
         virtual ~User() = default;
 
@@ -19,5 +19,6 @@ namespace redcars::model {
         std::string firstname;
         std::string lastname;
         std::string email;
+        bool emailVerified;
     };
 }

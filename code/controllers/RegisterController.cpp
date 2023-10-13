@@ -1,7 +1,7 @@
 
 #include "RegisterController.hpp"
 
-void redcars::controllers::RegisterController::runInteractive(std::istream &input, std::ostream &output) {
+bool redcars::controllers::RegisterController::runInteractive(std::istream &input, std::ostream &output) {
     while (true) {
         std::string firstname;
         std::string lastname;
@@ -36,14 +36,15 @@ void redcars::controllers::RegisterController::runInteractive(std::istream &inpu
             continue;
         }
 
-        model::Customer newCustomer(firstname, lastname, email, address, std::nullopt);
+        model::Customer newCustomer(firstname, lastname, email, false, address, std::nullopt,
+                                    model::BankAccount(bankAccount));
 
         model::BankAccount account(bankAccount);
         if (!paymentSystem.requestAutomaticCharging(account)) {
             if (confirm(input, output, "Failed to request automatic charging, would you like to try again?")) {
                 continue;
             } else {
-                break;
+                return false;
             }
         }
 
@@ -54,15 +55,15 @@ void redcars::controllers::RegisterController::runInteractive(std::istream &inpu
         model::Money cardMoney = delivery.deliverToCustomer(newCustomer, newCard);
         model::Charge cardCharge(false, cardMoney);
 
-        while(!paymentSystem.fulfillCharge(cardCharge, account)) {
+        while (!paymentSystem.fulfillCharge(cardCharge, account)) {
             if (!confirm(input, output, "Could not pay for the card, would you like to try again? ")) {
-                break;
+                return false;
             }
         }
 
         repo.cards().registerCard(newCard);
 
-        break;
+        return true;
     }
 }
 

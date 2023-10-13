@@ -14,6 +14,8 @@ namespace redcars::model {
         int asMeters() const;
 
         Distance operator-(const Distance &lhs) const;
+        bool operator<(const Distance& lhs) const;
+        bool operator>(const Distance& lhs) const;
 
     private:
         int meters;

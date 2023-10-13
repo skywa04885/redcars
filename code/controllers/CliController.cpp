@@ -1,6 +1,6 @@
 #include "CliController.hpp"
 
-void redcars::controllers::CliController::runInteractive(std::istream &input, std::ostream &output) {
+bool redcars::controllers::CliController::runInteractive(std::istream &input, std::ostream &output) {
     showHelp(output);
 
     while (true) {
@@ -26,13 +26,17 @@ void redcars::controllers::CliController::runInteractive(std::istream &input, st
         }
 
         output << "Running action \"" << controller->second.description << "\"" << std::endl;
-        controller->second.controller.runInteractive(input, output);
-        output << "Action finished" << std::endl;
+        bool result = controller->second.controller.runInteractive(input, output);
+        output << "Action finished " << (result ? "successfully" : "and failed") << std::endl;
     }
+
+    return true;
 }
 
-redcars::controllers::CliController::CliController(redcars::controllers::RegisterController &registerController) {
+redcars::controllers::CliController::CliController(redcars::controllers::RegisterController &registerController,
+                                                   ReservationController &reservationController) {
     controllers.insert({'R', {"Register as customer", registerController}});
+    controllers.insert({'P', {"Create reservation", reservationController}});
 }
 
 void redcars::controllers::CliController::showHelp(std::ostream &output) const {

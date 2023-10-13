@@ -7,5 +7,7 @@ namespace redcars::repo {
 
         virtual void createCustomer(const model::Customer &customer) = 0;
         virtual std::optional<model::Customer> getCustomerByEmail(const std::string& email) = 0;
+
+        virtual model::Customer getCurrentCustomer() = 0;
     };
 }

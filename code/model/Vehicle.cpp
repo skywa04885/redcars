@@ -9,3 +9,11 @@ void redcars::model::Vehicle::updatePosition(redcars::model::GeoPosition positio
     this->position = position;
     lastPositionUpdate = std::time(nullptr);
 }
+
+const redcars::model::GeoPosition &redcars::model::Vehicle::getPosition() const {
+    return position;
+}
+
+redcars::model::VehicleKind redcars::model::Vehicle::getKind() const {
+    return kind;
+}

@@ -16,8 +16,10 @@ int main() {
     mock::CliMock mock(std::cout);
 
     RegisterController registerController(mock, mock, mock, mock);
+    VehicleSearchController vehicleSearchController(mock);
+    ReservationController reservationController(vehicleSearchController, mock, mock);
 
-    CliController cliController(registerController);
+    CliController cliController(registerController, reservationController);
     runController(cliController);
 
 

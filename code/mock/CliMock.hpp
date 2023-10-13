@@ -16,7 +16,9 @@ namespace redcars::mock {
               public repo::BankAccountRepository,
               public mail::EmailSystem,
               public delivery::DeliverySystem,
-              public repo::CardRepository {
+              public repo::CardRepository,
+              public repo::VehicleRepository,
+              public repo::ReservationRepository {
     public:
         CliMock(std::ostream &output);
 
@@ -42,8 +44,19 @@ namespace redcars::mock {
 
         void registerCard(const model::Card &card) override;
 
-    private:
+        VehicleRepository &vehicles() override;
+
+        std::vector<model::Vehicle> searchVehicles(model::GeoPosition position, model::Distance maxDistance) override;
+
+        model::Customer getCurrentCustomer() override;
+
+        ReservationRepository &reservations() override;
+
+        void addReservation(const model::Reservation &reservation) override;
+
         model::Card generateCard() override;
+
+        bool fulfillCharge(model::Charge &charge, const model::Customer &customer) override;
 
     private:
         std::ostream &output;
