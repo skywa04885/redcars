@@ -176,6 +176,32 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 | ^**Actor action**^                                            | ^**System action**^                                                                                                            |
 |                                                               | 7e. Terug naar stap 2                                                                                                          |
 
+## Abonnement afsluiten
+|                                                             |                                                                                                   |
+| ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| ^**Usecase**^                                               | Abonnement afsluiten                                                                              |
+| ^**Primary actor**^                                         | Klant                                                                                             |
+| ^**Stakeholders**^                                          | Systeem                                                                                           |
+| ^**Preconditions**^                                         | \-                                                                                                |
+| ^**Postconditions**^                                        | De klant is ingelogd.                                                                             |
+| ^**Main success scenario**^                                 | De klant sluit een abbonement af.                                                                 |
+| ^**Actor action**^                                          | ^**System action**^                                                                               |
+| 1. De klant geeft te kennen een abonnement te willen kiezen | 2. Het systeem presenteert een lijst met alle mogelijke abonnementen                              |
+| 3.De klant selecteert een van de beschikbare abonnementen   | 4. Het systeem kijkt of de gebruiker al een abonnement heeft                                      |
+|                                                             | 5. Het systeem past het abonnement van de klant aan                                               |
+|                                                             | 6. Het systeem verstuurt het eerste factuur                                                       |
+|                                                             | 7. Het systeem schrijft het bedrag  van het eerste factuur af                                     |
+| ^**Alternative flow**^                                      | De klant heeft al een abonnement, en gaat akkoord met het veranderen                              |
+| ^**Actor action**^                                          | ^**System action**^                                                                               |
+|                                                             | 5a. Het systeem vraagt aan de klant om te bevestigen dat het bestaande abonnement wordt veranderd |
+|                                                             | 6a. Klant keurt verandering wel/ niet goed                                                        |
+|                                                             | 7a. Het systeem past het abonnement van de klant aan                                              |
+|                                                             | 8a. Het systeem verstuurt het eerste factuur                                                      |
+|                                                             | 9a. Het systeem schrijft het bedrag  van het eerste factuur af                                    |
+| ^**Alternative flow**^                                      | De klant heeft al een abonnement, en gaat niet akkoord met het veranderen                         |
+| ^**Actor action**^                                          | ^**System action**^                                                                               |
+|                                                             | 5a. Het systeem vraagt aan de klant om te bevestigen dat het bestaande abonnement wordt veranderd |
+
 ## Registreren als klant
 
 |                                                                                                                |                                                                                                                                             |
