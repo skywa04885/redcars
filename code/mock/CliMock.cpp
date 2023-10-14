@@ -157,3 +157,47 @@ void redcars::mock::CliMock::displayErrorMessage(const char *msg) {
 void redcars::mock::CliMock::displayMessage(const char *msg) {
     output << msg << std::endl;
 }
+
+void redcars::mock::CliMock::openDoor(const Vehicle &) {
+    output << "Opening door" << std::endl;
+}
+
+void redcars::mock::CliMock::closeDoor(const Vehicle &) {
+    output << "Closing door" << std::endl;
+}
+
+void redcars::mock::CliMock::enableEngine(const Vehicle &) {
+    output << "Enabling engine" << std::endl;
+}
+
+void redcars::mock::CliMock::disableEngine(const Vehicle &) {
+    output << "Disabling engine" << std::endl;
+}
+
+void redcars::mock::CliMock::displayLights(const Vehicle &) {
+    output << "Displaying lights" << std::endl;
+}
+
+Distance redcars::mock::CliMock::requestDistanceDriven(const Vehicle &) {
+    output << "Requesting distance driven from vehicle" << std::endl;
+    return model::Distance::fromKm(1000);
+}
+
+Vehicle redcars::mock::CliMock::getCurrentVehicle() {
+    output << "Getting current vehicle" << std::endl;
+    return model::Vehicle(model::GeoPosition(10, 10), std::time(nullptr), model::VehicleKind::Personal);
+}
+
+std::optional<redcars::model::Reservation> redcars::mock::CliMock::getActiveReservationByCard(const Card &) {
+    output << "Getting active reservation" << std::endl;
+    return model::Reservation({}, model::TimeFrame(std::time(nullptr), 1000),
+                              model::Charge(true, model::Money(50, std::time(
+                                      nullptr))), model::Vehicle(model::GeoPosition(10, 10), std::time(nullptr),
+                                                                 model::VehicleKind::Personal),
+                              model::Customer("John", "Doe", "justjohn@hotmail.com", true, "1234AD", {},
+                                              model::BankAccount("123455")));
+}
+
+void redcars::mock::CliMock::addReservationUsage(Reservation &, Usage) {
+    output << "Adding new usage" << std::endl;
+}

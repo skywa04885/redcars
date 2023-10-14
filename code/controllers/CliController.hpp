@@ -7,12 +7,14 @@
 #include "Controller.hpp"
 #include "RegisterController.hpp"
 #include "ReservationController.hpp"
+#include "CheckInController.hpp"
 
 namespace redcars::controllers {
     class CliController : public Controller {
     public:
         CliController(redcars::controllers::RegisterController &registerController,
                       ReservationController &reservationController,
+                      CheckInController& checkInController,
                       std::ostream &output);
 
         bool run(view::View& view) override;

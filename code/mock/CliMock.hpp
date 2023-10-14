@@ -5,6 +5,7 @@
 #include "../mail/EmailSystem.hpp"
 #include "../delivery/DeliverySystem.hpp"
 #include "../view/View.hpp"
+#include "../vehicle/VehicleComs.hpp"
 
 
 #include <ostream>
@@ -20,7 +21,8 @@ namespace redcars::mock {
               public repo::CardRepository,
               public repo::VehicleRepository,
               public repo::ReservationRepository,
-              public view::View {
+              public view::View,
+              public vehicle::VehicleComs {
     public:
         CliMock(std::ostream &output, std::istream &input);
 
@@ -71,6 +73,24 @@ namespace redcars::mock {
         void displayErrorMessage(const char *msg) override;
 
         void displayMessage(const char *msg) override;
+
+        void openDoor(const model::Vehicle &vehicle) override;
+
+        void closeDoor(const model::Vehicle &vehicle) override;
+
+        void enableEngine(const model::Vehicle &vehicle) override;
+
+        void disableEngine(const model::Vehicle &vehicle) override;
+
+        void displayLights(const model::Vehicle &vehicle) override;
+
+        model::Distance requestDistanceDriven(const model::Vehicle &vehicle) override;
+
+        model::Vehicle getCurrentVehicle() override;
+
+        std::optional<model::Reservation> getActiveReservationByCard(const model::Card &card) override;
+
+        void addReservationUsage(model::Reservation &reservation, model::Usage newUsage) override;
 
     private:
         std::ostream &output;

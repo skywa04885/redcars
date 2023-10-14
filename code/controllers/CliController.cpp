@@ -32,9 +32,11 @@ bool redcars::controllers::CliController::run(view::View& view) {
 
 redcars::controllers::CliController::CliController(redcars::controllers::RegisterController &registerController,
                                                    ReservationController &reservationController,
+                                                   CheckInController& checkInController,
                                                    std::ostream &output) : output(output) {
     controllers.insert({'R', {"Register as customer", registerController}});
     controllers.insert({'P', {"Create reservation", reservationController}});
+    controllers.insert({'I', {"check in", checkInController}});
 }
 
 void redcars::controllers::CliController::showHelp() const {

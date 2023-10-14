@@ -25,3 +25,11 @@ const redcars::model::Charge& redcars::model::Reservation::getInitialCharge() co
 void redcars::model::Reservation::payInitialCharge() {
     initialCharge.pay();
 }
+
+bool redcars::model::Reservation::isLinkedWithVehicle(const redcars::model::Vehicle &) const {
+    return true;
+}
+
+bool redcars::model::Reservation::hasOpenUsages() const {
+    return false;
+}

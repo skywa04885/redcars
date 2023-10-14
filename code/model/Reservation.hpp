@@ -22,6 +22,8 @@ namespace redcars::model {
         const Charge& getInitialCharge() const;
         void payInitialCharge();
 
+        bool isLinkedWithVehicle(const Vehicle& other) const;
+        bool hasOpenUsages() const;
     private:
         std::vector<Usage> usages;
 
