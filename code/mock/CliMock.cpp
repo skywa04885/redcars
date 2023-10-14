@@ -174,7 +174,7 @@ void redcars::mock::CliMock::disableEngine(const Vehicle &) {
     output << "Disabling engine" << std::endl;
 }
 
-void redcars::mock::CliMock::displayLights(const Vehicle &) {
+void redcars::mock::CliMock::displayLights(const model::Vehicle &, bool) {
     output << "Displaying lights" << std::endl;
 }
 
@@ -200,4 +200,23 @@ std::optional<redcars::model::Reservation> redcars::mock::CliMock::getActiveRese
 
 void redcars::mock::CliMock::addReservationUsage(Reservation &, Usage) {
     output << "Adding new usage" << std::endl;
+}
+
+redcars::repo::StationRepository &redcars::mock::CliMock::stations() {
+    return *this;
+}
+
+std::optional<redcars::model::Station> redcars::mock::CliMock::getClosestStation(GeoPosition pos, Distance) {
+    output << "Getting closest station" << std::endl;
+    return model::Station(pos, 5);
+}
+
+GeoPosition redcars::mock::CliMock::requestVehiclePosition(const Vehicle &) {
+    output << "Requesting vehicle position" << std::endl;
+    return model::GeoPosition(10, 10);
+}
+
+int redcars::mock::CliMock::getConnectedVehicleCount(const Station &) {
+    output << "Counting connected vehicles" << std::endl;
+    return 4;
 }

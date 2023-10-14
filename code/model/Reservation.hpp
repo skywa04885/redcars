@@ -24,6 +24,15 @@ namespace redcars::model {
 
         bool isLinkedWithVehicle(const Vehicle& other) const;
         bool hasOpenUsages() const;
+
+        const Vehicle &getVehicle() const;
+
+        const Customer &getCustomer() const;
+
+        std::optional<Usage> getLastUsage();
+
+        const TimeFrame &getTime() const;
+
     private:
         std::vector<Usage> usages;
 

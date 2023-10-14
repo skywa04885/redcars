@@ -16,8 +16,9 @@ int main() {
     VehicleSearchController vehicleSearchController(mock);
     ReservationController reservationController(vehicleSearchController, mock, mock);
     CheckInController checkInController(mock, mock);
+    CheckOutController checkOutController(mock, mock, mock);
 
-    CliController cliController(registerController, reservationController, checkInController, std::cout);
+    CliController cliController(registerController, reservationController, checkInController, checkOutController, std::cout);
 
     // run the application.
     cliController.run(mock);

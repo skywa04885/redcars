@@ -22,9 +22,12 @@ std::optional<redcars::model::Distance> redcars::model::Usage::getDistanceDriven
     return endDistance.value() - startDistance;
 }
 
-void redcars::model::Usage::finish(std::time_t duration, redcars::model::Distance endDistance,
-                                   redcars::model::Charge charge) {
+void redcars::model::Usage::finish(std::time_t duration, redcars::model::Distance endDistance, std::time_t) {
     this->duration = duration;
     this->endDistance = endDistance;
-    this->charge = charge;
+    this->charge = Charge(false, Money(10, std::time(nullptr))); // based on price params
+}
+
+const std::optional<redcars::model::Charge> &redcars::model::Usage::getCharge() const {
+    return charge;
 }

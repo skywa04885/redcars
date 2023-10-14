@@ -10,12 +10,12 @@ bool redcars::controllers::CheckInController::run(redcars::view::View &view) {
     auto reservation = repo.reservations().getActiveReservationByCard(card);
 
     if (!reservation.has_value()) {
-        vehicleComs.displayLights(currentVehicle);
+        vehicleComs.displayLights(currentVehicle, false);
         return false;
     }
 
     if (!reservation->isLinkedWithVehicle(currentVehicle)) {
-        vehicleComs.displayLights(currentVehicle);
+        vehicleComs.displayLights(currentVehicle, false);
         return false;
     }
 

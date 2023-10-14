@@ -11,6 +11,8 @@ namespace redcars::model {
 
         virtual ~Station() = default;
 
+        int getMaxVehicleCount() const;
+
     private:
         GeoPosition position;
         int maxVehicleCount;

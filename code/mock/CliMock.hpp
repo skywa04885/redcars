@@ -22,7 +22,8 @@ namespace redcars::mock {
               public repo::VehicleRepository,
               public repo::ReservationRepository,
               public view::View,
-              public vehicle::VehicleComs {
+              public vehicle::VehicleComs,
+              public repo::StationRepository {
     public:
         CliMock(std::ostream &output, std::istream &input);
 
@@ -82,7 +83,7 @@ namespace redcars::mock {
 
         void disableEngine(const model::Vehicle &vehicle) override;
 
-        void displayLights(const model::Vehicle &vehicle) override;
+        void displayLights(const model::Vehicle &vehicle, bool keepOn) override;
 
         model::Distance requestDistanceDriven(const model::Vehicle &vehicle) override;
 
@@ -91,6 +92,14 @@ namespace redcars::mock {
         std::optional<model::Reservation> getActiveReservationByCard(const model::Card &card) override;
 
         void addReservationUsage(model::Reservation &reservation, model::Usage newUsage) override;
+
+        repo::StationRepository &stations() override;
+
+        std::optional<model::Station> getClosestStation(model::GeoPosition pos, model::Distance maxDistance) override;
+
+        model::GeoPosition requestVehiclePosition(const model::Vehicle &vehicle) override;
+
+        int getConnectedVehicleCount(const model::Station &station) override;
 
     private:
         std::ostream &output;

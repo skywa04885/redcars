@@ -33,3 +33,19 @@ bool redcars::model::Reservation::isLinkedWithVehicle(const redcars::model::Vehi
 bool redcars::model::Reservation::hasOpenUsages() const {
     return false;
 }
+
+const redcars::model::Vehicle &redcars::model::Reservation::getVehicle() const {
+    return vehicle;
+}
+
+const redcars::model::Customer &redcars::model::Reservation::getCustomer() const {
+    return customer;
+}
+
+std::optional<redcars::model::Usage> redcars::model::Reservation::getLastUsage() {
+    return std::optional<Usage>(Usage(std::time(nullptr) - 1000, Distance::fromKm(1000)));
+}
+
+const redcars::model::TimeFrame &redcars::model::Reservation::getTime() const {
+    return time;
+}

@@ -5,6 +5,7 @@
 #include "CardRepository.hpp"
 #include "VehicleRepository.hpp"
 #include "ReservationRepository.hpp"
+#include "StationRepository.hpp"
 
 namespace redcars::repo {
     class Repository {
@@ -16,5 +17,6 @@ namespace redcars::repo {
         virtual CardRepository& cards() = 0;
         virtual VehicleRepository& vehicles() = 0;
         virtual ReservationRepository& reservations() = 0;
+        virtual StationRepository& stations() = 0;
     };
 }

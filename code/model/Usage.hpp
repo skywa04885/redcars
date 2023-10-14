@@ -18,7 +18,9 @@ namespace redcars::model {
 
         std::optional<Distance> getDistanceDriven() const;
 
-        void finish(time_t duration, Distance endDistance, Charge charge);
+        void finish(time_t duration, Distance endDistance, std::time_t deadline);
+
+        const std::optional<Charge> &getCharge() const;
 
     private:
         time_t startTime;
