@@ -1,7 +1,7 @@
 #include "VehicleSearchController.hpp"
 #include <sstream>
 
-bool redcars::controllers::VehicleSearchController::run(view::View& view) {
+bool redcars::controllers::VehicleSearchController::run(view::View &view) {
     std::string location;
     unsigned int maxDistanceKm;
 

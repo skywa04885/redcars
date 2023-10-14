@@ -19,10 +19,12 @@ namespace redcars::model {
 
         static Reservation calculateNew(TimeFrame time, Vehicle vehicle, Customer customer);
 
-        const Charge& getInitialCharge() const;
+        const Charge &getInitialCharge() const;
+
         void payInitialCharge();
 
-        bool isLinkedWithVehicle(const Vehicle& other) const;
+        bool isLinkedWithVehicle(const Vehicle &other) const;
+
         bool hasOpenUsages() const;
 
         const Vehicle &getVehicle() const;

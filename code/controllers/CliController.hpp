@@ -10,18 +10,20 @@
 #include "CheckInController.hpp"
 #include "CheckOutController.hpp"
 #include "SubscribeController.hpp"
+#include "AdminCustomerController.hpp"
 
 namespace redcars::controllers {
     class CliController : public Controller {
     public:
         CliController(redcars::controllers::RegisterController &registerController,
                       ReservationController &reservationController,
-                      CheckInController& checkInController,
-                      CheckOutController& checkOutController,
-                      SubscribeController& subscribeController,
+                      CheckInController &checkInController,
+                      CheckOutController &checkOutController,
+                      SubscribeController &subscribeController,
+                      AdminCustomerController& adminCustomerController,
                       std::ostream &output);
 
-        bool run(view::View& view) override;
+        bool run(view::View &view) override;
 
     private:
         void showHelp() const;
@@ -32,7 +34,7 @@ namespace redcars::controllers {
         };
 
         std::map<char, ControllerEntry> controllers;
-        std::ostream& output;
+        std::ostream &output;
     };
 
 }

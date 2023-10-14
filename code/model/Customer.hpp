@@ -12,7 +12,7 @@ namespace redcars::model {
         Customer(std::string firstname, std::string lastname, std::string email,
                  bool emailVerified, std::string address,
                  std::optional<redcars::model::Card> card, BankAccount bankAccount,
-                 std::optional<Subscription> subscription);
+                 std::optional<Subscription> subscription, bool active);
 
         virtual ~Customer() = default;
 
@@ -27,5 +27,6 @@ namespace redcars::model {
         std::optional<Card> card;
         BankAccount bankAccount;
         std::optional<Subscription> subscription;
+        bool active;
     };
 }

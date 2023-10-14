@@ -9,14 +9,15 @@
 namespace redcars::controllers {
     class RegisterController : public Controller {
     public:
-        explicit RegisterController(payment::PaymentSystem &paymentSystem, repo::Repository &repo, mail::EmailSystem& mail, delivery::DeliverySystem& delivery);
+        explicit RegisterController(payment::PaymentSystem &paymentSystem, repo::Repository &repo,
+                                    mail::EmailSystem &mail, delivery::DeliverySystem &delivery);
 
-        bool run(view::View& view) override;
+        bool run(view::View &view) override;
 
     private:
         payment::PaymentSystem &paymentSystem;
         repo::Repository &repo;
-        mail::EmailSystem& mail;
-        delivery::DeliverySystem& delivery;
+        mail::EmailSystem &mail;
+        delivery::DeliverySystem &delivery;
     };
 }

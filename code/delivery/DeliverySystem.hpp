@@ -6,6 +6,6 @@
 namespace redcars::delivery {
     class DeliverySystem {
     public:
-        virtual model::Money deliverToCustomer(const model::Customer& customer, const model::Card& card) = 0;
+        virtual model::Money deliverToCustomer(const model::Customer &customer, const model::Card &card) = 0;
     };
 }

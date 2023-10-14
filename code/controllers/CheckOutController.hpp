@@ -13,9 +13,10 @@ namespace redcars::controllers {
                                     redcars::payment::PaymentSystem &paymentSystem);
 
         bool run(view::View &view) override;
+
     private:
-        repo::Repository& repo;
-        vehicle::VehicleComs& vehicleComs;
-        payment::PaymentSystem& paymentSystem;
+        repo::Repository &repo;
+        vehicle::VehicleComs &vehicleComs;
+        payment::PaymentSystem &paymentSystem;
     };
 }

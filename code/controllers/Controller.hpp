@@ -10,6 +10,6 @@ namespace redcars::controllers {
     public:
         virtual ~Controller() = default;
 
-        virtual bool run(view::View& view) = 0;
+        virtual bool run(view::View &view) = 0;
     };
 }

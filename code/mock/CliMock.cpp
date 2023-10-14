@@ -73,9 +73,9 @@ redcars::mock::CliMock::searchVehicles(GeoPosition position, Distance maxDistanc
     output << "Searching vehicles" << std::endl;
 
     std::vector<model::Vehicle> vehicles = {
-            model::Vehicle(GeoPosition(10, 10), std::time(nullptr), model::VehicleKind::Personal),
-            model::Vehicle(GeoPosition(11, 11), std::time(nullptr), model::VehicleKind::Personal),
-            model::Vehicle(GeoPosition(9, 9), std::time(nullptr), model::VehicleKind::Station),
+            model::Vehicle(GeoPosition(10, 10), std::time(nullptr), model::VehicleKind::Personal, std::string()),
+            model::Vehicle(GeoPosition(11, 11), std::time(nullptr), model::VehicleKind::Personal, std::string()),
+            model::Vehicle(GeoPosition(9, 9), std::time(nullptr), model::VehicleKind::Station, std::string()),
     };
 
     vehicles.erase(std::remove_if(vehicles.begin(), vehicles.end(), [&](const Vehicle &vehicle) {
@@ -91,7 +91,7 @@ Customer redcars::mock::CliMock::getCurrentCustomer() {
 
     return model::Customer("John", "Doe", "basicjohn@hotmail.co.uk", true,
                            "somewhere green", std::optional(model::Card("1")), BankAccount("1234"),
-                           std::optional<Subscription>());
+                           std::optional<Subscription>(), false);
 }
 
 redcars::repo::ReservationRepository &redcars::mock::CliMock::reservations() {
@@ -186,7 +186,7 @@ Distance redcars::mock::CliMock::requestDistanceDriven(const Vehicle &) {
 
 Vehicle redcars::mock::CliMock::getCurrentVehicle() {
     output << "Getting current vehicle" << std::endl;
-    return model::Vehicle(model::GeoPosition(10, 10), std::time(nullptr), model::VehicleKind::Personal);
+    return model::Vehicle(model::GeoPosition(10, 10), std::time(nullptr), model::VehicleKind::Personal, std::string());
 }
 
 std::optional<redcars::model::Reservation> redcars::mock::CliMock::getActiveReservationByCard(const Card &) {
@@ -194,9 +194,9 @@ std::optional<redcars::model::Reservation> redcars::mock::CliMock::getActiveRese
     return model::Reservation({}, model::TimeFrame(std::time(nullptr), 1000),
                               model::Charge(true, model::Money(50, std::time(
                                       nullptr))), model::Vehicle(model::GeoPosition(10, 10), std::time(nullptr),
-                                                                 model::VehicleKind::Personal),
+                                                                 model::VehicleKind::Personal, std::string()),
                               model::Customer("John", "Doe", "justjohn@hotmail.com", true, "1234AD", {},
-                                              model::BankAccount("123455"), std::nullopt));
+                                              model::BankAccount("123455"), std::nullopt, true));
 }
 
 void redcars::mock::CliMock::addReservationUsage(Reservation &, Usage) {
@@ -224,4 +224,25 @@ int redcars::mock::CliMock::getConnectedVehicleCount(const Station &) {
 
 void redcars::mock::CliMock::setCustomerSubscription(Customer &, Subscription &) {
     output << "Adding subscription to customer" << std::endl;
+}
+
+void redcars::mock::CliMock::create(const Customer &) {
+    output << "Creating a customer" << std::endl;
+}
+
+void redcars::mock::CliMock::remove(const Customer &) {
+    output << "Removing a customer" << std::endl;
+}
+
+std::vector<redcars::model::Customer> redcars::mock::CliMock::search(const std::string &query) {
+    output << "Searching customers:" << query << std::endl;
+
+    return {
+            model::Customer("John", "Doe", "justjohn@hotmail.com", true, "1234AD", {},
+                            model::BankAccount("123455"), std::nullopt, false)
+    };
+}
+
+void redcars::mock::CliMock::update(const Customer &) {
+    output << "Updating a customer" << std::endl;
 }

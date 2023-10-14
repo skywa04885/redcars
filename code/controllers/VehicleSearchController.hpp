@@ -8,12 +8,12 @@ namespace redcars::controllers {
     public:
         explicit VehicleSearchController(repo::Repository &repo);
 
-        bool run(view::View& view) override;
+        bool run(view::View &view) override;
 
         const std::optional<model::Vehicle> &getSelected() const;
 
     private:
-        repo::Repository& repo;
+        repo::Repository &repo;
         std::optional<model::Vehicle> selected;
     };
 }

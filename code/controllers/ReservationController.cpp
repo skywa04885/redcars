@@ -1,7 +1,7 @@
 #include "ReservationController.hpp"
 #include <sstream>
 
-bool redcars::controllers::ReservationController::run(view::View& view) {
+bool redcars::controllers::ReservationController::run(view::View &view) {
     if (!vehicleSearchController.run(view)) {
         return false;
     }

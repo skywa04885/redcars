@@ -18,7 +18,7 @@ redcars::model::Reservation::calculateNew(redcars::model::TimeFrame time, redcar
     return Reservation({}, time, charge, vehicle, customer);
 }
 
-const redcars::model::Charge& redcars::model::Reservation::getInitialCharge() const {
+const redcars::model::Charge &redcars::model::Reservation::getInitialCharge() const {
     return initialCharge;
 }
 

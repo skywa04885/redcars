@@ -1,7 +1,7 @@
 
 #include "RegisterController.hpp"
 
-bool redcars::controllers::RegisterController::run(view::View& view) {
+bool redcars::controllers::RegisterController::run(view::View &view) {
     while (true) {
         std::string firstname;
         std::string lastname;
@@ -37,7 +37,7 @@ bool redcars::controllers::RegisterController::run(view::View& view) {
         }
 
         model::Customer newCustomer(firstname, lastname, email, false, address, std::nullopt,
-                                    model::BankAccount(bankAccount), std::nullopt);
+                                    model::BankAccount(bankAccount), std::nullopt, false);
 
         model::BankAccount account(bankAccount);
         if (!paymentSystem.requestAutomaticCharging(account)) {

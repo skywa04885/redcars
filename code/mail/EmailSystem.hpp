@@ -5,6 +5,6 @@
 namespace redcars::mail {
     class EmailSystem {
     public:
-        virtual void verifyCustomerEmail(model::Customer& customer) = 0;
+        virtual void verifyCustomerEmail(model::Customer &customer) = 0;
     };
 }

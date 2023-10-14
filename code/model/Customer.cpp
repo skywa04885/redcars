@@ -6,9 +6,9 @@
 redcars::model::Customer::Customer(std::string firstname, std::string lastname, std::string email,
                                    bool emailVerified, std::string address,
                                    std::optional<redcars::model::Card> card, BankAccount bankAccount,
-                                   std::optional<Subscription> subscription)
+                                   std::optional<Subscription> subscription, bool active)
         : User(firstname, lastname, email, emailVerified), address(address), card(card), bankAccount(bankAccount),
-          subscription(subscription) {}
+          subscription(subscription), active(active) {}
 
 const std::optional<redcars::model::Card> &redcars::model::Customer::getCard() const {
     return card;

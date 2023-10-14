@@ -2,6 +2,7 @@
 
 #include "GeoPosition.hpp"
 #include <ctime>
+#include <string>
 
 namespace redcars::model {
     enum class VehicleKind {
@@ -11,8 +12,8 @@ namespace redcars::model {
 
     class Vehicle {
     public:
-        Vehicle(GeoPosition position, std::time_t lastPositionUpdate,
-                VehicleKind kind);
+        Vehicle(redcars::model::GeoPosition position, std::time_t lastPositionUpdate,
+                VehicleKind kind, std::string licencePlate);
 
         virtual ~Vehicle() = default;
 
@@ -26,6 +27,7 @@ namespace redcars::model {
         GeoPosition position;
         std::time_t lastPositionUpdate;
         VehicleKind kind;
+        std::string licencePlate;
     };
 
 }

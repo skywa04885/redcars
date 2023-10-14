@@ -103,6 +103,14 @@ namespace redcars::mock {
 
         void setCustomerSubscription(model::Customer &customer, model::Subscription &sub) override;
 
+        void create(const model::Customer &t) override;
+
+        void remove(const model::Customer &t) override;
+
+        std::vector<model::Customer> search(const std::string &query) override;
+
+        void update(const model::Customer &t) override;
+
     private:
         std::ostream &output;
         std::istream &input;

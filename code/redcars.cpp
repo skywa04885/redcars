@@ -4,7 +4,6 @@
 #include <iostream>
 
 
-
 int main() {
     using namespace redcars;
     using namespace controllers;
@@ -18,7 +17,10 @@ int main() {
     CheckOutController checkOutController(mock, mock, mock);
     SubscribeController subscribeController(mock, mock);
 
-    CliController cliController(registerController, reservationController, checkInController, checkOutController, subscribeController, std::cout);
+    AdminCustomerController adminCustomerController(mock);
+
+    CliController cliController(registerController, reservationController, checkInController, checkOutController,
+                                subscribeController, adminCustomerController, std::cout);
 
     // run the application.
     cliController.run(mock);

@@ -11,8 +11,9 @@ namespace redcars::controllers {
                                    redcars::vehicle::VehicleComs &vehicleComs);
 
         bool run(view::View &view) override;
+
     private:
-        repo::Repository& repo;
-        vehicle::VehicleComs& vehicleComs;
+        repo::Repository &repo;
+        vehicle::VehicleComs &vehicleComs;
     };
 }
