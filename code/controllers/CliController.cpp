@@ -1,18 +1,15 @@
 #include "CliController.hpp"
 
 bool redcars::controllers::CliController::run(view::View& view) {
-    showHelp();
-
     while (true) {
+        showHelp();
+
         char action;
         view.getInput("action", action);
         action = (char) std::toupper((char) action);
 
         if (action == 'Q') {
             break;
-        } else if (action == 'H') {
-            showHelp();
-            continue;
         }
 
         auto controller = controllers.find(action);
@@ -34,11 +31,13 @@ redcars::controllers::CliController::CliController(redcars::controllers::Registe
                                                    ReservationController &reservationController,
                                                    CheckInController& checkInController,
                                                    CheckOutController& checkOutController,
+                                                   SubscribeController& subscribeController,
                                                    std::ostream &output) : output(output) {
     controllers.insert({'R', {"Register as customer", registerController}});
     controllers.insert({'P', {"Create reservation", reservationController}});
     controllers.insert({'I', {"check in", checkInController}});
     controllers.insert({'O', {"check out", checkOutController}});
+    controllers.insert({'S', {"subscribe", subscribeController}});
 }
 
 void redcars::controllers::CliController::showHelp() const {
@@ -47,5 +46,4 @@ void redcars::controllers::CliController::showHelp() const {
     }
 
     output << "Q = quit" << std::endl;
-    output << "H = help" << std::endl;
 }

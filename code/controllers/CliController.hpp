@@ -9,6 +9,7 @@
 #include "ReservationController.hpp"
 #include "CheckInController.hpp"
 #include "CheckOutController.hpp"
+#include "SubscribeController.hpp"
 
 namespace redcars::controllers {
     class CliController : public Controller {
@@ -17,6 +18,7 @@ namespace redcars::controllers {
                       ReservationController &reservationController,
                       CheckInController& checkInController,
                       CheckOutController& checkOutController,
+                      SubscribeController& subscribeController,
                       std::ostream &output);
 
         bool run(view::View& view) override;

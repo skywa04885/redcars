@@ -101,6 +101,8 @@ namespace redcars::mock {
 
         int getConnectedVehicleCount(const model::Station &station) override;
 
+        void setCustomerSubscription(model::Customer &customer, model::Subscription &sub) override;
+
     private:
         std::ostream &output;
         std::istream &input;

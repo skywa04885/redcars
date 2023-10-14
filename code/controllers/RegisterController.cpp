@@ -37,7 +37,7 @@ bool redcars::controllers::RegisterController::run(view::View& view) {
         }
 
         model::Customer newCustomer(firstname, lastname, email, false, address, std::nullopt,
-                                    model::BankAccount(bankAccount));
+                                    model::BankAccount(bankAccount), std::nullopt);
 
         model::BankAccount account(bankAccount);
         if (!paymentSystem.requestAutomaticCharging(account)) {

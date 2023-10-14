@@ -3,14 +3,16 @@
 #include "User.hpp"
 #include "Card.hpp"
 #include "BankAccount.hpp"
+#include "Subscription.hpp"
 #include <optional>
 
 namespace redcars::model {
     class Customer : public User {
     public:
-        Customer(std::string firstname, std::string lastname, std::string email, bool emailVerified,
-                 std::string address, std::optional<redcars::model::Card> card,
-                 BankAccount bankAccount);
+        Customer(std::string firstname, std::string lastname, std::string email,
+                 bool emailVerified, std::string address,
+                 std::optional<redcars::model::Card> card, BankAccount bankAccount,
+                 std::optional<Subscription> subscription);
 
         virtual ~Customer() = default;
 
@@ -24,5 +26,6 @@ namespace redcars::model {
         std::string address;
         std::optional<Card> card;
         BankAccount bankAccount;
+        std::optional<Subscription> subscription;
     };
 }

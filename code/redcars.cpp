@@ -1,13 +1,12 @@
-#include "controllers/Controller.hpp"
 #include "controllers/CliController.hpp"
 #include "mock/CliMock.hpp"
 
 #include <iostream>
 
-using namespace redcars;
 
 
 int main() {
+    using namespace redcars;
     using namespace controllers;
 
     mock::CliMock mock(std::cout, std::cin);
@@ -17,8 +16,9 @@ int main() {
     ReservationController reservationController(vehicleSearchController, mock, mock);
     CheckInController checkInController(mock, mock);
     CheckOutController checkOutController(mock, mock, mock);
+    SubscribeController subscribeController(mock, mock);
 
-    CliController cliController(registerController, reservationController, checkInController, checkOutController, std::cout);
+    CliController cliController(registerController, reservationController, checkInController, checkOutController, subscribeController, std::cout);
 
     // run the application.
     cliController.run(mock);

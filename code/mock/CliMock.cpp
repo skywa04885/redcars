@@ -90,7 +90,8 @@ Customer redcars::mock::CliMock::getCurrentCustomer() {
     output << "Getting current customer" << std::endl;
 
     return model::Customer("John", "Doe", "basicjohn@hotmail.co.uk", true,
-                           "somewhere green", std::optional(model::Card("1")), BankAccount("1234"));
+                           "somewhere green", std::optional(model::Card("1")), BankAccount("1234"),
+                           std::optional<Subscription>());
 }
 
 redcars::repo::ReservationRepository &redcars::mock::CliMock::reservations() {
@@ -195,7 +196,7 @@ std::optional<redcars::model::Reservation> redcars::mock::CliMock::getActiveRese
                                       nullptr))), model::Vehicle(model::GeoPosition(10, 10), std::time(nullptr),
                                                                  model::VehicleKind::Personal),
                               model::Customer("John", "Doe", "justjohn@hotmail.com", true, "1234AD", {},
-                                              model::BankAccount("123455")));
+                                              model::BankAccount("123455"), std::nullopt));
 }
 
 void redcars::mock::CliMock::addReservationUsage(Reservation &, Usage) {
@@ -219,4 +220,8 @@ GeoPosition redcars::mock::CliMock::requestVehiclePosition(const Vehicle &) {
 int redcars::mock::CliMock::getConnectedVehicleCount(const Station &) {
     output << "Counting connected vehicles" << std::endl;
     return 4;
+}
+
+void redcars::mock::CliMock::setCustomerSubscription(Customer &, Subscription &) {
+    output << "Adding subscription to customer" << std::endl;
 }
