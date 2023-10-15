@@ -130,7 +130,6 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 
 ## Activeren automatisch incasso
 
-
 |                                                                            |                                                                                                                             |
 | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | ^**Usecase**^                                                              | Activeren automatisch incasso                                                                                               |
