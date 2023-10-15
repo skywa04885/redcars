@@ -19,9 +19,11 @@ int main() {
 
     AdminCustomerController adminCustomerController(mock.customers());
     AdminStationController adminStationController(mock.stations());
+    AdminVehicleController adminVehicleController(mock.vehicles());
 
     CliController cliController(registerController, reservationController, checkInController, checkOutController,
-                                subscribeController, adminCustomerController, adminStationController, std::cout);
+                                subscribeController, adminCustomerController, adminStationController,
+                                adminVehicleController, std::cout);
 
     // run the application.
     cliController.run(mock);

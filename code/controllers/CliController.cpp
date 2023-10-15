@@ -32,8 +32,9 @@ redcars::controllers::CliController::CliController(redcars::controllers::Registe
                                                    CheckInController &checkInController,
                                                    CheckOutController &checkOutController,
                                                    SubscribeController &subscribeController,
-                                                   AdminCustomerController& adminCustomerController,
-                                                   AdminStationController& adminStationController,
+                                                   AdminCustomerController &adminCustomerController,
+                                                   AdminStationController &adminStationController,
+                                                   AdminVehicleController &adminVehicleController,
                                                    std::ostream &output) : output(output) {
     controllers.insert({'R', {"Register as customer", registerController}});
     controllers.insert({'P', {"Create reservation", reservationController}});
@@ -42,6 +43,7 @@ redcars::controllers::CliController::CliController(redcars::controllers::Registe
     controllers.insert({'S', {"subscribe", subscribeController}});
     controllers.insert({'C', {"manage customers", adminCustomerController}});
     controllers.insert({'A', {"manage stations", adminStationController}});
+    controllers.insert({'V', {"manage vehicles", adminVehicleController}});
 }
 
 void redcars::controllers::CliController::showHelp() const {

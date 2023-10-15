@@ -23,6 +23,8 @@ namespace redcars::model {
 
         VehicleKind getKind() const;
 
+        const std::string &getLicencePlate() const;
+
     private:
         GeoPosition position;
         std::time_t lastPositionUpdate;

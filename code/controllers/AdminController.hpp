@@ -70,7 +70,7 @@ namespace redcars::controllers {
             char action;
             while (true) {
                 view.getInput("action", action);
-                action = (char)std::toupper(action);
+                action = (char) std::toupper(action);
 
                 if (action == 'E' || action == 'D') {
                     break;

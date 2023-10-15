@@ -8,7 +8,7 @@ namespace redcars::controllers {
     public:
         using AdminController<model::Customer>::AdminController;
 
-        void show(view::View& view, const model::Customer &value) override;
+        void show(view::View &view, const model::Customer &value) override;
 
         model::Customer create(view::View &view) override;
     };

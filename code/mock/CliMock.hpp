@@ -31,6 +31,7 @@ namespace redcars::mock {
         model::Customer getCurrentCustomer() override;
 
         void setCustomerSubscription(model::Customer &customer, model::Subscription &sub) override;
+
     private:
         std::ostream &output;
     };
@@ -50,6 +51,27 @@ namespace redcars::mock {
         std::optional<model::Station> getClosestStation(model::GeoPosition pos, model::Distance maxDistance) override;
 
         int getConnectedVehicleCount(const model::Station &station) override;
+
+    private:
+        std::ostream &output;
+    };
+
+    class VehicleMockRepo : public repo::VehicleRepository {
+    public:
+        explicit VehicleMockRepo(std::ostream &output);
+
+        void create(const model::Vehicle &t) override;
+
+        void remove(const model::Vehicle &t) override;
+
+        std::vector<model::Vehicle> search(const std::string &query) override;
+
+        void update(const model::Vehicle &t) override;
+
+        std::vector<model::Vehicle> searchVehicles(model::GeoPosition position, model::Distance maxDistance) override;
+
+        model::Vehicle getCurrentVehicle() override;
+
     private:
         std::ostream &output;
     };
@@ -61,7 +83,6 @@ namespace redcars::mock {
               public mail::EmailSystem,
               public delivery::DeliverySystem,
               public repo::CardRepository,
-              public repo::VehicleRepository,
               public repo::ReservationRepository,
               public view::View,
               public vehicle::VehicleComs {
@@ -86,10 +107,6 @@ namespace redcars::mock {
         CardRepository &cards() override;
 
         void registerCard(const model::Card &card) override;
-
-        VehicleRepository &vehicles() override;
-
-        std::vector<model::Vehicle> searchVehicles(model::GeoPosition position, model::Distance maxDistance) override;
 
         ReservationRepository &reservations() override;
 
@@ -123,8 +140,6 @@ namespace redcars::mock {
 
         model::Distance requestDistanceDriven(const model::Vehicle &vehicle) override;
 
-        model::Vehicle getCurrentVehicle() override;
-
         std::optional<model::Reservation> getActiveReservationByCard(const model::Card &card) override;
 
         void addReservationUsage(model::Reservation &reservation, model::Usage newUsage) override;
@@ -133,11 +148,14 @@ namespace redcars::mock {
 
         model::GeoPosition requestVehiclePosition(const model::Vehicle &vehicle) override;
 
+        repo::VehicleRepository &vehicles() override;
+
     private:
         std::ostream &output;
         std::istream &input;
 
         CustomerMockRepo customerMockRepo;
         StationMockRepo stationMockRepo;
+        VehicleMockRepo vehicleMockRepo;
     };
 }

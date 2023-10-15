@@ -3,9 +3,10 @@
 #include <vector>
 #include <optional>
 #include "../model/Vehicle.hpp"
+#include "CrudRepository.hpp"
 
 namespace redcars::repo {
-    class VehicleRepository {
+    class VehicleRepository : public CrudRepository<model::Vehicle> {
     public:
         virtual std::vector<model::Vehicle>
         searchVehicles(model::GeoPosition position, model::Distance maxDistance) = 0;

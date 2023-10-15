@@ -5,8 +5,10 @@
 
 using namespace redcars::model;
 
-redcars::mock::CliMock::CliMock(std::ostream &output, std::istream &input) : output(output), input(input), customerMockRepo(output),
-                                                                             stationMockRepo(output) {
+redcars::mock::CliMock::CliMock(std::ostream &output, std::istream &input) : output(output), input(input),
+                                                                             customerMockRepo(output),
+                                                                             stationMockRepo(output),
+                                                                             vehicleMockRepo(output) {
 }
 
 bool redcars::mock::CliMock::fulfillCharge(Charge &charge, const BankAccount &from) {
@@ -65,11 +67,11 @@ void redcars::mock::CliMock::registerCard(const Card &card) {
 }
 
 redcars::repo::VehicleRepository &redcars::mock::CliMock::vehicles() {
-    return *this;
+    return vehicleMockRepo;
 }
 
 std::vector<redcars::model::Vehicle>
-redcars::mock::CliMock::searchVehicles(GeoPosition position, Distance maxDistance) {
+redcars::mock::VehicleMockRepo::searchVehicles(GeoPosition position, Distance maxDistance) {
     output << "Searching vehicles" << std::endl;
 
     std::vector<model::Vehicle> vehicles = {
@@ -184,7 +186,7 @@ Distance redcars::mock::CliMock::requestDistanceDriven(const Vehicle &) {
     return model::Distance::fromKm(1000);
 }
 
-Vehicle redcars::mock::CliMock::getCurrentVehicle() {
+Vehicle redcars::mock::VehicleMockRepo::getCurrentVehicle() {
     output << "Getting current vehicle" << std::endl;
     return model::Vehicle(model::GeoPosition(10, 10), std::time(nullptr), model::VehicleKind::Personal, std::string());
 }
@@ -262,7 +264,7 @@ std::vector<redcars::model::Station> redcars::mock::StationMockRepo::search(cons
     output << "Searching stations:" << query << std::endl;
 
     return {
-        model::Station(model::GeoPosition(10, 10), 5)
+            model::Station(model::GeoPosition(10, 10), 5)
     };
 }
 
@@ -271,3 +273,27 @@ void redcars::mock::StationMockRepo::update(const Station &) {
 }
 
 redcars::mock::StationMockRepo::StationMockRepo(std::ostream &output) : output(output) {}
+
+void redcars::mock::VehicleMockRepo::create(const Vehicle &) {
+    output << "Creating a vehicle" << std::endl;
+}
+
+void redcars::mock::VehicleMockRepo::remove(const Vehicle &) {
+    output << "Removing a vehicle" << std::endl;
+}
+
+std::vector<redcars::model::Vehicle> redcars::mock::VehicleMockRepo::search(const std::string &query) {
+    output << "Searching vehicles:" << query << std::endl;
+
+    return {
+            model::Vehicle(GeoPosition(10, 10), std::time(nullptr), model::VehicleKind::Personal, std::string()),
+            model::Vehicle(GeoPosition(11, 11), std::time(nullptr), model::VehicleKind::Personal, std::string()),
+            model::Vehicle(GeoPosition(9, 9), std::time(nullptr), model::VehicleKind::Station, std::string()),
+    };
+}
+
+void redcars::mock::VehicleMockRepo::update(const Vehicle &) {
+    output << "Updating a vehicle" << std::endl;
+}
+
+redcars::mock::VehicleMockRepo::VehicleMockRepo(std::ostream &output) : output(output) {}

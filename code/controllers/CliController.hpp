@@ -12,6 +12,7 @@
 #include "SubscribeController.hpp"
 #include "AdminCustomerController.hpp"
 #include "AdminStationController.hpp"
+#include "AdminVehicleController.hpp"
 
 namespace redcars::controllers {
     class CliController : public Controller {
@@ -21,8 +22,9 @@ namespace redcars::controllers {
                       CheckInController &checkInController,
                       CheckOutController &checkOutController,
                       SubscribeController &subscribeController,
-                      AdminCustomerController& adminCustomerController,
-                      AdminStationController& adminStationController,
+                      AdminCustomerController &adminCustomerController,
+                      AdminStationController &adminStationController,
+                      AdminVehicleController &adminVehicleController,
                       std::ostream &output);
 
         bool run(view::View &view) override;

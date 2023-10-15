@@ -17,3 +17,7 @@ const redcars::model::GeoPosition &redcars::model::Vehicle::getPosition() const 
 redcars::model::VehicleKind redcars::model::Vehicle::getKind() const {
     return kind;
 }
+
+const std::string &redcars::model::Vehicle::getLicencePlate() const {
+    return licencePlate;
+}
