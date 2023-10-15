@@ -9,6 +9,10 @@ namespace redcars::model {
 
         virtual ~Card() = default;
 
+        /**
+         * pre-conditions: none
+         * post-conditions: none
+         * */
         const std::string &getNumber() const;
 
     private:

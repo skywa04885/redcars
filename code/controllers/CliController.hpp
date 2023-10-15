@@ -27,6 +27,11 @@ namespace redcars::controllers {
                       AdminVehicleController &adminVehicleController,
                       std::ostream &output);
 
+        /**
+         * pre-conditions: none
+         * post-conditions:
+         * - Another controlled has finished based on the user's selection.
+         * */
         bool run(view::View &view) override;
 
     private:

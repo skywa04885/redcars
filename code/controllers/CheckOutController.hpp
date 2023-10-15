@@ -12,6 +12,17 @@ namespace redcars::controllers {
                                     redcars::vehicle::VehicleComs &vehicleComs,
                                     redcars::payment::PaymentSystem &paymentSystem);
 
+        /**
+         * pre-conditions:
+         * - The current user is logged in.
+         * - The current user is a customer
+         * - The current user has a card.
+         *
+         * post-conditions:
+         * - The new reservation's usage has been finished.
+         * - The user is billed.
+         * - The reservation's vehicle is linked a station.
+         * */
         bool run(view::View &view) override;
 
     private:

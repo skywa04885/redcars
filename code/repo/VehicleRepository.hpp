@@ -8,11 +8,18 @@
 namespace redcars::repo {
     class VehicleRepository : public CrudRepository<model::Vehicle> {
     public:
+
+        /**
+         * pre-conditions: none
+         * post-conditions: none
+         * */
         virtual std::vector<model::Vehicle>
         searchVehicles(model::GeoPosition position, model::Distance maxDistance) = 0;
 
         /**
-         * Get the current authenticated vehicle.
+         * pre-conditions:
+         * - The current request is from a vehicle.
+         * post-conditions: none
          * */
         virtual model::Vehicle getCurrentVehicle() = 0;
     };

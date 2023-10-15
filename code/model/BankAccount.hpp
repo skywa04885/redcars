@@ -7,6 +7,12 @@ namespace redcars::model {
     public:
         BankAccount(std::string number);
 
+        virtual ~BankAccount() = default;
+
+        /**
+         * pre-conditions: none
+         * post-conditions: none
+         * */
         const std::string &getNumber() const;
 
     private:

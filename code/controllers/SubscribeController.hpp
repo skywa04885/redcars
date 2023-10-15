@@ -10,6 +10,16 @@ namespace redcars::controllers {
         explicit SubscribeController(redcars::repo::Repository &repo,
                                      redcars::payment::PaymentSystem &paymentSystem);
 
+        /**
+         * pre-conditions:
+         * - The user is logged in.
+         * - The user is a customer
+         * - The user is active.
+         *
+         * post-conditions:
+         * - The user has a subscription for one week.
+         * - The user is billed.
+         * */
         bool run(view::View &view) override;
 
     private:

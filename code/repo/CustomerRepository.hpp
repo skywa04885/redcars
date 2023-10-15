@@ -6,12 +6,27 @@ namespace redcars::repo {
     public:
         virtual ~CustomerRepository() = default;
 
-        virtual void createCustomer(const model::Customer &customer) = 0;
-
+        /**
+         * pre-conditions: none
+         * post-conditions: none
+         * */
         virtual std::optional<model::Customer> getCustomerByEmail(const std::string &email) = 0;
 
+        /**
+         * pre-conditions:
+         * - The user is logged in.
+         * - The user is a customer.
+         * post-conditions: none
+         * */
         virtual model::Customer getCurrentCustomer() = 0;
 
+
+        /**
+         * pre-conditions:
+         * - The customer exists.
+         * post-conditions:
+         * - The customer's subscription has been updated.
+         * */
         virtual void setCustomerSubscription(model::Customer &customer, model::Subscription &sub) = 0;
     };
 }

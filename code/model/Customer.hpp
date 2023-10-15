@@ -16,10 +16,22 @@ namespace redcars::model {
 
         virtual ~Customer() = default;
 
+        /**
+         * pre-conditions: none
+         * post-conditions: none
+         * */
         const std::optional<Card> &getCard() const;
 
+        /**
+         * pre-conditions: none
+         * post-conditions: none
+         * */
         const std::string &getAddress() const;
 
+        /**
+         * pre-conditions: none
+         * post-conditions: none
+         * */
         const BankAccount &getBankAccount() const;
 
     private:

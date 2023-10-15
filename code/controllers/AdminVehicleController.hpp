@@ -8,8 +8,14 @@ namespace redcars::controllers {
     public:
         using AdminController<model::Vehicle>::AdminController;
 
+        /**
+         * see base class
+         * */
         void show(view::View &view, const model::Vehicle &value) override;
 
+        /**
+         * see base class
+         * */
         model::Vehicle create(view::View &view) override;
     };
 }

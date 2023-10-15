@@ -10,6 +10,16 @@ namespace redcars::controllers {
         explicit CheckInController(redcars::repo::Repository &repo,
                                    redcars::vehicle::VehicleComs &vehicleComs);
 
+        /**
+         * pre-conditions:
+         * - The current user is logged in.
+         * - The current user is a customer
+         * - The current user has a card.
+         * - The current user's account is active.
+         *
+         * post-conditions:
+         * - a new usage has been added the the user's reservation.
+         * */
         bool run(view::View &view) override;
 
     private:

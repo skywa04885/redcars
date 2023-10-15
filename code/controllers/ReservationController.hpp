@@ -11,7 +11,17 @@ namespace redcars::controllers {
                 redcars::controllers::VehicleSearchController &vehicleSearchController, repo::Repository &repo,
                 redcars::payment::PaymentSystem &paymentSystem);
 
-    public:
+        /**
+         * pre-conditions:
+         * - The user is logged in.
+         * - The user is a customer.
+         * - The user's account is active.
+         * - The user does not have another reservation.
+         *
+         * post-conditions:
+         * - The user is billed.
+         * - The user has a new reservation.
+         * */
         bool run(view::View &view) override;
 
     private:

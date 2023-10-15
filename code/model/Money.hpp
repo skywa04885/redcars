@@ -9,6 +9,10 @@ namespace redcars::model {
 
         virtual ~Money() = default;
 
+        /**
+         * pre-conditions: none
+         * post-conditions: none
+         * */
         float eurosAsFloat() const;
 
     private:

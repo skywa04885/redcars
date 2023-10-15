@@ -20,11 +20,6 @@ redcars::repo::CustomerRepository &redcars::mock::CliMock::customers() {
     return customerMockRepo;
 }
 
-void redcars::mock::CustomerMockRepo::createCustomer(const Customer &customer) {
-    output << "Creating customer: " << customer.getFirstname() << " " << customer.getLastname() << " "
-           << customer.getEmail() << std::endl;
-}
-
 bool redcars::mock::CliMock::requestAutomaticCharging(const BankAccount &account) {
     output << "Request automatic charging for " << account.getNumber() << ", success!" << std::endl;
     return true;

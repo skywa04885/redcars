@@ -49,7 +49,7 @@ bool redcars::controllers::RegisterController::run(view::View &view) {
         }
 
         mail.verifyCustomerEmail(newCustomer);
-        repo.customers().createCustomer(newCustomer);
+        repo.customers().create(newCustomer);
 
         model::Card newCard = repo.cards().generateCard();
         model::Money cardMoney = delivery.deliverToCustomer(newCustomer, newCard);

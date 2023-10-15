@@ -10,6 +10,10 @@ namespace redcars::controllers {
     public:
         virtual ~Controller() = default;
 
+        /**
+         * pre-conditions: none
+         * post-conditions: (implementation specific)
+         * */
         virtual bool run(view::View &view) = 0;
     };
 }
