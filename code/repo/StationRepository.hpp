@@ -2,9 +2,10 @@
 
 #include <optional>
 #include "../model/Station.hpp"
+#include "CrudRepository.hpp"
 
 namespace redcars::repo {
-    class StationRepository {
+class StationRepository : public CrudRepository<model::Station> {
     public:
         virtual std::optional<model::Station>
         getClosestStation(model::GeoPosition pos, model::Distance maxDistance) = 0;

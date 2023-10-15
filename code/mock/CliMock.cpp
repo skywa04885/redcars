@@ -5,8 +5,8 @@
 
 using namespace redcars::model;
 
-redcars::mock::CliMock::CliMock(std::ostream &output, std::istream &input) : output(output), input(input) {
-
+redcars::mock::CliMock::CliMock(std::ostream &output, std::istream &input) : output(output), input(input), customerMockRepo(output),
+                                                                             stationMockRepo(output) {
 }
 
 bool redcars::mock::CliMock::fulfillCharge(Charge &charge, const BankAccount &from) {
@@ -15,10 +15,10 @@ bool redcars::mock::CliMock::fulfillCharge(Charge &charge, const BankAccount &fr
 }
 
 redcars::repo::CustomerRepository &redcars::mock::CliMock::customers() {
-    return *this;
+    return customerMockRepo;
 }
 
-void redcars::mock::CliMock::createCustomer(const Customer &customer) {
+void redcars::mock::CustomerMockRepo::createCustomer(const Customer &customer) {
     output << "Creating customer: " << customer.getFirstname() << " " << customer.getLastname() << " "
            << customer.getEmail() << std::endl;
 }
@@ -41,7 +41,7 @@ void redcars::mock::CliMock::verifyCustomerEmail(Customer &customer) {
     output << "Verifying email: " << customer.getEmail() << ", success!" << std::endl;
 }
 
-std::optional<redcars::model::Customer> redcars::mock::CliMock::getCustomerByEmail(const std::string &email) {
+std::optional<redcars::model::Customer> redcars::mock::CustomerMockRepo::getCustomerByEmail(const std::string &email) {
     output << "Checking for account with email " << email << ", none found" << std::endl;
     return std::nullopt;
 }
@@ -86,7 +86,7 @@ redcars::mock::CliMock::searchVehicles(GeoPosition position, Distance maxDistanc
     return vehicles;
 }
 
-Customer redcars::mock::CliMock::getCurrentCustomer() {
+Customer redcars::mock::CustomerMockRepo::getCurrentCustomer() {
     output << "Getting current customer" << std::endl;
 
     return model::Customer("John", "Doe", "basicjohn@hotmail.co.uk", true,
@@ -204,10 +204,10 @@ void redcars::mock::CliMock::addReservationUsage(Reservation &, Usage) {
 }
 
 redcars::repo::StationRepository &redcars::mock::CliMock::stations() {
-    return *this;
+    return stationMockRepo;
 }
 
-std::optional<redcars::model::Station> redcars::mock::CliMock::getClosestStation(GeoPosition pos, Distance) {
+std::optional<redcars::model::Station> redcars::mock::StationMockRepo::getClosestStation(GeoPosition pos, Distance) {
     output << "Getting closest station" << std::endl;
     return model::Station(pos, 5);
 }
@@ -217,24 +217,24 @@ GeoPosition redcars::mock::CliMock::requestVehiclePosition(const Vehicle &) {
     return model::GeoPosition(10, 10);
 }
 
-int redcars::mock::CliMock::getConnectedVehicleCount(const Station &) {
+int redcars::mock::StationMockRepo::getConnectedVehicleCount(const Station &) {
     output << "Counting connected vehicles" << std::endl;
     return 4;
 }
 
-void redcars::mock::CliMock::setCustomerSubscription(Customer &, Subscription &) {
+void redcars::mock::CustomerMockRepo::setCustomerSubscription(Customer &, Subscription &) {
     output << "Adding subscription to customer" << std::endl;
 }
 
-void redcars::mock::CliMock::create(const Customer &) {
-    output << "Creating a customer" << std::endl;
-}
-
-void redcars::mock::CliMock::remove(const Customer &) {
+void redcars::mock::CustomerMockRepo::remove(const Customer &) {
     output << "Removing a customer" << std::endl;
 }
 
-std::vector<redcars::model::Customer> redcars::mock::CliMock::search(const std::string &query) {
+void redcars::mock::CustomerMockRepo::create(const Customer &) {
+    output << "Creating a customer" << std::endl;
+}
+
+std::vector<redcars::model::Customer> redcars::mock::CustomerMockRepo::search(const std::string &query) {
     output << "Searching customers:" << query << std::endl;
 
     return {
@@ -243,6 +243,31 @@ std::vector<redcars::model::Customer> redcars::mock::CliMock::search(const std::
     };
 }
 
-void redcars::mock::CliMock::update(const Customer &) {
+void redcars::mock::CustomerMockRepo::update(const Customer &) {
     output << "Updating a customer" << std::endl;
 }
+
+redcars::mock::CustomerMockRepo::CustomerMockRepo(std::ostream &output) : output(output) {}
+
+void redcars::mock::StationMockRepo::create(const Station &) {
+    output << "Creating a station" << std::endl;
+
+}
+
+void redcars::mock::StationMockRepo::remove(const Station &) {
+    output << "Removing a station" << std::endl;
+}
+
+std::vector<redcars::model::Station> redcars::mock::StationMockRepo::search(const std::string &query) {
+    output << "Searching stations:" << query << std::endl;
+
+    return {
+        model::Station(model::GeoPosition(10, 10), 5)
+    };
+}
+
+void redcars::mock::StationMockRepo::update(const Station &) {
+    output << "Updating a station" << std::endl;
+}
+
+redcars::mock::StationMockRepo::StationMockRepo(std::ostream &output) : output(output) {}

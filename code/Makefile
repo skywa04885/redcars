@@ -4,7 +4,7 @@ CPPFLAGS=-Wall -pedantic -std=c++17 -Wextra
 TARGET = redcars
 
 MODEL = model/GeoPosition.o model/Vehicle.o model/Card.o model/Customer.o model/Reservation.o model/Station.o model/User.o model/Usage.o model/Distance.o model/TimeFrame.o model/Money.o model/Charge.o model/Subscription.o model/BankAccount.o
-CONTROLLERS = controllers/Controller.o controllers/CliController.o controllers/RegisterController.o controllers/ReservationController.o controllers/VehicleSearchController.o controllers/CheckInController.o controllers/CheckOutController.o controllers/SubscribeController.o controllers/AdminController.o controllers/AdminCustomerController.o
+CONTROLLERS = controllers/Controller.o controllers/CliController.o controllers/RegisterController.o controllers/ReservationController.o controllers/VehicleSearchController.o controllers/CheckInController.o controllers/CheckOutController.o controllers/SubscribeController.o controllers/AdminController.o controllers/AdminCustomerController.o controllers/AdminVehicleController.o controllers/AdminStationController.o
 PAYMENT = payment/PaymentSystem.o
 MOCK = mock/CliMock.o
 REPO = repo/Repository.o repo/CustomerRepository.o repo/BankAccountRepository.o repo/CardRepository.o repo/VehicleRepository.o repo/ReservationRepository.o repo/StationRepository.o repo/CrudRepository.o

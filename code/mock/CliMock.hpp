@@ -11,10 +11,52 @@
 #include <ostream>
 
 namespace redcars::mock {
+
+    class CustomerMockRepo : public redcars::repo::CustomerRepository {
+    public:
+        explicit CustomerMockRepo(std::ostream &output);
+
+        void create(const model::Customer &t) override;
+
+        void remove(const model::Customer &t) override;
+
+        std::vector<model::Customer> search(const std::string &query) override;
+
+        void update(const model::Customer &t) override;
+
+        void createCustomer(const model::Customer &customer) override;
+
+        std::optional<model::Customer> getCustomerByEmail(const std::string &email) override;
+
+        model::Customer getCurrentCustomer() override;
+
+        void setCustomerSubscription(model::Customer &customer, model::Subscription &sub) override;
+    private:
+        std::ostream &output;
+    };
+
+    class StationMockRepo : public repo::StationRepository {
+    public:
+        explicit StationMockRepo(std::ostream &output);
+
+        void create(const model::Station &t) override;
+
+        void remove(const model::Station &t) override;
+
+        std::vector<model::Station> search(const std::string &query) override;
+
+        void update(const model::Station &t) override;
+
+        std::optional<model::Station> getClosestStation(model::GeoPosition pos, model::Distance maxDistance) override;
+
+        int getConnectedVehicleCount(const model::Station &station) override;
+    private:
+        std::ostream &output;
+    };
+
     class CliMock
             : public payment::PaymentSystem,
               public repo::Repository,
-              public repo::CustomerRepository,
               public repo::BankAccountRepository,
               public mail::EmailSystem,
               public delivery::DeliverySystem,
@@ -22,16 +64,13 @@ namespace redcars::mock {
               public repo::VehicleRepository,
               public repo::ReservationRepository,
               public view::View,
-              public vehicle::VehicleComs,
-              public repo::StationRepository {
+              public vehicle::VehicleComs {
     public:
         CliMock(std::ostream &output, std::istream &input);
 
         bool fulfillCharge(model::Charge &charge, const model::BankAccount &from) override;
 
-        CustomerRepository &customers() override;
-
-        void createCustomer(const model::Customer &customer) override;
+        repo::CustomerRepository &customers() override;
 
         bool requestAutomaticCharging(const model::BankAccount &account) override;
 
@@ -41,7 +80,6 @@ namespace redcars::mock {
 
         void verifyCustomerEmail(model::Customer &customer) override;
 
-        std::optional<model::Customer> getCustomerByEmail(const std::string &email) override;
 
         model::Money deliverToCustomer(const model::Customer &customer, const model::Card &card) override;
 
@@ -52,8 +90,6 @@ namespace redcars::mock {
         VehicleRepository &vehicles() override;
 
         std::vector<model::Vehicle> searchVehicles(model::GeoPosition position, model::Distance maxDistance) override;
-
-        model::Customer getCurrentCustomer() override;
 
         ReservationRepository &reservations() override;
 
@@ -95,24 +131,13 @@ namespace redcars::mock {
 
         repo::StationRepository &stations() override;
 
-        std::optional<model::Station> getClosestStation(model::GeoPosition pos, model::Distance maxDistance) override;
-
         model::GeoPosition requestVehiclePosition(const model::Vehicle &vehicle) override;
-
-        int getConnectedVehicleCount(const model::Station &station) override;
-
-        void setCustomerSubscription(model::Customer &customer, model::Subscription &sub) override;
-
-        void create(const model::Customer &t) override;
-
-        void remove(const model::Customer &t) override;
-
-        std::vector<model::Customer> search(const std::string &query) override;
-
-        void update(const model::Customer &t) override;
 
     private:
         std::ostream &output;
         std::istream &input;
+
+        CustomerMockRepo customerMockRepo;
+        StationMockRepo stationMockRepo;
     };
 }
