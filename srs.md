@@ -12,27 +12,36 @@ titlepage-background: "backgrounds/background1.pdf"
 
 # Introductie
 
-> Provide a short description of the software being specified and its purpose, including relevant benefits, objectives, and goals. If a separate description of the product scope is available (e.g. in the PvA), refer to it rather than duplicating its contents here.
+Dit document beschrijft de software voor het RedCars-systeem, een innovatieve service van het autoverhuurbedrijf RentIt. Het doel van dit systeem is het faciliteren van de deelauto-service waarbij auto's worden geplaatst waar de vraag is in plaats van centraal ophalen bij RentIt. Belangrijke voordelen van dit systeem zijn gemak voor de klant, efficiëntie en kostenbesparing. Het uiteindelijke doel is om een vlotte, gebruiksvriendelijke en betrouwbare service te bieden aan klanten.
 
-## User Classes and Characteristics
+## Gebruikersklassen en Kenmerken
 
-> Identify the various user classes (actors) that you anticipate will use this product. User classes may be differentiated based on the subset of product functions used. Describe the pertinent characteristics of each user class. Certain requirements may pertain only to certain user classes.
+1. **Klant**: Personen die zich hebben geregistreerd voor de RedCars-service. Ze kunnen auto's reserveren, gebruiken en betalingen doen via automatische incasso.
+2. **Medewerker van RentIt**: Personen die verantwoordelijk zijn voor het beheren van klant- en auto-informatie. Ze kunnen klantgegevens aanpassen of klanten inactief maken.
 
-## Operating Environment
+## Operationele Omgeving
 
-> Describe the environment in which the software will operate, including the hardware platform, operating system and versions, and any other software components or applications with which it must peacefully coexist.
+Het RedCars-systeem zal werken op een webgebaseerd platform, toegankelijk via zowel desktopbrowsers als mobiele apparaten. Het systeem moet compatibel zijn met de nieuwste versies van populaire browsers en mobiele besturingssystemen. Bovendien moet het systeem integreren met een extern betalingsverwerkingssysteem voor automatische incasso.
 
-## Design and Implementation Constraints
+## Ontwerp- en Implementatiebeperkingen
 
-> Describe any items or issues that will limit the options available to the developers. These might include: hardware (e.g. specific mobile platforms), specific technologies, tools, and databases to be used; interfaces to other applications; programming language required; or communications protocols
+1. Het systeem moet ontworpen zijn voor webtoegang; daarom is er een noodzaak voor browser-compatibiliteit.
+2. Integratie met een extern betalingsgateway voor het verwerken van automatische incasso's.
+3. Implementatie moet rekening houden met beveiliging, gezien de gevoelige informatie zoals bankgegevens.
+4. De software moet in staat zijn om meerdere gelijktijdige boekingen efficiënt te verwerken zonder prestatieverlies.
 
-## Product Functions
+## Productfuncties
 
-> Summarize the major functions the product must perform or must let the user perform. Details will be provided in Section 3, so only a high level summary is needed here. In most cases, this section will primarily contain a use case diagram and brief use case descriptions
+1. **Registratie**: Klanten kunnen hun persoonlijke en bankgegevens invoeren om zich te registreren voor de service.
+2. **Inloggen**: Klanten en medewerkers kunnen inloggen op het systeem.
+3. **Auto Reserveren**: Klanten kunnen auto's reserveren op basis van locatie en beschikbaarheid.
+4. **Auto Gebruik**: Klanten kunnen auto's gebruiken binnen de gereserveerde periode en in-/uitchecken via een paal op parkeerlocaties.
+5. **Beheer van Gegevens**: Medewerkers van RentIt kunnen klant- en auto-informatie beheren.
+6. **Betaling**: Het systeem berekent de kosten op basis van gebruik, type auto en abonnement en voert automatische incasso uit.
 
-# Domain Model
+# Domeinmodel
+Het domeinmodel zou conceptuele klassen bevatten zoals "Klant", "Auto", "Reservering", "Betaling" en "Locatie". Elk van deze klassen zou relaties hebben met anderen en zou verschillende attributen en gedragingen hebben die hun real-world equivalenten vertegenwoordigen.
 
-> Provide a diagram showing important real-situation conceptual classes in the application domain. Do NOT include software classes. Describe each of the conceptual classes in a glossary.
 
 # Usecase Model
 
@@ -93,43 +102,51 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 ## (F)unctionality
 
 1. Tijdens het registreren moet de naam, het adres en de woonplaats worden opgegeven door de klant.
-1. Tijdens het registreren moet een mailadres worden opgegeven.
-1. Tijdens het registreren moet het mailadres worden geverifieerd.
-1. Tijdens het registreren moet een bankrekeningnummer worden opgegeven.
-1. Tijdens het registreren moet er toestemming worden gevraagd voor automatische incasso.
-1. Na het registreren moet een klantenpas worden opgestuurd naar de klant.
-1. Na het gebruik van een voertuig moet er automatische incasso plaatsvinden.
-1. Een klant moet in kunnen loggen op het systeem met het e-mail adres als gebruikersnaam en het pasnummer als wachtwoord.
-1. Klanten moeten inactief kunnen worden gesteld door medewerkers indien er voertuigen gebrekkig achter zijn gelaten.
-1. Klanten moeten enkel in de gereserveerde periode de auto kunnen meenemen.
-1. De automatische afschrijvingen worden ondergebracht bij een externe partij. Het interface met deze externe partij moet door ons worden ontworpen.
+2. Tijdens het registreren moet een mailadres worden opgegeven.
+3. Tijdens het registreren moet het mailadres worden geverifieerd.
+4. Tijdens het registreren moet een bankrekeningnummer worden opgegeven.
+5. Tijdens het registreren moet er toestemming worden gevraagd voor automatische incasso.
+6. Na het registreren moet een klantenpas worden opgestuurd naar de klant.
+7. Na het gebruik van een voertuig moet er automatische incasso plaatsvinden.
+8. Een klant moet in kunnen loggen op het systeem met het e-mail adres als gebruikersnaam en het pasnummer als wachtwoord.
+9. Klanten moeten inactief kunnen worden gesteld door medewerkers indien er voertuigen gebrekkig achter zijn gelaten.
+10. Klanten moeten enkel in de gereserveerde periode de auto kunnen meenemen.
+11. De automatische afschrijvingen worden ondergebracht bij een externe partij. Het interface met deze externe partij moet door ons worden ontworpen.
+12. GPS-tracking en pasmodule in auto's voor openen, afsluiten en starten.
+13. Lichtsignalen voor herinnering aan uitchecken.
+14. Auto's mogen niet op RedCars parkeerplaats worden geparkeerd zonder uit te checken.
+15. Kostenberekening op basis van abonnementstype, autotype en reserveringsgegevens.
+16. Boetes voor overschrijding van gereserveerde periode.
+17. Verschillende abonnementen en kosten per type auto.
 
 ## (R)eliability
 
 1. Het niet mogelijk zijn om een auto te reserveren en in te checken zolang er een betalingsachterstand is.
-1. Er moet een betalingsachterstand onstaan wanneer een automatische afschrijving mislukt
-1. Het mag niet mogelijk zijn om op hetzelfde tijdstip meerdere malen ingecheckt te zijn.
+2. Er moet een betalingsachterstand onstaan wanneer een automatische afschrijving mislukt.
+3. Het mag niet mogelijk zijn om op hetzelfde tijdstip meerdere malen ingecheckt te zijn.
 
 ## (U)sability
 
 1. Klanten moeten snel kunnen zien welke voertuigen er beschikbaar zijn per stad, en waar deze staan.
-1. Klanten moeten een auto kunnen reserveren.
+2. Klanten moeten een auto kunnen reserveren.
+3. Eenvoudige en snelle beschikbaarheidscheck van auto's.
 
 ## (P)erformance
 
 1. Het systeem moet snel werken, zelfs wanneer er veel klanten tegelijkertijd aan het boeken zijn.
+2. Snelle respons op de website, zelfs bij veel gelijktijdige boekingen.
 
 ## (S)upportability
 
 1. Medewerkers moeten klantgegevens aan kunnen passen en kunnen bekijken.
-1. Medewerkers moeten voertuiggegevens aan kunnen passen en kunnen bekijken.
+2. Medewerkers moeten voertuiggegevens aan kunnen passen en kunnen bekijken.
+3. Uitbreidbaarheid van autotypes en abonnementen.
 
 # Fully dressed usecases
 
 ## Registeren als klant
 
 ## Activeren automatisch incasso
-
 
 |                                                                            |                                                                                                                             |
 | -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
