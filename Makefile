@@ -1,4 +1,4 @@
-srs.pdf: srs.md redcars/uc.svg backgrounds/background1.pdf
+srs.pdf: srs.md redcars/uc.svg backgrounds/background1.pdf diagrams/domein.svg
 	pandoc --template "eisvogel.tex" --listings srs.md -o srs.pdf
 
 sdd.pdf: sdd.md backgrounds/background1.pdf

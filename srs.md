@@ -40,8 +40,8 @@ Het RedCars-systeem zal werken op een webgebaseerd platform, toegankelijk via zo
 6. **Betaling**: Het systeem berekent de kosten op basis van gebruik, type auto en abonnement en voert automatische incasso uit.
 
 # Domeinmodel
-Het domeinmodel zou conceptuele klassen bevatten zoals "Klant", "Auto", "Reservering", "Betaling" en "Locatie". Elk van deze klassen zou relaties hebben met anderen en zou verschillende attributen en gedragingen hebben die hun real-world equivalenten vertegenwoordigen.
 
+![Domein model](diagrams/domein.svg)
 
 # Usecase Model
 
