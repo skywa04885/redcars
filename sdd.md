@@ -10,9 +10,6 @@ titlepage-rule-color: "360049"
 titlepage-background: "backgrounds/background1.pdf"
 ---
 
-
-Natuurlijk, ik zal de secties uitbreiden met meer details op basis van de gegeven casus.
-
 # Introductie
 
 Het RedCars-systeem vertegenwoordigt een paradigmaverschuiving in de manier waarop RentIt haar klanten benadert. In plaats van klanten naar een centrale locatie te laten komen, brengt RedCars de auto's naar waar de klanten zijn. Dit verhoogt het gemak voor de klant en maximaliseert de beschikbaarheid van voertuigen. De applicatie is bedoeld om alle aspecten van deze service te beheren, van registratie tot betaling.
@@ -46,6 +43,36 @@ laatst communiceert de hoofd server via TCP met een database server.
 ## Design Sub-System voor de Server
 
 Dit subsysteem is de kern van de applicatie. Het beheert alle functies met betrekking tot het reserveren van voertuigen: beschikbaarheid controleren, een reservering maken, wijzigen of annuleren, en prijsberekeningen.
+
+## Component diagram
+
+### Algemene black-box view
+
+![](./diagrams/black_box_view_cd.png)
+
+### Controllers white-box view
+
+![](./diagrams/controllers_white_box_view_cd.png)
+
+### Delivery white-box view
+
+![](./diagrams/delivery_white_box_view_cd.png)
+
+### Mail white-box view
+
+![](./diagrams/mail_white_box_view_cd.png)
+
+### Payment white-box view
+
+![](./diagrams/payment_white_box_view_cd.png)
+
+### Repo white box view
+
+![](./diagrams/repo_white_box_view_cd.png)
+
+### View hite box view
+
+![](./diagrams/view_white_box_view_cd.png)
 
 ## Design Class Diagram
 
