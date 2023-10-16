@@ -11,50 +11,158 @@ titlepage-background: "backgrounds/background1.pdf"
 ---
 
 
-# Introduction
+Natuurlijk, ik zal de secties uitbreiden met meer details op basis van de gegeven casus.
 
-> Provide a short description of the software being specified and its purpose, including relevant benefits, objectives, and goals. If a separate description of the product scope is available (e.g. in the PvA or SRS), place a link here rather than duplicating its contents here.
+# Introductie
 
-## Purpose of this documen
+Het RedCars-systeem vertegenwoordigt een paradigmaverschuiving in de manier waarop RentIt haar klanten benadert. In plaats van klanten naar een centrale locatie te laten komen, brengt RedCars de auto's naar waar de klanten zijn. Dit verhoogt het gemak voor de klant en maximaliseert de beschikbaarheid van voertuigen. De applicatie is bedoeld om alle aspecten van deze service te beheren, van registratie tot betaling.
 
->  Full description of the main objectives of the SDD document
+## Doel van dit document
 
-## Definitions, acronyms, and abbreviation
+Dit Software Design Document (SDD) is niet alleen een technische handleiding, maar ook een strategisch instrument dat helpt bij het waarborgen van de projectdoelstellingen en -kwaliteit. Het biedt een gedetailleerd overzicht van hoe elk aspect van het RedCars-systeem functioneert, van architectuur tot gegevensstroom en interacties.
+
+## Definities, acroniemen en afkortingen
+
+- **UI**: User Interface, de ruimte waar interacties tussen mensen en machines plaatsvinden.
+- **API**: Application Programming Interface, stelt applicaties in staat om met elkaar te communiceren.
+- **CRUD**: Create, Read, Update, Delete - basisfuncties van persistente opslag.
+- **RPC**: Remote procedure call
 
 # Architectural Overview
 
-> Provide a high level overview of the architectural design, for instance by means of an architectural sketch. Make sure you show at least all sub-systems, and links to external systems. The sketch can be informal. The use of UML is not required.
-
+Het RedCars-systeem is ontworpen met schaalbaarheid, efficiëntie en gebruikersgemak in gedachten. De frontend biedt een intuïtieve gebruikerservaring, terwijl de backend is geoptimaliseerd voor snelle gegevensverwerking en -opslag. Externe integraties, zoals betalingsgateways, zijn naadloos verweven om een soepele gebruikerservaring te garanderen.
 
 # Detailed Design Description
 
-> This section contains detailed design documentation of all software components. The content of this section grows iteratively during the sprints. At the end of each sprint, the diagrams shown need to be consistent.
-
 ## Deployment Diagram 
 
-"diagram"
+In onze deployment wordt er gebruik gemaakt van een monolithic server.
+Deze server praat met behulp van het HTTP protocol met de mobiele app.
+Zowel de stations als de voertuigen praten over een RPC protocol. Als
+laatst communiceert de hoofd server via TCP met een database server.
 
-> Describe all design decisions manifested in the deployment diagram. For instance the choice of operating systems, protocols, distribution of components over sub-systems and the like.
+![](./diagrams/dep_dia.png)
 
+## Design Sub-System voor de Server
 
-## Design Sub-System A
+Dit subsysteem is de kern van de applicatie. Het beheert alle functies met betrekking tot het reserveren van voertuigen: beschikbaarheid controleren, een reservering maken, wijzigen of annuleren, en prijsberekeningen.
 
-> Do not really name the section “Sub-System A”, use a name that describes the responsibility of the sub-system, instead. Provide a section for each sub-system. These sections are iteratively added and refined during the sprints. Examples of sub-systems include Persistent Storage, Business Tier, Web Application, Webservice API. The sub-sections below may be extended if you think this is useful for describing the software design. The sub-sections below are only required for object-oriented sub-systems. Use other means to describe non-OO sub-systems (for instance Javascript modules).
+## Design Class Diagram
 
-##  Design Class Diagram
+Dit diagram zou duidelijk de relaties tussen de belangrijkste entiteiten in het reserveringssysteem laten zien, zoals Klant, Auto, Reservering, en Betaling. Elk van deze entiteiten zou gedetailleerde attributen en methoden hebben.
 
-> Object-oriented sub-systems should be described using a class diagram. If classes or interfaces are used across sub-systems, make sure you mention this in the description of the class diagrams. If your system entails layers, make sure you indicate this in the class diagram, e.g. by means of packages. For each class diagram, make sure you also mention the deployment artifact (from the deployment diagram) it is part of.
+![](./diagrams/class_diagram.png)
 
 ## Sequence Diagrams
 
-> Provide sequence diagrams for major object interactions within the sub-system. It is ok if sequence diagrams cross sub-system boundaries. Make sure you explain this in the description of the diagram. Sequence diagrams must be consistent with the class diagrams described above. Also, if sequence diagrams cover interaction with users, make sure the diagrams are consistent with SDDs you may have documented as part of the SRS
+Deze diagrammen zouden de interactie tussen de verschillende systeemcomponenten illustreren, zoals hoe een klant een auto reserveert of hoe betalingsinformatie wordt verwerkt.
 
-## Activity and State Diagrams 
+### Registreren
+Het diagram visualiseert het proces waarbij een nieuwe gebruiker zich registreert op het platform. Dit omvat het invoeren van persoonlijke gegevens, het versturen van een bevestigingsmail en het voltooien van de registratie.
 
-> Describe all design decisions made for the sub-system. Provide at least decision descriptions for all frameworks, libraries and other technologies used. Other decisions may be related to software patterns, system-structure, adapted principles or the like.
+![](./diagrams/register_sequence_diagram.png)
 
-##  Design decisions made for the sub-system
+### Make reservation
+Hier wordt getoond hoe een klant een auto reserveert. Van het selecteren van een beschikbare auto en tijdslot tot het bevestigen van de reservering.
 
-> Describe all design decisions made for the sub-system. Provide at least decision descriptions for all frameworks, libraries and other technologies used. Other decisions may be related to software patterns, system-structure, adapted principles or the like.
+![](./diagrams/make_reservation_sequence_diagram.png)
 
+### Check out
+Dit diagram toont hoe een klant uitcheckt nadat hij/zij de gereserveerde auto heeft opgehaald.
 
+![](./diagrams/check_out_sequence_diagram.png)
+
+### Check in
+De procedure waarbij een klant incheckt en de auto terugbrengt naar de locatie wordt hier geïllustreerd.
+
+![](./diagrams/check_in_sequence_diagram.png)
+
+## Activity and State Diagrams
+
+Deze diagrammen beschrijven de verschillende stadia en activiteiten die plaatsvinden tijdens specifieke processen in het systeem.
+
+### Abonnement afsluiten
+Dit diagram toont de stappen die een klant doorloopt om een abonnement af te sluiten bij RedCars.
+
+![](./diagrams/abonnement_afsluiten_ac.png)
+
+### Activeren automatisch incasso
+Het proces waarbij een klant zijn/haar bankrekeningnummer verstrekt en toestemming geeft voor automatische incasso wordt hier beschreven.
+
+![](./diagrams/activeren_automatisch_incasso_ac.png)
+
+### Email verifieren
+De stappen die nodig zijn om een e-mailadres te verifiëren na registratie worden hier getoond.
+
+![](./diagrams/email_verifiren_ac.png)
+
+### Factureren
+Dit diagram laat zien hoe het factureringsproces verloopt na gebruik van een auto.
+
+![](./diagrams/factureren_ac.png)
+
+### Gegevens van klant aanpassing
+Hier wordt het proces beschreven waarbij een klant zijn/haar persoonlijke gegevens kan wijzigen.
+
+![](./diagrams/gegevens_van_klant_aanpassen.png)
+
+### GPS Tracking
+Dit diagram toont het proces van hoe het systeem een auto volgt met behulp van GPS-tracking.
+
+![](./diagrams/gps_tracking_ac.png)
+
+### Inchecken
+De stappen die een klant doorloopt wanneer hij/zij de auto terugbrengt en incheckt worden hier geïllustreerd.
+
+![](./diagrams/inchecken_ac.png)
+
+### Inloggen
+Dit beschrijft het inlogproces waarbij een klant toegang krijgt tot zijn/haar account.
+
+![](./diagrams/inloggen_ac.png)
+
+### Klant inactief stellen
+Het proces waarbij een medewerker een klant inactief kan maken (bijvoorbeeld vanwege wanbetaling) wordt hier beschreven.
+
+![](./diagrams/klant_inactief_stellen_ac.png)
+
+### Klant selecteren
+Dit toont hoe een medewerker een specifieke klant kan selecteren voor verdere acties zoals wijzigen of verwijderen.
+
+![](./diagrams/klant_selecteren_ac.png)
+
+### Klant verwijderen
+Het proces waarbij een medewerker een klant definitief uit het systeem verwijdert, wordt hier geïllustreerd.
+
+![](./diagrams/klant_verwijderen_ac.png)
+
+### Registreren als klant
+Dit diagram beschrijft het volledige registratieproces van een nieuwe klant, van het invoeren van gegevens tot het ontvangen van een bevestigingsmail.
+
+![](./diagrams/registreren_als_klant.png)
+
+### Uitchecken
+De stappen die een klant doorloopt om uit te checken na het gebruik van een auto worden hier getoond.
+
+![](./diagrams/uitchecken_ac.png)
+
+### Voertuig zoeken
+Dit diagram beschrijft hoe een klant een voertuig zoekt op basis van locatie en beschikbaarheid.
+
+![](./diagrams/voertuig_zoeken_ac.png)
+
+## Design decisions
+
+1. **Monolithic**: Bij het ontwikkelen van het RedCars-systeem is ervoor gekozen om een monolithische architectuur te hanteren. Dit besluit is genomen op basis van de volgende overwegingen:
+   
+   - **Eenvoud**: Een monolithische architectuur is relatief eenvoudiger te ontwikkelen en te beheren. Alle functionaliteiten en modules van de applicatie zijn ondergebracht in één codebase, wat zorgt voor een gestroomlijnde ontwikkel- en implementatieproces.
+   
+   - **Uniformiteit**: Doordat alle onderdelen van de applicatie centraal zijn opgeslagen, kunnen updates en wijzigingen consistent en gelijktijdig worden doorgevoerd.
+   
+   - **Performantie**: In de beginfase van RedCars, waarbij de belasting op het systeem nog relatief laag is, kan een monolithische architectuur voldoende snelle reactietijden bieden zonder de noodzaak van gedistribueerde systemen of microservices.
+   
+   - **Kostenbesparing**: Met een monolithische aanpak kunnen de initiële ontwikkelings- en onderhoudskosten worden beperkt, aangezien er minder complexiteit is in termen van interacties tussen verschillende services of componenten.
+   
+   - **Integratie**: Een monolithische structuur biedt een gecentraliseerd systeem voor gegevensopslag en -toegang, wat kan resulteren in minder databasetransacties en een vereenvoudigde gegevensintegriteit.
+
+   Het is belangrijk op te merken dat hoewel een monolithische benadering voordelen biedt in de vroege stadia van de applicatie, toekomstige schaalbaarheid en aanpassingen zorgvuldig moeten worden overwogen naarmate de applicatie en het gebruikersbestand groeien. Er kan in de toekomst een overweging worden gemaakt om over te stappen naar een microservices-architectuur als dat nodig wordt geacht.
