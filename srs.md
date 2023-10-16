@@ -90,40 +90,52 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 
 # Requirements
 
+Prima, hier is de geconsolideerde lijst in het markdown formaat:
+
 ## (F)unctionality
 
 1. Tijdens het registreren moet de naam, het adres en de woonplaats worden opgegeven door de klant.
-1. Tijdens het registreren moet een mailadres worden opgegeven.
-1. Tijdens het registreren moet het mailadres worden geverifieerd.
-1. Tijdens het registreren moet een bankrekeningnummer worden opgegeven.
-1. Tijdens het registreren moet er toestemming worden gevraagd voor automatische incasso.
-1. Na het registreren moet een klantenpas worden opgestuurd naar de klant.
-1. Na het gebruik van een voertuig moet er automatische incasso plaatsvinden.
-1. Een klant moet in kunnen loggen op het systeem met het e-mail adres als gebruikersnaam en het pasnummer als wachtwoord.
-1. Klanten moeten inactief kunnen worden gesteld door medewerkers indien er voertuigen gebrekkig achter zijn gelaten.
-1. Klanten moeten enkel in de gereserveerde periode de auto kunnen meenemen.
-1. De automatische afschrijvingen worden ondergebracht bij een externe partij. Het interface met deze externe partij moet door ons worden ontworpen.
+2. Tijdens het registreren moet een mailadres worden opgegeven.
+3. Tijdens het registreren moet het mailadres worden geverifieerd.
+4. Tijdens het registreren moet een bankrekeningnummer worden opgegeven.
+5. Tijdens het registreren moet er toestemming worden gevraagd voor automatische incasso.
+6. Na het registreren moet een klantenpas worden opgestuurd naar de klant.
+7. Na het gebruik van een voertuig moet er automatische incasso plaatsvinden.
+8. Een klant moet in kunnen loggen op het systeem met het e-mail adres als gebruikersnaam en het pasnummer als wachtwoord.
+9. Klanten moeten inactief kunnen worden gesteld door medewerkers indien er voertuigen gebrekkig achter zijn gelaten.
+10. Klanten moeten enkel in de gereserveerde periode de auto kunnen meenemen.
+11. De automatische afschrijvingen worden ondergebracht bij een externe partij. Het interface met deze externe partij moet door ons worden ontworpen.
+12. GPS-tracking en pasmodule in auto's voor openen, afsluiten en starten.
+13. Lichtsignalen voor herinnering aan uitchecken.
+14. Auto's mogen niet op RedCars parkeerplaats worden geparkeerd zonder uit te checken.
+15. Kostenberekening op basis van abonnementstype, autotype en reserveringsgegevens.
+16. Boetes voor overschrijding van gereserveerde periode.
+17. Verschillende abonnementen en kosten per type auto.
 
 ## (R)eliability
 
 1. Het niet mogelijk zijn om een auto te reserveren en in te checken zolang er een betalingsachterstand is.
-1. Er moet een betalingsachterstand onstaan wanneer een automatische afschrijving mislukt
-1. Het mag niet mogelijk zijn om op hetzelfde tijdstip meerdere malen ingecheckt te zijn.
+2. Er moet een betalingsachterstand onstaan wanneer een automatische afschrijving mislukt.
+3. Het mag niet mogelijk zijn om op hetzelfde tijdstip meerdere malen ingecheckt te zijn.
 
 ## (U)sability
 
 1. Klanten moeten snel kunnen zien welke voertuigen er beschikbaar zijn per stad, en waar deze staan.
-1. Klanten moeten een auto kunnen reserveren.
+2. Klanten moeten een auto kunnen reserveren.
+3. Eenvoudige en snelle beschikbaarheidscheck van auto's.
 
 ## (P)erformance
 
 1. Het systeem moet snel werken, zelfs wanneer er veel klanten tegelijkertijd aan het boeken zijn.
+2. Snelle respons op de website, zelfs bij veel gelijktijdige boekingen.
 
 ## (S)upportability
 
 1. Medewerkers moeten klantgegevens aan kunnen passen en kunnen bekijken.
-1. Medewerkers moeten voertuiggegevens aan kunnen passen en kunnen bekijken.
+2. Medewerkers moeten voertuiggegevens aan kunnen passen en kunnen bekijken.
+3. Uitbreidbaarheid van autotypes en abonnementen.
 
+Ik heb de punten geconsolideerd en toegevoegd aan de relevante secties. Laat me weten of dit is wat je had verwacht!
 # Fully dressed usecases
 
 ## Registeren als klant
