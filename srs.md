@@ -460,74 +460,77 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 |                                             | 3. Het systeem toont een fout melding en laat de klant stap 1 nog een keer uitvoeren.       |
 
 
+## Crud – Zoeken
+
+|                                                                                              |                                                                                                |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------    |
+| ^**Usecase**^                                                                                | \<CRUD\> Resource selecteren                                                                   |
+| ^**Primary actor**^                                                                          | Medewerker                                                                                     |
+| ^**Stakeholders**^                                                                           | \-                                                                                             |
+| ^**Preconditions**^                                                                          | De medewerker is ingelogd in het systeem                                                       |
+| ^**Postconditions**^                                                                         | Er is een resource geselecteerd                                                                |
+| ^**Main success scenario**^                                                                  |                                                                                                |
+| ^**Actor action**^                                                                           | ^**System action**^                                                                            |
+| 1. Een medewerker geeft te kennen een resource op te willen zoeken                           | 2. Het systeem presenteert de pagina waar resource gezocht kunnen worden                       |  |
+|                                                                                              | 3. Het systeem haalt de lijst van resources op                                                 |
+| 4. De medewerker vult een zoekopdracht waarmee een full-text search wordt uitgevoerd.        | 5. Het systeem presenteert een lijst van gevonden resources                                    |
+| 6. De medewerker selecteert een van de resources                                             | 7. Het systeem presenteert de detail gegevens                                                  |
+| ^**Alternative flow**^                                                                       | ^**Geen klanten gevonden**^                                                                    |
+|                                                                                              | 5a. Het systeem toont een melding om aan te geven dat geen reouces gevonden zijn               |
+| ^**Alternative flow**^                                                                       | ^**Geselecteerde klant bestaat niet meer**^                                                    |
+|                                                                                              | 8b. Het systeem toont een melding om aan te geven dat de resource verwijderd is na het zoeken. |
+
+## Crud – Aanmaken
 
 |                                                                                              |                                                                                             |
 | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| ^**Usecase**^                                                                                | \<CRUD\> Klanten beheer - Klant selecteren                                                  |
+| ^**Usecase**^                                                                                | \<CRUD\> Resource aanmaken                                                                  |
 | ^**Primary actor**^                                                                          | Medewerker                                                                                  |
 | ^**Stakeholders**^                                                                           | \-                                                                                          |
 | ^**Preconditions**^                                                                          | De medewerker is ingelogd in het systeem                                                    |
-| ^**Postconditions**^                                                                         | Er is een klant geselecteerd                                                                |
-| ^**Main success scenario**^                                                                  | De medewerker zoekt een klant en kan deze vinden                                            |
+| ^**Postconditions**^                                                                         | Er is een resource aangemaakt                                                               |
+| ^**Main success scenario**^                                                                  |                                                                                             |
 | ^**Actor action**^                                                                           | ^**System action**^                                                                         |
-| 1. Een medewerker geeft te kennen een klant op te willen zoeken                              | 2. Het systeem presenteert de pagina waar klanten gezocht kunnen worden                     |
-|                                                                                              | 4. Het systeem haalt de lijst van klanten op                                                |
-| 3. De medewerker vult een zoekopdracht in op basis van een adres, naam, email of klantnummer | 5. Het systeem presenteert een lijst van gevonden klanten                                   |
-| 6. De medewerker selecteert een van de klanten                                               | 7. Het systeem haalt de klantgegevens op                                                    |
-|                                                                                              | 8. Het systeem presenteert de gegevens van de klant samen met de mogelijke opties           |
-| ^**Alternative flow**^                                                                       | ^**Geen klanten gevonden**^                                                                 |
-|                                                                                              | 5a. Het systeem toont een melding om aan te geven dat geen klanten gevonden zijn            |
-| ^**Alternative flow**^                                                                       | ^**Geselecteerde klant bestaat niet meer**^                                                 |
-|                                                                                              | 8b. Het systeem toont een melding om aan te geven dat de klant verwijderd is na het zoeken. |
+| 1. De medewerker geeft te kennen een resource willen aan te maken                            | 2. Het systeem presenteert een pagina waarin gegevens ingevoerd kunnen worden               |
+| 3. De medewerker voert de gegevens in                                                        | 4. Het systeem valideert de gegeven aanpassingen                                            |
+|                                                                                              | 5. Het systeem meld dat het aanmaken gelukt is                                              |
+| ^**Alternative flow**^                                                                       | ^**De nieuwe gegevens zijn niet geldig**^                                                   |
+|                                                                                              | 5a. Het systeem geeft een foutmelding om aan te geven dat de gegevens niet geldig zijn      |
 
 
-|                                                                 |                                                                                                 |
-| --------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| ^**Usecase**^                                                   | \<CRUD\> Klanten beheer - Klant verwijderen                                                     |
-| ^**Primary actor**^                                             | Medewerker                                                                                      |
-| ^**Stakeholders**^                                              | Klant                                                                                           |
-| ^**Preconditions**^                                             | De medewerker heeft een klant geselecteerd                                                      |
-| ^**Postconditions**^                                            | De klant is verwijderd uit het systeem                                                          |
-| ^**Main success scenario**^                                     | De medewerker verwijderd een klant                                                              |
-| ^**Actor action**^                                              | ^**System action**^                                                                             |
-| 1. De medewerker geeft te kennen de klant te willen verwijderen | 2. Het systeem vraagt de medewerker om het verwijderen te bevestigen                            |
-| 3. De medewerker bevestigd het verwijderen van de klant         | 4. Het systeem verwijderd de klant                                                              |
-|                                                                 | 5. Het systeem presenteert een melding om aan te geven dat de klant verwijderd is               |
-| ^**Alternative flow**^                                          | ^**De medewerker bevestigd het verwijderen van de klant niet**^                                 |
-| 3a. De medewerker bevestigd het verwijderen van de klant niet   | 3b. Het systeem verwijderd de klant niet                                                        |
-| ^**Alternative flow**^                                          | ^**Klant kon niet worden verwijderd**^                                                          |
-|                                                                 | 5b. Het systeem presenteert een melding om aan te geven dat de klant niet kon worden verwijderd |
+## Crud – Verwijderen
 
-|                                                                                    |                                                                                                  |
-| ---------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
-| ^**Usecase**^                                                                      | \<CRUD\> Klanten beheer - Klant inactief stellen                                                 |
-| ^**Primary actor**^                                                                | Medewerker                                                                                       |
-| ^**Stakeholders**^                                                                 | Klant                                                                                            |
-| ^**Preconditions**^                                                                | De medewerker heeft een klant geselecteerd                                                       |
-| ^**Postconditions**^                                                               | De geselecteerde klant is inactief gesteld                                                       |
-| ^**Main success scenario**^                                                        | De medewerker stelt de geselecteerde klant inactief                                              |
-| ^**Actor action**^                                                                 | ^**System action**^                                                                              |
-| 1. De medewerker geeft te kennen de geselecteerde klant inactief te willen stellen | 2. Het systeem vraagt de gebruiker om het inactief stellen te bevestigen                         |
-| 3. De medewerker beslist om wel of niet te bevestigen.                             | 4. Het systeem stelt de klant inactief                                                           |
-|                                                                                    | 5. Het systeem toont een melding dat de klant inactief is gesteld                                |
-| ^**Alternative flow**^                                                             | ^**De medewerker bevestigd het inactief stellen niet**^                                          |
-|                                                                                    | 4a. Het systeem stelt de gebruiker niet inactief                                                 |
-| ^**Alternative flow**^                                                             | ^**De klant kan niet inactief worden gesteld**^                                                  |
-|                                                                                    | 5b. Het systeemt toont een melding om aan te geven dat de klant niet inactief gesteld kan worden |
+|                                                                    |                                                                                                    |
+| ---------------------------------------------------------------    | -----------------------------------------------------------------------------------------------    |
+| ^**Usecase**^                                                      | \<CRUD\> Klanten Resource verwijderen                                                              |
+| ^**Primary actor**^                                                | Medewerker                                                                                         |
+| ^**Stakeholders**^                                                 |                                                                                                    |
+| ^**Preconditions**^                                                | De medewerker heeft een resource geselecteerd                                                      |
+| ^**Postconditions**^                                               | De resouce is verwijderd uit het systeem                                                           |
+| ^**Main success scenario**^                                        | De medewerker verwijderd een resource                                                              |
+| ^**Actor action**^                                                 | ^**System action**^                                                                                |
+| 1. De medewerker geeft te kennen de resource te willen verwijderen | 2. Het systeem vraagt de medewerker om het verwijderen te bevestigen                               |
+| 3. De medewerker bevestigd het verwijderen van de resource         | 4. Het systeem verwijderd de resource                                                              |
+|                                                                    | 5. Het systeem presenteert een melding om aan te geven dat de resource verwijderd is               |
+| ^**Alternative flow**^                                             | ^**De medewerker bevestigd het verwijderen van de klant niet**^                                    |
+| 3a. De medewerker bevestigd het verwijderen van de resource niet   | 3b. Het systeem verwijderd de resource niet                                                        |
+| ^**Alternative flow**^                                             | ^**Klant kon niet worden verwijderd**^                                                             |
+|                                                                    | 5b. Het systeem presenteert een melding om aan te geven dat de resource niet kon worden verwijderd |
 
+## Crud – Bewerken
 
-|                                                                              |                                                                                        |
-| ---------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| ^**Usecase**^                                                                | \<CRUD\> Klanten beheer - Gegevens van klant aanpassen                                 |
-| ^**Primary actor**^                                                          | Medewerker                                                                             |
-| ^**Stakeholders**^                                                           | Klant                                                                                  |
-| ^**Preconditions**^                                                          | De medewerker heeft een klant geselecteerd                                             |
-| ^**Postconditions**^                                                         | De gegevens van de klant zijn aangepast                                                |
-| ^**Main success scenario**^                                                  | De past de gegevens van de klant aan                                                   |
-| ^**Actor action**^                                                           | ^**System action**^                                                                    |
-| 1. De medewerker geeft te kennen de geselecteerde klant aan te willen passen | 2. Het systeem presenteert een pagina waarin gegevens aangepast kunnen worden          |
-| 3. De medewerker past de gegevens aan in de pagina                           | 4. Het systeem valideert de gegeven aanpassingen                                       |
-|                                                                              | 5. Het systeem voert de aanpassingen door                                              |
-|                                                                              | 6. Het systeem meld dat de aanpassingen gelukt zijn                                    |
-| ^**Alternative flow**^                                                       | ^**De nieuwe gegevens zijn niet geldig**^                                              |
-|                                                                              | 5a. Het systeem geeft een foutmelding om aan te geven dat de gegevens niet geldig zijn |
+|                                                                                 |                                                                                        |
+| ----------------------------------------------------------------------------    | -------------------------------------------------------------------------------------- |
+| ^**Usecase**^                                                                   | \<CRUD\> Gegevens van een resource aanpassen                                           |
+| ^**Primary actor**^                                                             | Medewerker                                                                             |
+| ^**Stakeholders**^                                                              |                                                                                        |
+| ^**Preconditions**^                                                             | De medewerker heeft een resource geselecteerd                                          |
+| ^**Postconditions**^                                                            | De gegevens van de resource zijn aangepast                                             |
+| ^**Main success scenario**^                                                     | De past de gegevens van de resource aan                                                |
+| ^**Actor action**^                                                              | ^**System action**^                                                                    |
+| 1. De medewerker geeft te kennen de geselecteerde resource aan te willen passen | 2. Het systeem presenteert een pagina waarin gegevens aangepast kunnen worden          |
+| 3. De medewerker past de gegevens aan in de pagina                              | 4. Het systeem valideert de gegeven aanpassingen                                       |
+|                                                                                 | 5. Het systeem voert de aanpassingen door                                              |
+|                                                                                 | 6. Het systeem meld dat de aanpassingen gelukt zijn                                    |
+| ^**Alternative flow**^                                                          | ^**De nieuwe gegevens zijn niet geldig**^                                              |
+|                                                                                 | 5a. Het systeem geeft een foutmelding om aan te geven dat de gegevens niet geldig zijn |
