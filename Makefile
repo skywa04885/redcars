@@ -5,4 +5,4 @@ sdd.pdf: sdd.md backgrounds/background1.pdf
 	pandoc --template "eisvogel.tex" --listings sdd.md -o sdd.pdf
 
 redcars.zip: srs.pdf sdd.pdf
-	zip -r redcars.zip srs.pdf code
+	zip -r redcars.zip srs.pdf sdd.pdf code
