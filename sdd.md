@@ -196,16 +196,4 @@ Dit diagram beschrijft hoe een klant een voertuig zoekt op basis van locatie en 
 
 ## Design decisions
 
-1. ** Monolithisch**: bij de ontwikkeling van het RedCars-systeem werd gekozen voor een monolithische architectuur. Dit besluit is genomen op basis van de volgende overwegingen::
-
-- **Eenvoud**: monolithische architectuur is relatief gemakkelijker te ontwikkelen en te beheren. Alle functionaliteit en modules van de applicatie worden in één codebasis geplaatst, wat zorgt voor een geoptimaliseerd ontwikkelings-en implementatieproces.
-
-- **Uniformiteit**: aangezien alle onderdelen van de applicatie centraal worden opgeslagen, kunnen updates en wijzigingen achtereenvolgens en tegelijkertijd worden aangebracht.
-
-- **Prestaties**: In de vroege stadia van RedCars, wanneer de belasting op het systeem nog relatief klein is, kan een monolithische architectuur een vrij snelle reactietijd bieden zonder de noodzaak van gedistribueerde systemen of microservices.
-
-- **Kostenbesparing**: bij een monolithische aanpak kunnen de initiële ontwikkelings-en onderhoudskosten beperkt zijn omdat er minder complexiteit is in termen van interactie tussen verschillende diensten of componenten.
-
-- **Integratie**: de monolithische structuur biedt een gecentraliseerd gegevensopslag-en toegangssysteem, wat kan leiden tot minder databasetransacties en de gegevensintegriteit kan vereenvoudigen.
-
-Het is belangrijk op te merken dat, hoewel de monolithische benadering voordelen biedt in de vroege stadia van de ontwikkeling van applicaties, toekomstige schaalbaarheid en aanpassing zorgvuldig moeten worden overwogen naarmate de applicatie en het gebruikersbestand groeien. In de toekomst kan de kwestie van de overstap naar microservices-architectuur worden overwogen, indien dit noodzakelijk wordt geacht.
+Bij de ontwikkeling van het RedCars-systeem werd gekozen voor een monolithische architectuur vanwege voordelen zoals eenvoud, uniformiteit, prestaties, kostenbesparing en integratie. Hoewel dit voordelen biedt in de beginfase, moet er in de toekomst rekening worden gehouden met schaalbaarheid en de mogelijkheid om over te stappen naar een microservices-architectuur.
