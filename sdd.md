@@ -49,9 +49,25 @@ Dit subsysteem is de kern van de applicatie. Het beheert alle functies met betre
 
 ## Design Class Diagram
 
-Dit diagram zou duidelijk de relaties tussen de belangrijkste entiteiten in het reserveringssysteem laten zien, zoals Klant, Auto, Reservering, en Betaling. Elk van deze entiteiten zou gedetailleerde attributen en methoden hebben.
-
 ![](./diagrams/class_diagram.png)
+
+Voor database operaties hebben wij gekozen voor het "unit-of-work" patroon.
+Dit maakt het abstraheren van een database mogelijk.
+Daarnaast maakt dit patroon het implementeren van een beheer omgeving een stuk makkelijker, omdat we de basis crud operaties kunnen specificeren via een interface die we CrudRepository noemen.
+
+We maken voor externe systeem acties zoals email, betalingen, pasjes bestellen etc.. gebruik van interfaces.
+Het moet ook mogelijk zijn om een mock implementatie kunnen vervangen met een echte werkende implementatie.
+Dit probleem lossen we om via het dependency injection principe.
+
+Voor het maken van onze domein modellen hebben we ook nog wat extra "fine-grain" klassen toegevoegd.
+Dit hebben we gedaan op basis van attributen in onze andere klassen die vaak bij elkaar staan zoals longitude/latitude, tijd/tijdsduur.
+Ook variabelen met eenheden hebben hun eigen klassen gekregen, zoals Distance.
+Dit voorkomt dat we rekening moeten houden met het anders afhandelen van kilometers, meters, etc...
+
+En om extra correct te zijn om hoe we omgaan met geld, houd de Money class de huidige tijd bij tijdens het aanmaken.
+Op deze manier kunnen we voor inflatie compenseren.
+Ook gebruiken we geen floats, maar integers van centen zodat we niet tegen float precision problemen aanlopen.
+
 
 ## Sequence Diagrams
 
