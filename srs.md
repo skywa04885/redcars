@@ -90,8 +90,6 @@ inactief wordt gemaakt als gevolg van slechte betalingen of het verwaarlozen van
 
 # Requirements
 
-Prima, hier is de geconsolideerde lijst in het markdown formaat:
-
 ## (F)unctionality
 
 1. Tijdens het registreren moet de naam, het adres en de woonplaats worden opgegeven door de klant.
@@ -135,7 +133,6 @@ Prima, hier is de geconsolideerde lijst in het markdown formaat:
 2. Medewerkers moeten voertuiggegevens aan kunnen passen en kunnen bekijken.
 3. Uitbreidbaarheid van autotypes en abonnementen.
 
-Ik heb de punten geconsolideerd en toegevoegd aan de relevante secties. Laat me weten of dit is wat je had verwacht!
 # Fully dressed usecases
 
 ## Registeren als klant
